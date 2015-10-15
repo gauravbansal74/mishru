@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+  <id>Order success message +</id>
+  <version>2.0</version>
+  <vqmver required="true">2.4.0</vqmver>
+  <author>ocdevwizard@gmail.com</author>
+  <file name="catalog/controller/checkout/success.php">
+    <operation error="skip">
+      <search position="after"><![CDATA[public function index() {]]></search>
+      <add><![CDATA[
+        // add modifications
+        if ( isset( $this->session->data['order_id'] ) && ( !empty( $this->session->data['order_id'] ) ) ) {
+          $this->session->data['recent_order_id'] = $this->session->data['order_id'];
+        }
+
+        if ( isset( $this->session->data['guest']['firstname'] ) && ( !empty( $this->session->data['guest']['firstname'] ) ) ) {
+          $this->session->data['recent_firstname'] = $this->session->data['guest']['firstname'];
+        } elseif ( $this->customer->isLogged() ) {
+          $this->session->data['recent_firstname'] = $this->customer->getFirstName();
+        } else {
+          $this->session->data['recent_firstname'] = false;
+        }
+        // add modifications
+        ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace" index="1"><![CDATA[$data['heading_title'] = $this->language->get('heading_title');]]></search>
+      <add><![CDATA[
+        // add modifications
+        // $data['heading_title'] = $this->language->get( 'heading_title' );
+        // add modifications
+        ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace" index="1"><![CDATA[$this->document->setTitle($this->language->get('heading_title'));]]></search>
+      <add><![CDATA[
+        // add modifications
+        // $this->document->setTitle( $this->language->get( 'heading_title' ) );
+        // add modifications
+        ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="before"><![CDATA[$data['breadcrumbs'] = array();]]></search>
+      <add><![CDATA[
+        // add modifications
+        if ( !empty( $this->session->data['recent_order_id'] ) ) {
+          $this->document->setTitle( sprintf( $this->language->get( 'heading_title_order' ), $this->session->data['recent_order_id'] ) );
+        } else {
+          $this->document->setTitle( $this->language->get( 'heading_title' ) );
+        }
+        
+        if ( !empty( $this->session->data['recent_order_id'] ) ) {
+          $data['heading_title'] = sprintf( $this->language->get( 'heading_title_order' ), $this->session->data['recent_order_id'] );
+        } else {
+          $data['heading_title'] = $this->language->get( 'heading_title' );
+        }
+        // add modifications
+        ]]></add>
+    </operation>
+     <operation error="skip">
+      <search position="replace" offset="4" index="2"><![CDATA[if ($this->customer->isLogged()) {]]></search>
+      <add><![CDATA[
+        // add modifications
+        if ( $this->customer->isLogged() ) {
+          if ( !empty( $this->session->data['recent_firstname'] ) ) {
+            $data['text_message'] = sprintf( $this->language->get( 'text_customer_ordervs_firstname' ), $this->session->data['recent_firstname'], $this->session->data['recent_order_id'], $this->url->link( 'account/account', '', 'SSL' ), $this->url->link( 'account/order', '', 'SSL' ), $this->url->link( 'account/download', '', 'SSL' ),  $this->url->link( 'information/contact' ) );
+          } else {
+            $data['text_message'] = sprintf( $this->language->get( 'text_customer_order' ), $this->session->data['recent_order_id'], $this->url->link( 'account/account', '', 'SSL' ), $this->url->link( 'account/order', '', 'SSL' ), $this->url->link( 'account/download', '', 'SSL' ),  $this->url->link( 'information/contact' ) );
+          }
+        } else {
+          if ( !empty( $this->session->data['recent_firstname'] ) ) {
+            $data['text_message'] = sprintf( $this->language->get( 'text_guest_order_vs_firstname' ), $this->session->data['recent_firstname'], $this->session->data['recent_order_id'], $this->url->link( 'information/contact' ) );
+          } else {
+            $data['text_message'] = sprintf( $this->language->get( 'text_guest_order' ), $this->session->data['recent_order_id'], $this->url->link( 'information/contact' ) );
+          }
+        }
+        // add modifications
+        ]]></add>
+    </operation>
+  </file>
+  <file name="catalog/language/english/checkout/success.php">
+    <operation error="skip">
+      <search position="after"><![CDATA[<?php]]></search>
+      <add><![CDATA[
+        // add modifications
+        $_['heading_title_order'] = 'Your Order Number %s Has Been Processed!';
+        $_['text_customer_ordervs_firstname'] = '<p>Dear <b>%s</b>, your order number %s has been successfully processed!</p><p>You can view your order history by going to the <a href="%s">my account</a> page and by clicking on <a href="%s">history</a>.</p><p>If your purchase has an associated download, you can go to the account <a href="%s">downloads</a> page to view them.</p><p>Please direct any questions you have to the <a href="%s">store owner</a>.</p><p>Thanks for shopping with us online!</p>';
+        $_['text_customer_order'] = '<p>Your order number %s has been successfully processed!</p><p>You can view your order history by going to the <a href="%s">my account</a> page and by clicking on <a href="%s">history</a>.</p><p>If your purchase has an associated download, you can go to the account <a href="%s">downloads</a> page to view them.</p><p>Please direct any questions you have to the <a href="%s">store owner</a>.</p><p>Thanks for shopping with us online!</p>';
+        $_['text_guest_order']    = '<p>Your order number %s has been successfully processed!</p><p>Please direct any questions you have to the <a href="%s">store owner</a>.</p><p>Thanks for shopping with us online!</p>';
+        $_['text_guest_order_vs_firstname']    = '<p>Dear <b>%s</b>, your order number %s has been successfully processed!</p><p>Please direct any questions you have to the <a href="%s">store owner</a>.</p><p>Thanks for shopping with us online!</p>';
+        // add modifications
+        ]]></add>
+    </operation>
+  </file>
+</modification>

@@ -1,0 +1,481 @@
+<modification>
+	<id>Checkout Success Invoice OC2.x</id>
+	<version>1.0</version>
+	<vqmver>1.2.3</vqmver>
+	<author>admin@vger.co.uk</author>
+	
+	<file name="catalog/controller/checkout/success.php">
+		<operation>
+			<search position="after"><![CDATA[
+$this->load->language('checkout/success');
+			]]></search>
+			<add><![CDATA[
+		$order_id = '0';	
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+$this->cart->clear();
+			]]></search>
+			<add><![CDATA[
+		$order_id = $this->session->data['order_id'];	
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+$data['continue'] = $this->url->link('common/home');
+			]]></search>
+			<add><![CDATA[
+		$this->load->model('account/order');
+		$this->load->model('catalog/product');
+		$this->load->model('setting/setting');
+
+// if you need to test the page then set a known order number here
+		
+//		$order_id = 9;
+
+		$order_info = $this->model_account_order->getOrder($order_id);
+		
+		$store_info = $this->model_setting_setting->getSetting('config', $order_info['store_id']);
+				
+		if ($store_info) {
+			$data['store_name'] = $store_info['config_name'];
+			$data['store_address'] = $store_info['config_address'];
+			$data['store_emal'] = $store_info['config_email'];
+			$data['store_tel'] = $store_info['config_telephone'];
+		} else {
+			$data['store_name'] = $this->config->get('config_name');
+			$data['store_address'] = $this->config->get('config_address');
+			$data['store_emal'] = $this->config->get('config_email');
+			$data['store_tel'] = $this->config->get('config_telephone');
+		}
+
+		if ($order_info) {
+			$this->document->setTitle($this->language->get('text_order'));
+
+			$data['text_order_detail'] = $this->language->get('text_order_detail');
+			$data['text_invoice_no'] = $this->language->get('text_invoice_no');
+			$data['text_order_id'] = $this->language->get('text_order_id');
+			$data['text_date_added'] = $this->language->get('text_date_added');
+			$data['text_shipping_method'] = $this->language->get('text_shipping_method');
+			$data['text_shipping_address'] = $this->language->get('text_shipping_address');
+			$data['text_payment_method'] = $this->language->get('text_payment_method');
+			$data['text_payment_address'] = $this->language->get('text_payment_address');
+			$data['text_history'] = $this->language->get('text_history');
+			$data['text_comment'] = $this->language->get('text_comment');
+
+			$data['column_name'] = $this->language->get('column_name');
+			$data['column_model'] = $this->language->get('column_model');
+			$data['column_quantity'] = $this->language->get('column_quantity');
+			$data['column_price'] = $this->language->get('column_price');
+			$data['column_total'] = $this->language->get('column_total');
+			$data['column_action'] = $this->language->get('column_action');
+			$data['column_date_added'] = $this->language->get('column_date_added');
+			$data['column_status'] = $this->language->get('column_status');
+			$data['column_comment'] = $this->language->get('column_comment');
+
+			$data['button_return'] = $this->language->get('button_return');
+			$data['button_reorder'] = $this->language->get('button_reorder');
+			$data['button_continue'] = $this->language->get('button_continue');
+
+			if ($order_info['invoice_no']) {
+				$data['invoice_no'] = $order_info['invoice_prefix'] . $order_info['invoice_no'];
+			} else {
+				$data['invoice_no'] = '';
+			}
+
+			$data['order_id'] = $order_id;
+			$data['date_added'] = date($this->language->get('date_format_short'), strtotime($order_info['date_added']));
+
+			if ($order_info['payment_address_format']) {
+				$format = $order_info['payment_address_format'];
+			} else {
+				$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
+			}
+
+			$find = array(
+				'{firstname}',
+				'{lastname}',
+				'{company}',
+				'{address_1}',
+				'{address_2}',
+				'{city}',
+				'{postcode}',
+				'{zone}',
+				'{zone_code}',
+				'{country}'
+			);
+
+			$replace = array(
+				'firstname' => $order_info['payment_firstname'],
+				'lastname'  => $order_info['payment_lastname'],
+				'company'   => $order_info['payment_company'],
+				'address_1' => $order_info['payment_address_1'],
+				'address_2' => $order_info['payment_address_2'],
+				'city'      => $order_info['payment_city'],
+				'postcode'  => $order_info['payment_postcode'],
+				'zone'      => $order_info['payment_zone'],
+				'zone_code' => $order_info['payment_zone_code'],
+				'country'   => $order_info['payment_country']
+			);
+
+			$data['payment_address'] = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
+
+			$data['payment_method'] = $order_info['payment_method'];
+
+			if ($order_info['shipping_address_format']) {
+				$format = $order_info['shipping_address_format'];
+			} else {
+				$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
+			}
+
+			$find = array(
+				'{firstname}',
+				'{lastname}',
+				'{company}',
+				'{address_1}',
+				'{address_2}',
+				'{city}',
+				'{postcode}',
+				'{zone}',
+				'{zone_code}',
+				'{country}'
+			);
+
+			$replace = array(
+				'firstname' => $order_info['shipping_firstname'],
+				'lastname'  => $order_info['shipping_lastname'],
+				'company'   => $order_info['shipping_company'],
+				'address_1' => $order_info['shipping_address_1'],
+				'address_2' => $order_info['shipping_address_2'],
+				'city'      => $order_info['shipping_city'],
+				'postcode'  => $order_info['shipping_postcode'],
+				'zone'      => $order_info['shipping_zone'],
+				'zone_code' => $order_info['shipping_zone_code'],
+				'country'   => $order_info['shipping_country']
+			);
+
+			$data['shipping_address'] = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
+
+			$data['shipping_method'] = $order_info['shipping_method'];
+
+			$data['products'] = array();
+
+			$products = $this->model_account_order->getOrderProducts($order_id);
+
+			foreach ($products as $product) {
+				$option_data = array();
+
+				$options = $this->model_account_order->getOrderOptions($order_id, $product['order_product_id']);
+
+				foreach ($options as $option) {
+					if ($option['type'] != 'file') {
+						$value = $option['value'];
+					} else {
+						$upload_info = $this->model_tool_upload->getUploadByCode($option['value']);
+
+						if ($upload_info) {
+							$value = $upload_info['name'];
+						} else {
+							$value = '';
+						}
+					}
+
+					$option_data[] = array(
+						'name'  => $option['name'],
+						'value' => (utf8_strlen($value) > 20 ? utf8_substr($value, 0, 20) . '..' : $value)
+					);
+				}
+
+				$product_info = $this->model_catalog_product->getProduct($product['product_id']);
+
+				if ($product_info) {
+					$reorder = $this->url->link('account/order/reorder', 'order_id=' . $order_id . '&order_product_id=' . $product['order_product_id'], 'SSL');
+				} else {
+					$reorder = '';
+				}
+
+				$data['products'][] = array(
+					'name'     => $product['name'],
+					'model'    => $product['model'],
+					'option'   => $option_data,
+					'quantity' => $product['quantity'],
+					'price'    => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
+					'total'    => $this->currency->format($product['total'] + ($this->config->get('config_tax') ? ($product['tax'] * $product['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']),
+					'reorder'  => $reorder,
+					'return'   => $this->url->link('account/return/add', 'order_id=' . $order_info['order_id'] . '&product_id=' . $product['product_id'], 'SSL')
+				);
+			}
+
+			// Voucher
+			$data['vouchers'] = array();
+
+			$vouchers = $this->model_account_order->getOrderVouchers($order_id);
+
+			foreach ($vouchers as $voucher) {
+				$data['vouchers'][] = array(
+					'description' => $voucher['description'],
+					'amount'      => $this->currency->format($voucher['amount'], $order_info['currency_code'], $order_info['currency_value'])
+				);
+			}
+
+			// Totals
+			$data['totals'] = array();
+
+			$totals = $this->model_account_order->getOrderTotals($order_id);
+
+			foreach ($totals as $total) {
+				$data['totals'][] = array(
+					'title' => $total['title'],
+					'text'  => $this->currency->format($total['value'], $order_info['currency_code'], $order_info['currency_value']),
+				);
+			}
+
+			$data['comment'] = nl2br($order_info['comment']);
+
+			// History
+			$data['histories'] = array();
+
+			$results = $this->model_account_order->getOrderHistories($order_id);
+
+			foreach ($results as $result) {
+				$data['histories'][] = array(
+					'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
+					'status'     => $result['status'],
+					'comment'    => $result['notify'] ? nl2br($result['comment']) : ''
+				);
+			}
+
+			$data['continue'] = $this->url->link('account/order', '', 'SSL');
+		}
+			
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/language/english/checkout/success.php">
+		<operation>
+			<search position="before"><![CDATA[
+$_['text_success']
+			]]></search>
+			<add><![CDATA[
+			// Invoice
+$_['text_account']          = 'Account';
+$_['text_order']            = 'Order Information';
+$_['text_order_detail']     = 'Order Details';
+$_['text_invoice_no']       = 'Invoice No.:';
+$_['text_order_id']         = 'Order ID:';
+$_['text_status']           = 'Status:';
+$_['text_date_added']       = 'Date Added:';
+$_['text_shipping_address'] = 'Shipping Address';
+$_['text_shipping_method']  = 'Shipping Method:';
+$_['text_payment_address']  = 'Payment Address';
+$_['text_payment_method']   = 'Payment Method:';
+$_['text_products']         = 'Products:';
+$_['text_total']            = 'Total:';
+$_['text_comment']          = 'Order Comments';
+$_['text_history']          = 'Order History';
+
+// Column
+$_['column_name']           = 'Product Name';
+$_['column_model']          = 'Model';
+$_['column_quantity']       = 'Quantity';
+$_['column_price']          = 'Price';
+$_['column_total']          = 'Total';
+$_['column_action']         = 'Action';
+$_['column_date_added']     = 'Date Added';
+$_['column_status']         = 'Status';
+$_['column_comment']        = 'Comment';
+			]]>
+			</add>
+		</operation>
+	</file>
+	
+	<file name="catalog/view/theme/*/template/common/success.tpl">
+		<operation>
+			<search position="after"><![CDATA[
+<?php echo $heading_title; ?></h1>
+			]]></search>
+			<add><![CDATA[
+<script type="text/javascript">
+function printDiv() {
+	var head = "<html><head><title></title><link href=\"catalog/view/theme/default/stylesheet/stylesheet.css\" rel=\"stylesheet\"><link href=\"catalog/view/javascript/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"catalog/view/javascript/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"screen\" /></head><body style=\"padding:20px 20px;\" >";
+	
+	var foot = "</body>";
+	
+	var divToPrint = document.getElementById('print');
+	
+	newWin= window.open();
+	newWin.document.write(head + divToPrint.innerHTML + foot);
+	newWin.document.close();
+	newWin.focus();
+	newWin.print();
+	newWin.close();
+}				
+				
+				</script>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+<?php echo $text_message; ?>
+			]]></search>
+			<add><![CDATA[
+<?php if (isset($order_id)) { ?>
+  <div id="print">
+	<div style="padding: 0px 0px 20px 0px;">
+		<?php echo $store_name; ?><br />
+		<?php echo $store_address; ?><br />
+		<?php echo $store_emal; ?><br />
+		<?php echo $store_tel; ?>
+	</div>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <td class="text-left" colspan="2"><?php echo $text_order_detail; ?></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left" style="width: 50%;"><?php if ($invoice_no) { ?>
+              <b><?php echo $text_invoice_no; ?></b> <?php echo $invoice_no; ?><br />
+              <?php } ?>
+              <b><?php echo $text_order_id; ?></b> #<?php echo $order_id; ?><br />
+              <b><?php echo $text_date_added; ?></b> <?php echo $date_added; ?></td>
+            <td class="text-left"><?php if ($payment_method) { ?>
+              <b><?php echo $text_payment_method; ?></b> <?php echo $payment_method; ?><br />
+              <?php } ?>
+              <?php if ($shipping_method) { ?>
+              <b><?php echo $text_shipping_method; ?></b> <?php echo $shipping_method; ?>
+              <?php } ?></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <td class="text-left" style="width: 50%;"><?php echo $text_payment_address; ?></td>
+            <?php if ($shipping_address) { ?>
+            <td class="text-left"><?php echo $text_shipping_address; ?></td>
+            <?php } ?>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left"><?php echo $payment_address; ?></td>
+            <?php if ($shipping_address) { ?>
+            <td class="text-left"><?php echo $shipping_address; ?></td>
+            <?php } ?>
+          </tr>
+        </tbody>
+      </table>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <td class="text-left"><?php echo $column_name; ?></td>
+              <td class="text-left"><?php echo $column_model; ?></td>
+              <td class="text-right"><?php echo $column_quantity; ?></td>
+              <td class="text-right"><?php echo $column_price; ?></td>
+              <td class="text-right"><?php echo $column_total; ?></td>
+              <?php if ($products) { ?>
+              <td style="width: 20px;"></td>
+              <?php } ?>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($products as $product) { ?>
+            <tr>
+              <td class="text-left"><?php echo $product['name']; ?>
+                <?php foreach ($product['option'] as $option) { ?>
+                <br />
+                &nbsp;<small> - <?php echo $option['name']; ?>: <?php echo $option['value']; ?></small>
+                <?php } ?></td>
+              <td class="text-left"><?php echo $product['model']; ?></td>
+              <td class="text-right"><?php echo $product['quantity']; ?></td>
+              <td class="text-right"><?php echo $product['price']; ?></td>
+              <td class="text-right"><?php echo $product['total']; ?></td>
+              <td class="text-right" style="white-space: nowrap;"><?php if ($product['reorder']) { ?>
+                <a href="<?php echo $product['reorder']; ?>" data-toggle="tooltip" title="<?php echo $button_reorder; ?>" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></a>
+                <?php } ?>
+                <a href="<?php echo $product['return']; ?>" data-toggle="tooltip" title="<?php echo $button_return; ?>" class="btn btn-danger"><i class="fa fa-reply"></i></a></td>
+            </tr>
+            <?php } ?>
+            <?php foreach ($vouchers as $voucher) { ?>
+            <tr>
+              <td class="text-left"><?php echo $voucher['description']; ?></td>
+              <td class="text-left"></td>
+              <td class="text-right">1</td>
+              <td class="text-right"><?php echo $voucher['amount']; ?></td>
+              <td class="text-right"><?php echo $voucher['amount']; ?></td>
+              <?php if ($products) { ?>
+              <td></td>
+              <?php } ?>
+            </tr>
+            <?php } ?>
+          </tbody>
+          <tfoot>
+            <?php foreach ($totals as $total) { ?>
+            <tr>
+              <td colspan="3"></td>
+              <td class="text-right"><b><?php echo $total['title']; ?></b></td>
+              <td class="text-right"><?php echo $total['text']; ?></td>
+              <?php if ($products) { ?>
+              <td></td>
+              <?php } ?>
+            </tr>
+            <?php } ?>
+          </tfoot>
+        </table>
+      </div>
+      <?php if ($comment) { ?>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <td class="text-left"><?php echo $text_comment; ?></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left"><?php echo $comment; ?></td>
+          </tr>
+        </tbody>
+      </table>
+      <?php } ?>
+      <?php if ($histories) { ?>
+      <h3><?php echo $text_history; ?></h3>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <td class="text-left"><?php echo $column_date_added; ?></td>
+            <td class="text-left"><?php echo $column_status; ?></td>
+            <td class="text-left"><?php echo $column_comment; ?></td>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($histories as $history) { ?>
+          <tr>
+            <td class="text-left"><?php echo $history['date_added']; ?></td>
+            <td class="text-left"><?php echo $history['status']; ?></td>
+            <td class="text-left"><?php echo $history['comment']; ?></td>
+          </tr>
+          <?php } ?>
+        </tbody>
+      </table>
+      <?php } ?>
+  </div>
+<?php } ?>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[
+<div class="pull-right">
+			]]></search>
+			<add><![CDATA[
+<?php if (isset($order_id)) { ?>
+  	<div class="pull-left"><a onclick="printDiv('print')" class="btn btn-primary" /><span>Print Order Confirmation</span></a></div>
+<?php } ?>	
+			]]></add>
+		</operation>
+	</file>
+</modification>
