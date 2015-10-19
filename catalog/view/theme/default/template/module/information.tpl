@@ -1,10 +1,10 @@
 <div class="sidebar">
-    <ul class="nav nav-tabs nav-stacked">
+    <ul class="nav nav-tabs nav-stacked infomationMenu">
         <?php foreach ($informations as $information) { ?>
-            <li>
-                <a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a>
-            </li>
-        <?php } ?>
+                    <li>
+                        <a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a>
+                    </li>
+            <?php } ?>
         <li>
             <a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a>
         </li>

@@ -113,6 +113,17 @@ class ControllerCommonMenu extends Controller {
 		$data['text_openbay_report_price'] = $this->language->get('text_openbay_report_price');
 		$data['text_openbay_order_import'] = $this->language->get('text_openbay_order_import');
 
+				$data['text_simple_blogs'] = $this->language->get('text_simple_blogs');
+				$data['text_simple_blog_author'] = $this->language->get('text_simple_blog_author');
+				$data['text_simple_blog_category'] = $this->language->get('text_simple_blog_category');
+				$data['text_simple_blog_article'] = $this->language->get('text_simple_blog_article');
+				$data['text_simple_blog_article_comment'] = $this->language->get('text_simple_blog_article_comment');
+				$data['text_simple_blog_view_report'] = $this->language->get('text_simple_blog_view_report');
+				$data['text_simple_blog_setting'] = $this->language->get('text_simple_blog_setting');
+				$data['text_simple_blog_general_setting'] = $this->language->get('text_simple_blog_general_setting');
+				$data['text_simple_blog_category_setting'] = $this->language->get('text_simple_blog_category_setting');
+			
+
 		$data['home'] = $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL');
 		$data['affiliate'] = $this->url->link('marketing/affiliate', 'token=' . $this->session->data['token'], 'SSL');
 		$data['api'] = $this->url->link('user/api', 'token=' . $this->session->data['token'], 'SSL');
@@ -204,6 +215,15 @@ class ControllerCommonMenu extends Controller {
 		$data['openbay_link_amazonus'] = $this->url->link('openbay/amazonus', 'token=' . $this->session->data['token'], 'SSL');
 		$data['openbay_link_amazonus_settings'] = $this->url->link('openbay/amazonus/settings', 'token=' . $this->session->data['token'], 'SSL');
 		$data['openbay_link_amazonus_links'] = $this->url->link('openbay/amazonus/itemlinks', 'token=' . $this->session->data['token'], 'SSL');
+
+				$data['simple_blog_author'] = $this->url->link('simple_blog/author', 'token=' . $this->session->data['token'], 'SSL');
+				$data['simple_blog_category'] = $this->url->link('simple_blog/category', 'token=' . $this->session->data['token'], 'SSL');
+				$data['simple_blog_article'] = $this->url->link('simple_blog/article', 'token=' . $this->session->data['token'], 'SSL');
+				$data['simple_blog_comment'] = $this->url->link('simple_blog/comment', 'token=' . $this->session->data['token'], 'SSL');
+				$data['simple_blog_general_setting'] = $this->url->link('module/simple_blog', 'token=' . $this->session->data['token'], 'SSL');
+				$data['simple_blog_category_setting'] = $this->url->link('module/simple_blog_category', 'token=' . $this->session->data['token'], 'SSL');
+				$data['simple_blog_view_report'] = $this->url->link('simple_blog/report', 'token=' . $this->session->data['token'], 'SSL');
+			
 		$data['openbay_markets'] = array(
 			'ebay' => $this->config->get('ebay_status'),
 			'amazon' => $this->config->get('openbay_amazon_status'),

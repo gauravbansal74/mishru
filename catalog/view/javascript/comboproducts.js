@@ -6,7 +6,7 @@ var wishlist_combo = {
 			data: 'product_id=' + product_id,
 			dataType: 'json',
 			success: function(json) {
-				$("#combo-section").hide();
+			
 				$("#combo-notification .modal-footer").hide();
 				$("#combo-notification").modal('show');
 				if (json['success']) {
@@ -28,19 +28,21 @@ var wishlist_combo = {
 }
 
 var cart_combo = {
-	'add': function(product_id, quantity) {
+	'add': function(product_id,quantity) {
+	var optionID = '';
+	var optionValue ='' ;
 		$.ajax({
 			url: 'index.php?route=checkout/cart/add',
 			type: 'post',
-			data: 'product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
+			data: 'product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1) + '&'+($("#"+product_id).find('select').attr('name'))+'='+($("#"+product_id).find('select').val()) ,
 			dataType: 'json',
 			beforeSend: function() {
-				$('#cart > button').button('loading');
+				$('.btn-combo > button').button('loading');
 			},
 			success: function(json) {
 
-				$('#cart > button').button('reset');
-				$("#combo-section").hide();
+				$('.btn-combo > button').button('reset');
+				
 				$("#combo-notification .modal-footer").hide();
 				$("#combo-notification").modal('show');
 

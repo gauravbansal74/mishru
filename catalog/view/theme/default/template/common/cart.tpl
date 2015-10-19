@@ -6,23 +6,25 @@
       <table class="table table-striped">
         <?php foreach ($products as $product) { ?>
         <tr>
-          <td class="text-center"><?php if ($product['thumb']) { ?>
+          <td class="text-center" ><?php if ($product['thumb']) { ?>
             <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-thumbnail" /></a>
             <?php } ?></td>
-          <td class="text-left"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+          <td class="text-left" style="font-size:12px;"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
             <?php if ($product['option']) { ?>
             <?php foreach ($product['option'] as $option) { ?>
             <br />
             - <small><?php echo $option['name']; ?> <?php echo $option['value']; ?></small>
             <?php } ?>
             <?php } ?>
+            <br />
+            - <small>Quantity : <?php echo $product['quantity']; ?></small>
             <?php if ($product['recurring']) { ?>
             <br />
             - <small><?php echo $text_recurring; ?> <?php echo $product['recurring']; ?></small>
             <?php } ?></td>
-          <td class="text-right"><?php echo $product['quantity']; ?></td>
-          <td class="text-right"><?php echo $product['total']; ?></td>
-          <td class="text-center"><button type="button" onclick="cart.remove('<?php echo $product['key']; ?>');" title="<?php echo $button_remove; ?>" class="btn-xs"><i class="fa fa-times"></i></button></td>
+          <td class="text-right" style="font-size:12px;display:none;"><?php echo $product['quantity']; ?></td>
+          <td class="text-right" style="font-size:12px;"><?php echo $product['total']; ?></td>
+          <td class="text-center" style="font-size:12px;"><button type="button" onclick="cart.remove('<?php echo $product['key']; ?>');" title="<?php echo $button_remove; ?>" class="btn-xs"><i class="fa fa-times" style="font-size:9px;"></i></button></td>
         </tr>
         <?php } ?>
         <?php foreach ($vouchers as $voucher) { ?>
@@ -41,7 +43,7 @@
         <table class="table table-bordered">
           <?php foreach ($totals as $total) { ?>
           <tr>
-            <td class="text-right"><strong><?php echo $total['title']; ?></strong></td>
+            <td class="text-center"><strong><?php echo $total['title']; ?></strong></td>
             <td class="text-right"><?php echo $total['text']; ?></td>
           </tr>
           <?php } ?>

@@ -16,7 +16,7 @@
 		<operation>
 			<search position="after"><![CDATA[$_['text_catalog']                     = 'Catalog';]]></search>
 			<add><![CDATA[
-				$_['text_combo_module']                   = 'Combo Products';
+				$_['text_combo_module']                   = 'Buy the Look';
 			]]>
 			</add>
 		</operation>

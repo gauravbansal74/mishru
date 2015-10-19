@@ -8,7 +8,7 @@ $_['text_backup']                      = 'Backup / Restore';
 $_['text_banner']                      = 'Banners';
 $_['text_catalog']                     = 'Catalog';
 
-				$_['text_combo_module']                   = 'Combo Products';
+				$_['text_combo_module']                   = 'Buy the Look';
 			
 			
 $_['text_category']                    = 'Categories';
@@ -99,4 +99,15 @@ $_['text_openbay_links']               = 'Item links';
 $_['text_openbay_report_price']        = 'Pricing report';
 $_['text_openbay_order_import']        = 'Order import';
 $_['text_paypal_manage']               = 'PayPal';
+
+				$_['text_simple_blogs']	= 'Simple Blog';
+				$_['text_simple_blog_author']	= 'Author';
+				$_['text_simple_blog_category']	= 'Category';
+				$_['text_simple_blog_article']	= 'Article';
+				$_['text_simple_blog_article_comment']	= 'Article Comment';
+				$_['text_simple_blog_setting'] = 'Setting';
+				$_['text_simple_blog_general_setting'] = 'General Setting';
+				$_['text_simple_blog_category_setting'] = 'Category Setting';
+				$_['text_simple_blog_view_report'] = 'Report';
+			
 $_['text_paypal_search']               = 'Search';

@@ -34,10 +34,15 @@ $_['entry_keyword']          = 'SEO Keyword';
 //Customize Variables
 $_['entry_customize']        = 'Customizable';
 $_['entry_region']			 = 'No of Regions';
+$_['entry_region1_name']	 = 'Region1 Name';
 $_['entry_region1']			 = 'Region1 colors';
+$_['entry_region2_name']	 = 'Region2 Name';
 $_['entry_region2']			 = 'Region2 colors';
+$_['entry_region3_name']	 = 'Region3 Name';
 $_['entry_region3']			 = 'Region3 colors';
+$_['entry_region4_name']	 = 'Region4 Name';
 $_['entry_region4']			 = 'Region4 colors';
+$_['entry_region5_name']	 = 'Region5 Name';
 $_['entry_region5']			 = 'Region5 colors';
 $_['entry_model']            = 'Model';
 $_['entry_sku']              = 'SKU';

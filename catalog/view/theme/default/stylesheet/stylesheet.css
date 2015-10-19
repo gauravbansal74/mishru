@@ -15,21 +15,29 @@ h1, h2, h3, h4, h5, h6 {
 /* Override the bootstrap defaults */
 h1 {
 	font-size: 33px;
+	text-align: center;
+	font-weight: lighter;
 }
 h2 {
 	font-size: 27px;
+	text-align: center;
+	font-weight: lighter;
 }
 h3 {
 	font-size: 21px;
+	font-weight: lighter;
 }
 h4 {
 	font-size: 15px;
+	font-weight: lighter;
 }
 h5 {
 	font-size: 12px;
+	font-weight: lighter;
 }
 h6 {
 	font-size: 10.2px;
+	font-weight: lighter;
 }
 a {
 	color: #666;
@@ -65,8 +73,9 @@ span.hidden-xs, span.hidden-sm, span.hidden-md, span.hidden-lg {
 	margin-bottom: 15px;
 }
 .control-label{
-	margin: 6px 0;
-	vertical-align: middle;
+	margin: 0;
+	vertical-align: top;
+	padding:0!important;
 }
 div.required .control-label:before {
 	content: '* ';
@@ -209,7 +218,7 @@ div.required .control-label:before {
 	margin-bottom: 10px;
 }
 #cart .dropdown-menu li > div {
-	min-width: 427px;
+	min-width: 375px;
 	padding: 0 10px;
 }
 	@media (max-width: 478px) {
@@ -231,7 +240,7 @@ div.required .control-label:before {
 	min-height: 40px;
 	border-radius: 0;
 	margin-top:15px;
-	margin-bottom:0px;
+	margin-bottom:10px;
 }
 #menu .nav > ul {
 	text-align: center;
@@ -385,7 +394,7 @@ footer h5 {
 }
 .footerMenu ul li {
 	display:inline;
-	padding:0 15px;
+	padding:0 14px;
 	border-right:1px solid #ccc;
 
 }
@@ -649,7 +658,6 @@ footer h5 {
 }
 .product-thumb .caption {
 	padding: 0 20px;
-	min-height: 180px;
 	text-align: center;
 }
 .product-list .product-thumb .caption {
@@ -991,4 +999,49 @@ form#currency{
 .customPallette{
 	padding:0;
 	margin-left: 0px;
+	height:60px;
+}
+.img-thumbnail{
+	border:none;
+}
+.owl-wrapper-outer{
+	border: none!important;
+}
+#instagramCarousel{
+  overflow: auto;
+  height: auto;
+}
+#slideshow0{
+	margin-bottom: 40px;
+}
+.owl-wrapper-outer{
+	box-shadow: none!important;
+}
+.modal-body{
+	display: inline-block;
+	width:100%;
+}
+input.sizeChart {
+	width:60px;
+}
+.modal-title {
+	text-align: center;
+	font-size: 21px;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	font-size:12px;
+	padding: 3px !important;
+}
+ul.customPallette li:hover{
+border:3px solid #B6B6B6;
+}
+table.table.table-striped.sizeChartTable tr.mainSizes th{
+text-align: right;
+
+}
+table.table.table-striped.sizeChartTable th{
+	text-align: left;
+}
+table.table.table-striped.sizeChartTable{
+	text-align: right;
 }

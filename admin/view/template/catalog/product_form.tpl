@@ -921,11 +921,21 @@
                         <?php } ?>
                       </div>
                 </div>
-
+                
                 <div class="form-group">
                       <label class="col-sm-2 control-label" for="input-region<?php echo $language['language_id']; ?>"><?php echo $entry_region; ?></label>
                       <div class="col-sm-10">
                         <input type="text" name="product_description[<?php echo $language['language_id']; ?>][region]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['region'] : ''; ?>" placeholder="<?php echo $entry_region; ?>" id="input-region<?php echo $language['language_id']; ?>" class="form-control" />
+                        <?php if (isset($error_name[$language['language_id']])) { ?>
+                        <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
+                        <?php } ?>
+                      </div>
+                </div>
+
+                <div class="form-group">
+                      <label class="col-sm-2 control-label" for="input-region1-name<?php echo $language['language_id']; ?>"><?php echo $entry_region1_name; ?></label>
+                      <div class="col-sm-10">
+                        <input type="text" name="product_description[<?php echo $language['language_id']; ?>][region1_name]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['region1_name'] : ''; ?>" placeholder="<?php echo $entry_region1_name; ?>" id="input-region1-name<?php echo $language['language_id']; ?>" class="form-control" />
                         <?php if (isset($error_name[$language['language_id']])) { ?>
                         <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
                         <?php } ?>
@@ -943,9 +953,30 @@
                 </div>
 
                 <div class="form-group">
+                      <label class="col-sm-2 control-label" for="input-region2-name<?php echo $language['language_id']; ?>"><?php echo $entry_region2_name; ?></label>
+                      <div class="col-sm-10">
+                        <input type="text" name="product_description[<?php echo $language['language_id']; ?>][region2_name]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['region2_name'] : ''; ?>" placeholder="<?php echo $entry_region2_name; ?>" id="input-region2-name<?php echo $language['language_id']; ?>" class="form-control" />
+                        <?php if (isset($error_name[$language['language_id']])) { ?>
+                        <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
+                        <?php } ?>
+                      </div>
+                </div>
+
+                <div class="form-group">
                       <label class="col-sm-2 control-label" for="input-region2<?php echo $language['language_id']; ?>"><?php echo $entry_region2; ?></label>
                       <div class="col-sm-10">
                         <input type="text" name="product_description[<?php echo $language['language_id']; ?>][region2]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['region2'] : ''; ?>" placeholder="<?php echo $entry_region2; ?>" id="input-region2<?php echo $language['language_id']; ?>" class="form-control" />
+                        <?php if (isset($error_name[$language['language_id']])) { ?>
+                        <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
+                        <?php } ?>
+                      </div>
+                </div>
+
+
+                 <div class="form-group">
+                      <label class="col-sm-2 control-label" for="input-region3-name<?php echo $language['language_id']; ?>"><?php echo $entry_region3_name; ?></label>
+                      <div class="col-sm-10">
+                        <input type="text" name="product_description[<?php echo $language['language_id']; ?>][region3_name]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['region3_name'] : ''; ?>" placeholder="<?php echo $entry_region3_name; ?>" id="input-region3-name<?php echo $language['language_id']; ?>" class="form-control" />
                         <?php if (isset($error_name[$language['language_id']])) { ?>
                         <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
                         <?php } ?>
@@ -962,10 +993,31 @@
                       </div>
                 </div>
 
+
+                 <div class="form-group">
+                      <label class="col-sm-2 control-label" for="input-region4-name<?php echo $language['language_id']; ?>"><?php echo $entry_region4_name; ?></label>
+                      <div class="col-sm-10">
+                        <input type="text" name="product_description[<?php echo $language['language_id']; ?>][region4_name]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['region4_name'] : ''; ?>" placeholder="<?php echo $entry_region4_name; ?>" id="input-region4-name<?php echo $language['language_id']; ?>" class="form-control" />
+                        <?php if (isset($error_name[$language['language_id']])) { ?>
+                        <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
+                        <?php } ?>
+                      </div>
+                </div>
+
                 <div class="form-group">
                       <label class="col-sm-2 control-label" for="input-region4<?php echo $language['language_id']; ?>"><?php echo $entry_region4; ?></label>
                       <div class="col-sm-10">
                         <input type="text" name="product_description[<?php echo $language['language_id']; ?>][region4]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['region4'] : ''; ?>" placeholder="<?php echo $entry_region4; ?>" id="input-region4<?php echo $language['language_id']; ?>" class="form-control" />
+                        <?php if (isset($error_name[$language['language_id']])) { ?>
+                        <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
+                        <?php } ?>
+                      </div>
+                </div>
+
+                 <div class="form-group">
+                      <label class="col-sm-2 control-label" for="input-region5-name<?php echo $language['language_id']; ?>"><?php echo $entry_region5_name; ?></label>
+                      <div class="col-sm-10">
+                        <input type="text" name="product_description[<?php echo $language['language_id']; ?>][region5_name]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['region5_name'] : ''; ?>" placeholder="<?php echo $entry_region5_name; ?>" id="input-region5-name<?php echo $language['language_id']; ?>" class="form-control" />
                         <?php if (isset($error_name[$language['language_id']])) { ?>
                         <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
                         <?php } ?>

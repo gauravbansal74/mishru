@@ -545,6 +545,11 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_region3'] = $this->language->get('entry_region3');
 		$data['entry_region4'] = $this->language->get('entry_region4');
 		$data['entry_region5'] = $this->language->get('entry_region5');
+		$data['entry_region1_name'] = $this->language->get('entry_region1_name');
+		$data['entry_region2_name'] = $this->language->get('entry_region2_name');
+		$data['entry_region3_name'] = $this->language->get('entry_region3_name');
+		$data['entry_region4_name'] = $this->language->get('entry_region4_name');
+		$data['entry_region5_name'] = $this->language->get('entry_region5_name');
 		//end
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_description'] = $this->language->get('entry_description');

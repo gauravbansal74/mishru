@@ -1,3 +1,6 @@
+   $('#combo-section').on('hidden', function () {
+        window.location.reload(true);
+    });
 function getURLVar(key) {
 	var value = [];
 
@@ -23,6 +26,7 @@ function getURLVar(key) {
 }
 
 $(document).ready(function() {
+
 	// Adding the clear Fix
 	cols1 = $('#column-right, #column-left').length;
 	
@@ -133,107 +137,43 @@ $(document).ready(function() {
 	$(document).ajaxStop(function() {
 		$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
 	});
+
+
+});
+
+/*$(window).load(function(){
 	var feed = new Instafeed({
         get: 'user',
         userId: 690111864,
         accessToken: '690111864.467ede5.1cd1508b46bf4ce88ab552f48946e244',
         sortBy:'most-recent',
+        resolution: 'thumbnail',
         limit:'10',
-        target:'carousel_ul',
-		template: '<li><a href="{{link}}" target="_blank"><img src="{{image}}" /></a></li>'
+        target:'lightSlider',
+		template:'<li><a href="{{link}}" target="_blank"><img src="{{image}}" /></a></li>'
 	});
-		feed.run();
-		        //options( 1 - ON , 0 - OFF)
-        var auto_slide = 1;
-            var hover_pause = 1;
-        var key_slide = 1;
-
-        //speed of auto slide(
-        var auto_slide_seconds = 5000;
-        /* IMPORTANT: i know the variable is called ...seconds but it's
-        in milliseconds ( multiplied with 1000) '*/
-
-        /*move the last list item before the first item. The purpose of this is
-        if the user clicks to slide left he will be able to see the last item.*/
-        $('#carousel_ul li:first').before($('#carousel_ul li:last'));
-
-        //check if auto sliding is enabled
-        if(auto_slide == 1){
-            /*set the interval (loop) to call function slide with option 'right'
-            and set the interval time to the variable we declared previously */
-            var timer = setInterval('slide("right")', auto_slide_seconds);
-
-            /*and change the value of our hidden field that hold info about
-            the interval, setting it to the number of milliseconds we declared previously*/
-            $('#hidden_auto_slide_seconds').val(auto_slide_seconds);
-        }
-
-        //check if hover pause is enabled
-        if(hover_pause == 1){
-            //when hovered over the list
-            $('#carousel_ul').hover(function(){
-                //stop the interval
-                clearInterval(timer)
-            },function(){
-                //and when mouseout start it again
-                timer = setInterval('slide("right")', auto_slide_seconds);
-            });
-
-        }
-
-        //check if key sliding is enabled
-        if(key_slide == 1){
-
-            //binding keypress function
-            $(document).bind('keypress', function(e) {
-                //keyCode for left arrow is 37 and for right it's 39 '
-                if(e.keyCode==37){
-                        //initialize the slide to left function
-                        slide('left');
-                }else if(e.keyCode==39){
-                        //initialize the slide to right function
-                        slide('right');
-                }
-            });
-
-        }
+	$("#lightSlider").responsiveSlides({
+  auto: false,             // Boolean: Animate automatically, true or false
+  speed: 500,            // Integer: Speed of the transition, in milliseconds
+  timeout: 4000,          // Integer: Time between slide transitions, in milliseconds
+  pager: true,           // Boolean: Show pager, true or false
+  nav: false,             // Boolean: Show navigation, true or false
+  random: false,          // Boolean: Randomize the order of the slides, true or false
+  pause: false,           // Boolean: Pause on hover, true or false
+  pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+  prevText: "Previous",   // String: Text for the "previous" button
+  nextText: "Next",       // String: Text for the "next" button
+  maxwidth: "",           // Integer: Max-width of the slideshow, in pixels
+  navContainer: "",       // Selector: Where controls should be appended to, default is after the 'ul'
+  manualControls: "",     // Selector: Declare custom pager navigation
+  namespace: "rslides",   // String: Change the default namespace used
+  before: function(){},   // Function: Before callback
+  after: function(){}     // Function: After callback
 });
-//slide function
-function slide(where){
 
-            //get the item width
-            var item_width = $('#carousel_ul li').outerWidth() + 10;
 
-            /* using a if statement and the where variable check
-            we will check where the user wants to slide (left or right)*/
-            if(where == 'left'){
-                //...calculating the new left indent of the unordered list (ul) for left sliding
-                var left_indent = parseInt($('#carousel_ul').css('left')) + item_width;
-            }else{
-                //...calculating the new left indent of the unordered list (ul) for right sliding
-                var left_indent = parseInt($('#carousel_ul').css('left')) - item_width;
-
-            }
-
-            //make the sliding effect using jQuery's animate function... '
-            $('#carousel_ul:not(:animated)').animate({'left' : left_indent},500,function(){
-
-                /* when the animation finishes use the if statement again, and make an ilussion
-                of infinity by changing place of last or first item*/
-                if(where == 'left'){
-                    //...and if it slided to left we put the last item before the first item
-                    $('#carousel_ul li:first').before($('#carousel_ul li:last'));
-                }else{
-                    //...and if it slided to right we put the first item after the last item
-                    $('#carousel_ul li:last').after($('#carousel_ul li:first'));
-                }
-
-                //...and then just get back the default left indent
-                $('#carousel_ul').css({'left' : '-210px'});
-            });
-
-}
-
+	feed.run();
+});		*/
 // Cart add remove functions
 var cart = {
 	'add': function(product_id, quantity) {
@@ -608,5 +548,14 @@ $(window).bind('load', function() {
   	};
  });
 
-});
 
+ $(".button1").click(function(){ 
+	$(".size1").show();
+	$(".size2").hide();
+        });
+$(".button2").click(function(){ 
+	$(".size2").show();
+	$(".size1").hide();
+        });
+
+});

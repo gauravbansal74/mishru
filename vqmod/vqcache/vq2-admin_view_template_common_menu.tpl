@@ -168,6 +168,23 @@
       <li><a href="<?php echo $error_log; ?>"><?php echo $text_error_log; ?></a></li>
     </ul>
   </li>
+
+				<li id="simple-blog"><a class="parent"><i class="fa fa-file-text-o fa-fw"></i> <span><?php echo $text_simple_blogs; ?></span></a>
+                    <ul>
+                        <li><a href="<?php echo $simple_blog_article; ?>"><?php echo $text_simple_blog_article; ?></a></li>
+                        <li><a href="<?php echo $simple_blog_category; ?>"><?php echo $text_simple_blog_category; ?></a></li>
+              			<li><a href="<?php echo $simple_blog_author; ?>"><?php echo $text_simple_blog_author; ?></a></li>
+              			<li><a href="<?php echo $simple_blog_comment; ?>"><?php echo $text_simple_blog_article_comment; ?></a></li>
+              			<li><a href="<?php echo $simple_blog_view_report; ?>"><?php echo $text_simple_blog_view_report; ?></a></li>
+                        <li><a class="parent"><?php echo $text_simple_blog_setting; ?></a>
+                            <ul>
+              					<li><a href="<?php echo $simple_blog_general_setting; ?>"><?php echo $text_simple_blog_general_setting; ?></a></li>
+              					<li><a href="<?php echo $simple_blog_category_setting; ?>"><?php echo $text_simple_blog_category_setting; ?></a></li>
+              				</ul>
+                        </li>
+                    </ul>
+                </li>
+			
   <li id="reports"><a class="parent"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_reports; ?></span></a>
     <ul>
       <li><a class="parent"><?php echo $text_sale; ?></a>

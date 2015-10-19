@@ -40,11 +40,11 @@
             <thead>
               <tr>
                 <td class="text-center"><?php echo $column_image; ?></td>
-                <td class="text-left"><?php echo $column_name; ?></td>
-                <td class="text-left"><?php echo $column_model; ?></td>
-                <td class="text-left"><?php echo $column_quantity; ?></td>
-                <td class="text-right"><?php echo $column_price; ?></td>
-                <td class="text-right"><?php echo $column_total; ?></td>
+                <td class="text-center"><?php echo $column_name; ?></td>
+                <td class="text-center" style="display:none;"><?php echo $column_model; ?></td>
+                <td class="text-center" style="display:none;"><?php echo $column_quantity; ?></td>
+                <td class="text-center"><?php echo $column_price; ?></td>
+                <td class="text-center" style="display:none;"><?php echo $column_total; ?></td>
               </tr>
             </thead>
             <tbody>
@@ -70,15 +70,20 @@
                   <?php if ($product['recurring']) { ?>
                   <br />
                   <span class="label label-info"><?php echo $text_recurring_item; ?></span> <small><?php echo $product['recurring']; ?></small>
-                  <?php } ?></td>
-                <td class="text-left"><?php echo $product['model']; ?></td>
-                <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
+                  <?php } ?>
+                </br>
+                 <small><?php echo $column_quantity; ?>: <?php echo $product['quantity']; ?></small> 
+                </br>
+                   <a onclick="cart.remove('<?php echo $product['key']; ?>');" style="color:#b73438; cursor:pointer;"><small>Remove Item</small></a>
+                </td>
+                <td class="text-center" style="display:none;"><?php echo $product['model']; ?></td>
+                <td class="text-center" style="display:none;"><div class="input-group btn-block" style="max-width: 200px;">
                     <input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" class="form-control" />
                     <span class="input-group-btn">
                     <button type="submit" data-toggle="tooltip" title="<?php echo $button_update; ?>" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
                     <button type="button" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger" onclick="cart.remove('<?php echo $product['key']; ?>');"><i class="fa fa-times-circle"></i></button></span></div></td>
-                <td class="text-right"><?php echo $product['price']; ?></td>
-                <td class="text-right"><?php echo $product['total']; ?></td>
+                <td class="text-center"><?php echo $product['price']; ?></td>
+                <td class="text-center" style="display:none;"><?php echo $product['total']; ?></td>
               </tr>
               <?php } ?>
               <?php foreach ($vouchers as $vouchers) { ?>
@@ -94,6 +99,14 @@
               </tr>
               <?php } ?>
             </tbody>
+            <tfoot>
+      <?php foreach ($totals as $total) { ?>
+      <tr>
+        <td colspan="2" class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
+        <td class="text-center"><?php echo $total['text']; ?></td>
+      </tr>
+      <?php } ?>
+    </tfoot>
           </table>
         </div>
       </form>
@@ -103,18 +116,18 @@
       <div class="panel-group" id="accordion"><?php echo $coupon; ?><?php echo $voucher; ?><?php echo $reward; ?><?php echo $shipping; ?></div>
       <?php } ?>
       <br />
-      <div class="row">
-        <div class="col-sm-4 col-sm-offset-8">
-          <table class="table table-bordered">
+<!--       <div class="row">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
             <?php foreach ($totals as $total) { ?>
             <tr>
-              <td class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
-              <td class="text-right"><?php echo $total['text']; ?></td>
+              <td colspan="3" class="text-center"><strong><?php echo $total['title']; ?>:</strong></td>
+              <td class="text-center"><?php echo $total['text']; ?></td>
             </tr>
             <?php } ?>
           </table>
         </div>
-      </div>
+      </div> -->
       <div class="buttons">
         <div class="pull-left"><a href="<?php echo $continue; ?>" class="btn btn-default"><?php echo $button_shopping; ?></a></div>
         <div class="pull-right"><a href="<?php echo $checkout; ?>" class="btn btn-primary"><?php echo $button_checkout; ?></a></div>

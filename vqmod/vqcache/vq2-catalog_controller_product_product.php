@@ -21,10 +21,8 @@ class ControllerProductProduct extends Controller {
 				$this->load->model('catalog/product');
 				$this->load->model('checkout/combo_products');
 				
-				$getcombo = $this->model_checkout_combo_products->getCombo($combo_id);
-				
-				$products_in_combo = explode(",",$getcombo['product_id']);
-				
+				$getcombo = $this->model_checkout_combo_products->getCombo($combo_id);	
+				$products_in_combo = explode(",",$getcombo['product_id']);		
 				$price_total = 0;
 				$price_ori = 0;
 				$price_all = 0;
@@ -40,19 +38,18 @@ class ControllerProductProduct extends Controller {
 					$product_info = $this->model_catalog_product->getProduct($product_id);
 
 					foreach ($this->model_catalog_product->getProductOptions($product_id) as $options) {
-
-						$size_dropdown[]='<div class="form-group required><label class="control-label" for="input-option'.$options['product_option_id'].'"></label><select name="option'.[$options['product_option_id']].'" id="input-option'.$options['product_option_id'].'" class="form-control"><option value="'.$options['name'].'">'.$options['name'].'</option>';
+						if ($options['name']=='Size'){
+						$size_dropdown[]='<div id="'.$product_id.'" class="form-group required" style="margin:4px 0 8px 0;"><label class="control-label" for="input-option'.$options['product_option_id'].'" style="display:none;"></label><select name="option['.$options['product_option_id'].']" id="input-option'.$options['product_option_id'].'" class="form-control buyTheLook"><option value="">'.$options['name'].'</option>';
 						
 						foreach ($options['product_option_value'] as $option_value) {
 							$size_dropdown1[]='<option value="'.$option_value['product_option_value_id'].'">'.$option_value['name'].'</option>';
 						}  
 						$size_dropdown2[]='</select></div>';
+						}
 					}
 					
 					$this->load->model('tool/image');
-					
-					$href = $this->url->link('product/product', 'product_id=' . $product_info['product_id']);
-					
+					$href = $this->url->link('product/product', 'product_id=' . $product_info['product_id']);	
 					if ($getcombo['override']) $price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')));
 					elseif ($product_info['special']) $price = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')));
 					else $price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')));
@@ -63,8 +60,8 @@ class ControllerProductProduct extends Controller {
 					
 					$price_ori += $product_info['price'];
 					
-					if ($product_info['image']) $product_array[] = '<div class="combo-item"><div class="combo-item-img"><a href="'.$href.'"><img class="img-thumbnail" src="'. $this->model_tool_image->resize($product_info['image'], 80, 80) .'"></a></div><div class="combo-item-name">'.$product_info['name'].'</div><div class="combo-item-price">'.$price.'</div></div>';
-					else $product_array[] = '<div class="combo-item"><div class="combo-item-img"><a href="'.$href.'"><img class="img-thumbnail" src="'. $this->model_tool_image->resize('no_image.png', 80, 80) .'"></a></div><div class="combo-item-name">'.$product_info['name'].'</div><div class="combo-item-price">'.$price.'</div></div>';
+					if ($product_info['image']) $product_array[] = '<div class="combo-item-name">'.$product_info['name'].'</div><div class="combo-item-price">'.$price.'</div><div class="combo-item"><div class="combo-item-img"><a href="'.$href.'"><img class="img-thumbnail" src="'. $this->model_tool_image->resize($product_info['image'], 90, 115) .'"></a></div></div>';
+					else $product_array[] = '<div class="combo-item"><div class="combo-item-img"><a href="'.$href.'"><img class="img-thumbnail" src="'. $this->model_tool_image->resize('no_image.png', 90, 115) .'"></a></div><div class="combo-item-name">'.$product_info['name'].'</div><div class="combo-item-price">'.$price.'</div></div>';
 					
 					$wishlist_combo[] = 'wishlist_combo.add(\''.$product_id.'\')';
 					$cart_combo[] = 'cart_combo.add(\''.$product_id.'\')';
@@ -92,7 +89,7 @@ class ControllerProductProduct extends Controller {
 				$html .= implode(' ',$size_dropdown);
 				$html .= implode(' ',$size_dropdown1);
 				$html .= implode(' ',$size_dropdown2);
-				$html .= '<div class="combo-action">'.$price_all.$cart_button.$wishlist_button.'</div>';
+				$html .= '<div class="combo-action">'.$cart_button.$wishlist_button.'</div>';
 				$html .= '</div>';
 				return $html;
 			}
@@ -259,13 +256,19 @@ class ControllerProductProduct extends Controller {
 
 		if ($product_info) {
 
+
 			$getcombos = $this->model_checkout_combo_products->getCombosinclProduct($this->request->get['product_id']);
 			$html = '';
 			$buythelook_button ='';
 			if ($getcombos) {
-				$html .= '<div id="combo-section" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="combo-sectionLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">';
-				$html .= '<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="myModalLabel">'.$this->language->get('text_combo_header').'</h4></div>';
-				$html .='<div class="modal-body">';
+			$primary_product = $product_id;
+			$primary_product_href = $this->url->link('product/product', 'product_id=' .$primary_product);
+		  	$product_info1 = $this->model_catalog_product->getProduct($primary_product);
+		  	$this->load->model('tool/image');
+
+				$html .= '<div id="combo-section" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="combo-sectionLabel" aria-hidden="true"><div class="modal-dialog" style="width:800px;height:450px;"><div class="modal-content">';
+				$html .= '<div class="modal-header" style="padding:15px 15px 6px 0;"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;font-weight: lighter;font-style: initial;font-size: 24px;">'.$this->language->get('text_combo_header').'</h4></div>';
+				$html .='<div class="modal-body" style="padding:15px 36px;"><div class="primary-product" style="float: left;width: 35%;border-right: 1px solid #e5e5e5;padding: 0 40px 0 0;height: 100%;text-align:center;"><div class="primary-product-name" style="font-size:medium;word-wrap:break-word;">'.$product_info1['name'].'</div><div class="primary-product-img"><img src="'.$this->model_tool_image->resize($product_info1['image'], 213, 305).'"></div></div><div class="combo-products">';
 			}
 			foreach ($getcombos as $combo) {
 				$getcombo = $this->model_checkout_combo_products->getCombo($combo['combo_id']);
@@ -274,8 +277,8 @@ class ControllerProductProduct extends Controller {
 				}
 			}
 			if ($getcombos) {
-			$html .= '</div></div></div></div>';
-			$buythelook_button ='<button type="button" href="javascript:void(0);" data-toggle="modal" data-target="#combo-section" class="btn btn-look btn-lg btn-block" title="Buy the Look">Buy the Look</button>';
+			$html .= '</div></div></div></div></div>';
+			$buythelook_button ='<button type="button" href="javascript:void(0);" data-toggle="modal" data-target="#combo-section" class="btn btn-look btn-lg btn-block" title="Shop the Look">Shop the Look</button>';
 			}
 		  
 			$url = '';
@@ -351,6 +354,11 @@ class ControllerProductProduct extends Controller {
 			$data['region3'] = $product_info['region3'];
 			$data['region4'] = $product_info['region4'];
 			$data['region5'] = $product_info['region5'];
+			$data['region1_name'] = $product_info['region1_name'];
+			$data['region2_name'] = $product_info['region2_name'];
+			$data['region3_name'] = $product_info['region3_name'];
+			$data['region4_name'] = $product_info['region4_name'];
+			$data['region5_name'] = $product_info['region5_name'];
 			$data['customizable'] = $product_info['customizable'];
 
 			$data['text_select'] = $this->language->get('text_select');
@@ -380,6 +388,11 @@ class ControllerProductProduct extends Controller {
 			$data['entry_region3'] = $this->language->get('entry_region3');
 			$data['entry_region4'] = $this->language->get('entry_region4');
 			$data['entry_region5'] = $this->language->get('entry_region5');
+			$data['entry_region1_name'] = $this->language->get('entry_region1_name');
+			$data['entry_region2_name'] = $this->language->get('entry_region2_name');
+			$data['entry_region3_name'] = $this->language->get('entry_region3_name');
+			$data['entry_region4_name'] = $this->language->get('entry_region4_name');
+			$data['entry_region5_name'] = $this->language->get('entry_region5_name');
 
 			$data['entry_review'] = $this->language->get('entry_review');
 			$data['entry_rating'] = $this->language->get('entry_rating');

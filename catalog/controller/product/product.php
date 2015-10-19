@@ -232,6 +232,11 @@ class ControllerProductProduct extends Controller {
 			$data['region3'] = $product_info['region3'];
 			$data['region4'] = $product_info['region4'];
 			$data['region5'] = $product_info['region5'];
+			$data['region1_name'] = $product_info['region1_name'];
+			$data['region2_name'] = $product_info['region2_name'];
+			$data['region3_name'] = $product_info['region3_name'];
+			$data['region4_name'] = $product_info['region4_name'];
+			$data['region5_name'] = $product_info['region5_name'];
 			$data['customizable'] = $product_info['customizable'];
 
 			$data['text_select'] = $this->language->get('text_select');
@@ -261,6 +266,11 @@ class ControllerProductProduct extends Controller {
 			$data['entry_region3'] = $this->language->get('entry_region3');
 			$data['entry_region4'] = $this->language->get('entry_region4');
 			$data['entry_region5'] = $this->language->get('entry_region5');
+			$data['entry_region1_name'] = $this->language->get('entry_region1_name');
+			$data['entry_region2_name'] = $this->language->get('entry_region2_name');
+			$data['entry_region3_name'] = $this->language->get('entry_region3_name');
+			$data['entry_region4_name'] = $this->language->get('entry_region4_name');
+			$data['entry_region5_name'] = $this->language->get('entry_region5_name');
 
 			$data['entry_review'] = $this->language->get('entry_review');
 			$data['entry_rating'] = $this->language->get('entry_rating');

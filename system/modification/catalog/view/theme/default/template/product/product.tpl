@@ -8,11 +8,11 @@
 
 var productId = getParameterByName("product_id");
 
-  region1color = "";
-  region2color = "";
-  region3Color = "";
-  region4color = "";
-  region5color = "";
+  var region1color = "";
+  var region2color = "";
+  var region3Color = "";
+  var region4color = "";
+  var region5color = "";
 </script>
 <?php echo $header; ?>
 <div class="container">
@@ -195,18 +195,18 @@ var productId = getParameterByName("product_id");
                 for ($x = 0; $x < $region; $x++) {
                     if($x == 0){
                       $cutomregioncolor = explode(",", $region1);
-                     echo 'Color 1';
+                     echo '<div>'.$region1_name;
                      echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
                         $z = $y;
                     echo '<li id="'.$z.'" region="1" color="'.$cutomregioncolor[$y].'" onclick="customshowhide($(this));" style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;background-color:#'.$cutomregioncolor[$y].';"></li>';
                       }
-                      echo '</ul><br/><br/>';
+                      echo '</ul></div>';
                     }
 
                     if($x == 1){
-                      echo 'Color 2';
                       $cutomregioncolor = explode(".", $region2);
+                      echo '<div class="region2_title" style="display:none;width:100%;"><br/><br/>'.$region2_name;
                       echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
                       //  $z = $y+1;
@@ -214,12 +214,12 @@ var productId = getParameterByName("product_id");
                         echo '<li id="'.$y.'" region="2" color="'.$childregioncolor[1].'" onclick="customshowhide1($(this));"
                         class="region2_'.$childregioncolor[0].' region2" value='.$childregioncolor[0].' style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;display:none;background-color:#'.$childregioncolor[1].';"></li>';
                       }
-                      echo '</ul><br/><br/>';
+                      echo '</ul></div>';
                     }
 
                     if($x == 2){
-                      echo 'Color 3';
-                      $cutomregioncolor = explode(".", $region2);
+                      $cutomregioncolor = explode(".", $region3);
+                      echo '<div class="region3_title" style="display:none;width:100%;"><br/><br/>'.$region3_name;
                       echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
                       //  $z = $y+1;
@@ -227,26 +227,26 @@ var productId = getParameterByName("product_id");
                         echo '<li id="'.$y.'" region="3" color="'.$childregioncolor[1].'" onclick="customshowhide2($(this));"
                         class="region3_'.$childregioncolor[0].' region3" value='.$childregioncolor[0].' style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;display:none;background-color:#'.$childregioncolor[1].';"></li>';
                       }
-                      echo '</ul><br/><br/>';
+                      echo '</ul></div>';
                     }
 
 
                     if($x == 3){
-                     echo 'Color 4';
-                      $cutomregioncolor = explode(".", $region2);
-                      echo '<ul class="customPallette">';
+                     $cutomregioncolor = explode(".", $region4);
+                     echo '<div class="region4_title" style="display:none;width:100%;"><br/><br/>'.$region4_name;
+                     echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
                       //  $z = $y+1;
                         $childregioncolor =explode(",",$cutomregioncolor[$y]);
                         echo '<li id="'.$y.'" region="4" color="'.$childregioncolor[1].'" onclick="customshowhide3($(this));"
                         class="region4_'.$childregioncolor[0].' region4" value='.$childregioncolor[0].' style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;display:none;background-color:#'.$childregioncolor[1].';"></li>';
                       }
-                      echo '</ul><br/><br/>';
+                      echo '</ul></div>';
                     }
 
                     if($x == 4){
-                      echo 'Color 5';
-                      $cutomregioncolor = explode(".", $region2);
+                      $cutomregioncolor = explode(".", $region5);
+                      echo '<div class="region5_title" style="display:none;"><br/><br/>'.$region5_name;
                       echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
                       //  $z = $y+1;
@@ -254,7 +254,7 @@ var productId = getParameterByName("product_id");
                         echo '<li id="'.$y.'" region="5" color="'.$childregioncolor[1].'" onclick="customshowhide4($(this));"
                         class="region5_'.$childregioncolor[0].' region5" value='.$childregioncolor[0].' style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;display:none;background-color:#'.$childregioncolor[1].';"></li>';
                       }
-                      echo '</ul><br/><br/>';
+                      echo '</ul></div>';
                     }
                 } 
             }
@@ -267,7 +267,8 @@ var productId = getParameterByName("product_id");
           <div id="product">
             <?php if ($options) { ?>
             <h3 style="display:none;"><?php echo $text_option; ?></h3>
-            <a id="sizeChartbutton" href="#">Size Chart</a>
+           <!-- <a id="sizeChartbutton" href="#">Size Chart</a> -->
+     <a data-toggle="modal" data-target="#myModal" style="cursor:pointer;">Size Chart</a>
             <?php foreach ($options as $option) { ?>
             <?php if ($option['type'] == 'select') { ?>
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
@@ -346,7 +347,7 @@ var productId = getParameterByName("product_id");
             </div>
             <?php } ?>
             <?php if ($option['type'] == 'textarea') { ?>
-            <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+            <div style="display:none;" class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
               <label class="control-label" for="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['name']; ?></label>
               <textarea name="option[<?php echo $option['product_option_id']; ?>]" rows="5" placeholder="<?php echo $option['name']; ?>" id="input-option<?php echo $option['product_option_id']; ?>" class="form-control"><?php echo $option['value']; ?></textarea>
             </div>
@@ -595,22 +596,22 @@ var productId = getParameterByName("product_id");
 </div>
 <script type="text/javascript"><!--
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
-	$.ajax({
-		url: 'index.php?route=product/product/getRecurringDescription',
-		type: 'post',
-		data: $('input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
-		dataType: 'json',
-		beforeSend: function() {
-			$('#recurring-description').html('');
-		},
-		success: function(json) {
-			$('.alert, .text-danger').remove();
+  $.ajax({
+    url: 'index.php?route=product/product/getRecurringDescription',
+    type: 'post',
+    data: $('input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
+    dataType: 'json',
+    beforeSend: function() {
+      $('#recurring-description').html('');
+    },
+    success: function(json) {
+      $('.alert, .text-danger').remove();
 
-			if (json['success']) {
-				$('#recurring-description').html(json['success']);
-			}
-		}
-	});
+      if (json['success']) {
+        $('#recurring-description').html(json['success']);
+      }
+    }
+  });
 });
   $( "#combo-section").insertAfter(".thumbnails" ) ;
   $(".btn-look").insertAfter(".btn-wishlist");
@@ -625,122 +626,123 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
     $('#sizeChart').dialog('open');
   });
 
+
 //--></script>
 <script type="text/javascript"><!--
 $('#button-cart').on('click', function() {
-	$.ajax({
-		url: 'index.php?route=checkout/cart/add',
-		type: 'post',
-		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
-		dataType: 'json',
-		beforeSend: function() {
-			$('#button-cart').button('loading');
-		},
-		complete: function() {
-			$('#button-cart').button('reset');
-		},
-		success: function(json) {
-			$('.alert, .text-danger').remove();
-			$('.form-group').removeClass('has-error');
+  $.ajax({
+    url: 'index.php?route=checkout/cart/add',
+    type: 'post',
+    data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+    dataType: 'json',
+    beforeSend: function() {
+      $('#button-cart').button('loading');
+    },
+    complete: function() {
+      $('#button-cart').button('reset');
+    },
+    success: function(json) {
+      $('.alert, .text-danger').remove();
+      $('.form-group').removeClass('has-error');
 
-			if (json['error']) {
-				if (json['error']['option']) {
-					for (i in json['error']['option']) {
-						var element = $('#input-option' + i.replace('_', '-'));
+      if (json['error']) {
+        if (json['error']['option']) {
+          for (i in json['error']['option']) {
+            var element = $('#input-option' + i.replace('_', '-'));
 
-						if (element.parent().hasClass('input-group')) {
-							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-						} else {
-							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-						}
-					}
-				}
+            if (element.parent().hasClass('input-group')) {
+              element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+            } else {
+              element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+            }
+          }
+        }
 
-				if (json['error']['recurring']) {
-					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
-				}
+        if (json['error']['recurring']) {
+          $('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+        }
 
-				// Highlight any found errors
-				$('.text-danger').parent().addClass('has-error');
-			}
+        // Highlight any found errors
+        $('.text-danger').parent().addClass('has-error');
+      }
 
-			if (json['success']) {
-				$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+      if (json['success']) {
+        $('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
-				$('#cart > button').html(json['total']);
+        $('#cart > button').html(json['total']);
 
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
 
-				$('#cart > ul').load('index.php?route=common/cart/info ul li');
-			}
-		}
-	});
+        $('#cart > ul').load('index.php?route=common/cart/info ul li');
+      }
+    }
+  });
 });
 //--></script>
 <script type="text/javascript"><!--
 $('.date').datetimepicker({
-	pickTime: false
+  pickTime: false
 });
 
 $('.datetime').datetimepicker({
-	pickDate: true,
-	pickTime: true
+  pickDate: true,
+  pickTime: true
 });
 
 $('.time').datetimepicker({
-	pickDate: false
+  pickDate: false
 });
 
 $('button[id^=\'button-upload\']').on('click', function() {
-	var node = this;
+  var node = this;
 
-	$('#form-upload').remove();
+  $('#form-upload').remove();
 
-	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+  $('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
 
-	$('#form-upload input[name=\'file\']').trigger('click');
+  $('#form-upload input[name=\'file\']').trigger('click');
 
-	if (typeof timer != 'undefined') {
-    	clearInterval(timer);
-	}
+  if (typeof timer != 'undefined') {
+      clearInterval(timer);
+  }
 
-	timer = setInterval(function() {
-		if ($('#form-upload input[name=\'file\']').val() != '') {
-			clearInterval(timer);
+  timer = setInterval(function() {
+    if ($('#form-upload input[name=\'file\']').val() != '') {
+      clearInterval(timer);
 
-			$.ajax({
-				url: 'index.php?route=tool/upload',
-				type: 'post',
-				dataType: 'json',
-				data: new FormData($('#form-upload')[0]),
-				cache: false,
-				contentType: false,
-				processData: false,
-				beforeSend: function() {
-					$(node).button('loading');
-				},
-				complete: function() {
-					$(node).button('reset');
-				},
-				success: function(json) {
-					$('.text-danger').remove();
+      $.ajax({
+        url: 'index.php?route=tool/upload',
+        type: 'post',
+        dataType: 'json',
+        data: new FormData($('#form-upload')[0]),
+        cache: false,
+        contentType: false,
+        processData: false,
+        beforeSend: function() {
+          $(node).button('loading');
+        },
+        complete: function() {
+          $(node).button('reset');
+        },
+        success: function(json) {
+          $('.text-danger').remove();
 
-					if (json['error']) {
-						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
-					}
+          if (json['error']) {
+            $(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+          }
 
-					if (json['success']) {
-						alert(json['success']);
+          if (json['success']) {
+            alert(json['success']);
 
-						$(node).parent().find('input').attr('value', json['code']);
-					}
-				},
-				error: function(xhr, ajaxOptions, thrownError) {
-					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-				}
-			});
-		}
-	}, 500);
+            $(node).parent().find('input').attr('value', json['code']);
+          }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+          alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+      });
+    }
+  }, 500);
 });
 //--></script>
 <script type="text/javascript"><!--
@@ -757,45 +759,55 @@ $('#review').delegate('.pagination a', 'click', function(e) {
 $('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
 
 $('#button-review').on('click', function() {
-	$.ajax({
-		url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
-		type: 'post',
-		dataType: 'json',
-		data: 'name=' + encodeURIComponent($('input[name=\'name\']').val()) + '&text=' + encodeURIComponent($('textarea[name=\'text\']').val()) + '&rating=' + encodeURIComponent($('input[name=\'rating\']:checked').val() ? $('input[name=\'rating\']:checked').val() : ''),
-		beforeSend: function() {
-			$('#button-review').button('loading');
-		},
-		complete: function() {
-			$('#button-review').button('reset');
-		},
-		success: function(json) {
-			$('.alert-success, .alert-danger').remove();
+  $.ajax({
+    url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
+    type: 'post',
+    dataType: 'json',
+    data: 'name=' + encodeURIComponent($('input[name=\'name\']').val()) + '&text=' + encodeURIComponent($('textarea[name=\'text\']').val()) + '&rating=' + encodeURIComponent($('input[name=\'rating\']:checked').val() ? $('input[name=\'rating\']:checked').val() : ''),
+    beforeSend: function() {
+      $('#button-review').button('loading');
+    },
+    complete: function() {
+      $('#button-review').button('reset');
+    },
+    success: function(json) {
+      $('.alert-success, .alert-danger').remove();
 
-			if (json['error']) {
-				$('#review').after('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
-			}
+      if (json['error']) {
+        $('#review').after('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+      }
 
-			if (json['success']) {
-				$('#review').after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+      if (json['success']) {
+        $('#review').after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
 
-				$('input[name=\'name\']').val('');
-				$('textarea[name=\'text\']').val('');
-				$('input[name=\'rating\']:checked').prop('checked', false);
-			}
-		}
-	});
+        $('input[name=\'name\']').val('');
+        $('textarea[name=\'text\']').val('');
+        $('input[name=\'rating\']:checked').prop('checked', false);
+      }
+    }
+  });
 });
 
 $(document).ready(function() {
-	$('.thumbnails').magnificPopup({
-		type:'image',
-		delegate: 'a',
-		gallery: {
-			enabled:true
-		}
-	});
+  $('.thumbnails').magnificPopup({
+    type:'image',
+    delegate: 'a',
+    gallery: {
+      enabled:true
+    }
+  });
 });
+  $('#combo-section').on('hidden.bs.modal', function (e) {    
+        window.location.reload(true);
+    });
+var textareaforcolor = $('textarea')[0];
+$(textareaforcolor).val("");
 
+function setcolorintextarea(){
+$(textareaforcolor).val("");
+var myvalue = "Color 1: "+region1color+"\n Color 2: "+region2color+"\n Color 3: "+region2color+"\n Color 4: "+region4color+"\n Color 5: "+region5color;
+$(textareaforcolor).val(myvalue);
+}
 
 function customshowhide(element){
   var region = $(element).attr("region");
@@ -808,15 +820,28 @@ function customshowhide(element){
   $(".region3").hide();
   $(".region4").hide();
   $(".region5").hide();
+  
+  $(".region2_title").hide();
+  $(".region3_title").hide();
+  $(".region4_title").hide();
+  $(".region5_title").hide();
+if($(".region2_"+id).length > 0){
   $(".region2_"+id).show();
+  $(".region2_title").show();
+}else{
+  $(".region2_title").hide();
+}
+  
   //   if(color==0){
   //   color = "black";
   // }
-  $(".MagicZoomPlus img").attr("src","image/custom/"+productId+"/"+color+"_"+color+".jpg");
-   $(".MagicZoomPlus img").css("width","163px");
-  $(".MagicZoomBigImageCont div img").attr("src","image/custom/"+productId+"/"+color+"_"+color+".jpg");
-  $(".MagicThumb-expanded div img").attr("src","image/custom/"+productId+"/"+color+"_"+color+".jpg");
-  $(".MagicZoomBigImageCont div:not([class]) img").attr("src","image/custom/"+productId+"/"+color+"_"+color+".jpg");
+setcolorintextarea();
+  $(".MagicZoomPlus img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region1color+".jpg");
+   $(".MagicZoomPlus img").css("width","392px");
+//   $(".MagicZoomPlus img").css("width","163px");
+  $(".MagicZoomBigImageCont div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region1color+".jpg");
+  $(".MagicThumb-expanded div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region1color+".jpg");
+  $(".MagicZoomBigImageCont div:not([class]) img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region1color+".jpg");
 
   // $('.region1').hide();
   // $('.region'+regionNumber+'_'+className).show();
@@ -832,15 +857,29 @@ function customshowhide1(element){
     region2color = color;
   $(".region3").hide();
   $(".region4").hide();
-  $(".region3_"+id).show();
+  $(".region5").hide();
+
+ $(".region3_title").hide();
+  $(".region4_title").hide();
+  $(".region5_title").hide();
+
+  if($(".region3_"+id).length > 0){
+    $(".region3_"+id).show();
+    $(".region3_title").show();
+  }else{
+    $(".region3_title").hide();
+  }
+  
   //   if(color==0){
   //   color = "black";
   // }
-  $(".MagicZoomPlus img").attr("src","image/custom/"+productId+"/"+region1color+"_"+color+".jpg");
-   $(".MagicZoomPlus img").css("width","163px");
-  $(".MagicZoomBigImageCont div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+color+".jpg");
-  $(".MagicThumb-expanded div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+color+".jpg");
-  $(".MagicZoomBigImageCont div:not([class]) img").attr("src","image/custom/"+productId+"/"+region1color+"_"+color+".jpg");
+setcolorintextarea();
+  $(".MagicZoomPlus img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+".jpg");
+   $(".MagicZoomPlus img").css("width","392px");
+ //  $(".MagicZoomPlus img").css("width","163px");
+  $(".MagicZoomBigImageCont div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+".jpg");
+  $(".MagicThumb-expanded div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+".jpg");
+  $(".MagicZoomBigImageCont div:not([class]) img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+".jpg");
 }
 function customshowhide2(element){
   var region = $(element).attr("region");
@@ -850,16 +889,24 @@ function customshowhide2(element){
 //alert(region1color);
   var newclass = "region1_"+id;
     region3color = color;
-  $(".region4").hide();
-  $(".region3_"+id).show();
-  //   if(color==0){
-  //   color = "black";
-  // }
-  $(".MagicZoomPlus img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+color+".jpg");
-   $(".MagicZoomPlus img").css("width","163px");
-  $(".MagicZoomBigImageCont div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+color+".jpg");
-  $(".MagicThumb-expanded div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+color+".jpg");
-  $(".MagicZoomBigImageCont div:not([class]) img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+color+".jpg");
+    $(".region4").hide();
+    $(".region5").hide();
+
+$(".region4_title").hide();
+  $(".region5_title").hide();
+
+  if($(".region4_"+id).length > 0){
+    $(".region4_"+id).show();
+    $(".region4_title").show();
+  }else{
+    $(".region4_title").hide();
+  }
+  setcolorintextarea();
+  $(".MagicZoomPlus img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+".jpg");
+  $(".MagicZoomPlus img").css("width","392px");
+  $(".MagicZoomBigImageCont div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+".jpg");
+  $(".MagicThumb-expanded div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+".jpg");
+  $(".MagicZoomBigImageCont div:not([class]) img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+".jpg");
 }
 function customshowhide3(element){
   var region = $(element).attr("region");
@@ -869,13 +916,634 @@ function customshowhide3(element){
 //alert(region1color);
   var newclass = "region1_"+id;
     region4color = color;
-  $(".region4_"+id).show();
   
-  $(".MagicZoomPlus img").attr("src","image/custom/52/"+region1color+"_"+region2color+"_"+region3color+"_"+color+".jpg");
-   $(".MagicZoomPlus img").css("width","163px");
-  $(".MagicZoomBigImageCont div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+color+".jpg");
-  $(".MagicThumb-expanded div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+color+".jpg");
-  $(".MagicZoomBigImageCont div:not([class]) img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+color+".jpg");
+
+if($(".region5_"+id).length > 0){
+    $(".region5_"+id).show();
+    $(".region5_title").show();
+  }else{
+    $(".region5_title").hide();
+  }
+  setcolorintextarea();
+  $(".MagicZoomPlus img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+".jpg");
+   $(".MagicZoomPlus img").css("width","392px");
+  // $(".MagicZoomPlus img").css("width","163px");
+  $(".MagicZoomBigImageCont div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+".jpg");
+  $(".MagicThumb-expanded div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+".jpg");
+  $(".MagicZoomBigImageCont div:not([class]) img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+".jpg");
 }
+
+function customshowhide4(element){
+  var region = $(element).attr("region");
+  var color = $(element).attr("color");
+  var  id = $(element).attr("id");
+  console.log(region+" "+color+" "+ id);
+//alert(region1color);
+  var newclass = "region1_"+id;
+    region5color = color;
+ setcolorintextarea();
+  $(".MagicZoomPlus img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+"_"+region5color+".jpg");
+   $(".MagicZoomPlus img").css("width","392px");
+ //  $(".MagicZoomPlus img").css("width","163px");
+  $(".MagicZoomBigImageCont div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+"_"+region5color+".jpg");
+  $(".MagicThumb-expanded div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+"_"+region5color+".jpg");
+$(".MagicZoomBigImageCont div:not([class]) img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+"_"+region5color+".jpg");
+}
+
+$(".region2_title").hide();
+$(".region3_title").hide();
+  $(".region4_title").hide();
+  $(".region5_title").hide();
 //--></script>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Size Chart</h4> 
+        <div class="sizeSelectorsPopUp" style="text-align:center;">
+<input type="radio" name="size" class="button1" checked="checked"> Size in Inches  <input type="radio" name="size" class="button2"> Size in Centimeter
+      </div>
+      </div>
+      <div class="modal-body">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default size1">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Anarkali
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+       <table class="table table-striped sizeChartTable">
+  <tbody><tr class="mainSizes">
+    <th></th>
+    <th>2</th>
+    <th>4</th>
+    <th>6</th>
+    <th>8</th>
+    <th>10</th>
+    <th>12</th>
+    <th>14</th>
+    <th>Custom&nbsp;&nbsp;&nbsp;</th>
+  </tr>
+  <tr class="style">
+    <th class="style2">Bust</th>
+    <td>33.5</td>
+    <td>34.5</td>
+    <td>35.5</td>
+    <td>36.5</td>
+    <td>38.5</td>
+    <td>39.5</td>
+    <td>42.0</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Waist</th>
+    <td>26.0</td>
+    <td>27.0</td>
+    <td>28.0</td>
+    <td>29.0</td>
+    <td>30.5</td>
+    <td>32.0</td>
+    <td>34.0</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Low waist</th>
+    <td>30.0</td>
+    <td>31.0</td>
+    <td>32.0</td>
+    <td>33.0</td>
+    <td>34.5</td>
+    <td>36.0</td>
+    <td>38.5</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Hip</th>
+    <td>36.0</td>
+    <td>37.0</td>
+    <td>38.0</td>
+    <td>39.0</td>
+    <td>40.5</td>
+    <td>42.0</td>
+    <td>44.0</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Shoulder</th>
+    <td>13.5</td>
+    <td>14.0</td>
+    <td>14.5</td>
+    <td>15.0</td>
+    <td>15.5</td>
+    <td>16.0</td>
+    <td>16.5</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Regular length</th>
+    <td>45.0</td>
+    <td>45.0</td>
+    <td>45.0</td>
+    <td>45.0</td>
+    <td>45.0</td>
+    <td>45.0</td>
+    <td>45.0</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Floor length</th>
+    <td>54.0</td>
+    <td>54.0</td>
+    <td>54.0</td>
+    <td>54.0</td>
+    <td>54.0</td>
+    <td>54.0</td>
+    <td>54.0</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+</tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default size1">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Lehenga
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <table class="table table-striped sizeChartTable">
+  <tbody><tr class="mainSizes">
+    <th></th>
+    <th>2</th>
+    <th>4</th>
+    <th>6</th>
+    <th>8</th>
+    <th>10</th>
+    <th>12</th>
+    <th>14</th>
+    <th>Custom&nbsp;&nbsp;&nbsp;</th>
+  </tr>
+  <tr class="style">
+    <th class="style2">Waist</th>
+    <td>26.0</td>
+    <td>27.0</td>
+    <td>28.0</td>
+    <td>29.0</td>
+    <td>30.5</td>
+    <td>32.0</td>
+    <td>34.0</td>
+  <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Hip</th>
+    <td>36.0</td>
+    <td>37.0</td>
+    <td>38.0</td>
+    <td>39.0</td>
+    <td>40.5</td>
+    <td>42.0</td>
+    <td>44.0</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Regular length</th>
+    <td>42.0</td>
+    <td>42.0</td>
+    <td>42.0</td>
+    <td>43.0</td>
+    <td>43.0</td>
+    <td>43.0</td>
+    <td>43.0</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+</tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default size1">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Blouse
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <table class="table table-striped sizeChartTable">
+<tbody><tr class="mainSizes">
+    <th></th>
+    <th>2</th>
+    <th>4</th>
+    <th>6</th>
+    <th>8</th>
+    <th>10</th>
+    <th>12</th>
+    <th>14</th>
+    <th>Custom&nbsp;&nbsp;&nbsp;</th>
+  </tr>
+  <tr class="style">
+    <th class="style2">Bust</th>
+    <td>33.5</td>
+    <td>34.5</td>
+    <td>35.5</td>
+    <td>36.5</td>
+    <td>38.5</td>
+    <td>39.5</td>
+    <td>42</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Bicep round</th>
+    <td>12.0</td>
+    <td>12.0</td>
+    <td>12.0</td>
+    <td>12.5</td>
+    <td>12.5</td>
+    <td>12.5</td>
+    <td>13.0</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Waist</th>
+    <td>26.0</td>
+    <td>27.0</td>
+    <td>28.0</td>
+    <td>29.0</td>
+    <td>30.5</td>
+    <td>32.0</td>
+    <td>34.0</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Shoulder</th>
+    <td>13.5</td>
+    <td>14.0</td>
+    <td>14.5</td>
+    <td>15.0</td>
+    <td>15.5</td>
+    <td>16.0</td>
+    <td>16.5</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Front neck depth</th>
+    <td>7.0</td>
+    <td>7.0</td>
+    <td>7.0</td>
+    <td>7.0</td>
+    <td>7.0</td>
+    <td>7.0</td>
+    <td>7.0</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Back neck depth</th>
+    <td>10.0</td>
+    <td>10.0</td>
+    <td>10.0</td>
+    <td>10.0</td>
+    <td>10.0</td>
+    <td>10.0</td>
+    <td>10.0</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Blouse length</th>
+    <td>14.0</td>
+    <td>14.0</td>
+    <td>14.0</td>
+    <td>14.0</td>
+    <td>14.0</td>
+    <td>14.0</td>
+    <td>14.0</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  </tbody></table>
+      </div>
+    </div>
+  </div>
+<div class="panel panel-default size2" style="display:none;">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+          Anarkali
+        </a>
+      </h4>
+    </div>
+    <div id="collapse4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+       <table class="table table-striped sizeChartTable">
+    <tbody>
+<tbody><tr class="mainSizes">
+    <th></th>
+    <th>2</th>
+    <th>4</th>
+    <th>6</th>
+    <th>8</th>
+    <th>10</th>
+    <th>12</th>
+    <th>14</th>
+    <th>Custom&nbsp;&nbsp;&nbsp;</th>
+  </tr>
+  <tr class="style">
+    <th class="style2">Bust</th>
+    <td>85.09</td>
+    <td>87.63</td>
+    <td>90.17</td>
+    <td>92.71</td>
+    <td>96.52</td>
+    <td>100.33</td>
+    <td>106.68</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  
+  <tr class="style">
+    <th class="style2">Waist</th>
+    <td>66.04</td>
+    <td>68.58</td>
+    <td>71.12</td>
+    <td>73.66</td>
+    <td>77.47</td>
+    <td>81.28</td>
+    <td>86.36</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Low waist</th>
+    <td>76.2</td>
+    <td>78.74</td>
+    <td>81.28</td>
+    <td>83.82</td>
+    <td>87.63</td>
+    <td>91.44</td>
+    <td>97.79</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Hip</th>
+    <td>91.44</td>
+    <td>93.98</td>
+    <td>96.52</td>
+    <td>99.06</td>
+    <td>102.87</td>
+    <td>106.68</td>
+    <td>111.76</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Shoulder</th>
+    <td>34.29</td>      
+    <td>35.56</td>
+    <td>36.83</td>
+    <td>38.1</td>
+    <td>39.37</td>
+    <td>40.64</td>
+    <td>41.91</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Regular length</th>
+    <td>114.3</td>
+    <td>114.3</td>
+    <td>114.3</td>
+    <td>114.3</td>
+    <td>114.3</td>
+    <td>114.3</td>
+    <td>114.3</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Floor length</th>
+    <td>137.16</td>
+    <td>137.16</td>
+    <td>137.16</td>
+    <td>137.16</td>
+    <td>137.16</td>
+    <td>137.16</td>
+    <td>137.16</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+</tbody></table>
+
+      </div>
+    </div>
+  </div>
+<div class="panel panel-default size2" style="display:none;">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+          Lehenga
+        </a>
+      </h4>
+    </div>
+    <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <table class="table table-striped sizeChartTable">
+<tbody><tr class="mainSizes">
+    <th></th>
+    <th>2</th>
+    <th>4</th>
+    <th>6</th>
+    <th>8</th>
+    <th>10</th>
+    <th>12</th>
+    <th>14</th>
+    <th>Custom&nbsp;&nbsp;&nbsp;</th>
+  </tr>
+  <tr class="style">
+    <th class="style2">Waist</th>
+    <td>66.04</td>          
+    <td>68.58</td>
+    <td>71.12</td>
+    <td>73.66</td>
+    <td>77.47</td>
+    <td>81.28</td>
+    <td>86.36</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Hip</th>
+    <td>91.44</td>
+    <td>93.98</td>          
+    <td>96.52</td>
+    <td>99.06 </td>
+    <td>102.87</td>
+    <td>106.68</td>
+    <td>111.76</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Regular length</th>
+    <td>106.68  </td>
+    <td>106.68  </td>       
+    <td>106.68  </td>
+    <td>109.22</td>
+    <td>109.22</td>
+    <td>109.22</td>
+    <td>109.22</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  </tbody></table>
+      </div>
+    </div>
+  </div>
+
+<div class="panel panel-default size2" style="display:none;">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
+          Blouse
+        </a>
+      </h4>
+    </div>
+    <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <table class="table table-striped sizeChartTable">
+<tbody><tr class="mainSizes">
+    <th></th>
+    <th>2</th>
+    <th>4</th>
+    <th>6</th>
+    <th>8</th>
+    <th>10</th>
+    <th>12</th>
+    <th>14</th>
+    <th>Custom&nbsp;&nbsp;&nbsp;</th>
+  </tr>
+  <tr class="style">          
+
+    <th class="style2">Bust</th>
+    <td>85.09</td>
+    <td>87.63</td>
+    <td>90.17</td>
+    <td>92.71</td>
+    <td>96.52</td>
+    <td>100.33</td>
+    <td>106.68</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Bicep round</th>         
+
+    <td>30.48</td>
+    <td>30.48</td>
+    <td>30.48</td>
+    <td>31.75</td>
+    <td>31.75</td>
+    <td>31.75</td>
+    <td>33.02</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Waist</th>           
+
+    <td>66.04</td>
+    <td>68.58</td>
+    <td>71.12</td>
+    <td>73.66</td>
+    <td>77.47</td>
+    <td>81.28</td>
+    <td>86.36</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Shoulder</th>
+    <td>34.29</td>
+    <td>35.56</td>
+    <td>36.83</td>            
+    <td>38.1</td>
+    <td>39.37</td>
+    <td>40.64</td>
+    <td>41.91</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Front neck depth</th>
+    <td>17.78</td>
+    <td>17.78</td>
+    <td>17.78</td>
+    <td>17.78</td>
+    <td>17.78</td>
+    <td>17.78</td>
+    <td>17.78</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Back neck depth</th>
+    <td>25.4</td>
+    <td>25.4</td>
+    <td>25.4</td>
+    <td>25.4</td>
+    <td>25.4</td>
+    <td>25.4</td>
+    <td>25.4</td>
+    <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  <tr class="style">
+    <th class="style2">Blouse length</th>
+    <td>35.56</td>
+    <td>35.56</td>    
+    <td>35.56</td>
+    <td>35.56</td>
+    <td>35.56</td>
+    <td>35.56</td>
+      <td>35.56</td>
+      <td><input type="text" class="sizeChart"/></td>
+  </tr>
+  </tbody></table>
+      </div>
+
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-primary" data-dismiss="modal">Save Custom Size</button>
+      </div>
+      <div class="modal-footer" style="text-align:justify;">Note: The sizes mentioned are body measurements. All garments will be made with adequate loosing to ensure a comfortable fit. Please enter your body measurements while entering custom sizes.</div>
+    </div>
+  </div>
+</div>
+
 <?php echo $footer; ?>
+
+<script type="text/javascript">
+  var sizein = "";
+   var textareaforsize  = $("textarea")[1];
+  $(textareaforsize).val("");
+  $(".style td input").change(function(){
+    if($(".button2:checked").length == 0){
+      sizein = " Inches";
+    }else{
+      sizein =" Centimeter";
+    }
+    $("textarea").val("");
+    var alldom =  $(this).parent().parent().parent().children("tr");
+    var finalvalue= ""
+    for (var j=0; j < alldom.length; j++) {
+      var alltd = $(alldom[j]).children("td");
+      for (var k=7; k <alltd.length; k++) {
+          finalvalue=finalvalue+$(alltd[7]).parent().children(".style2").text()+" "+$(alltd[7]).children("input").val()+" in "+sizein+"\n";
+      };
+      
+    };
+    $(textareaforsize).val(finalvalue)
+
+  });
+</script>
+<script type="text/javascript">
+$( "select" ).change(function () {
+    if(($.trim($("select option:selected").text())) == "Custom")   
+    { 
+      $('#myModal').modal('show');
+    }
+  });
+</script>

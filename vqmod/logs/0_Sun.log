@@ -1,0 +1,30 @@
+---------- Date: 2015-08-23 14:47:03 ~ IP : 49.206.18.17 ----------
+REQUEST URI : /index.php?route=product/product&path=59&product_id=71
+MOD DETAILS:
+   modFile   : /var/www/html/vqmod/xml/simple_blog_catalog.xml
+   id        : VQMOD CORE FOR OPENCART - DO NOT REMOVE
+   version   : 1.4.x and 1.5.x
+   vqmver    : 2.4.0
+   author    : Opcrat
+
+File Name    : catalog/view/theme/*/template/common/footer.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php echo $special; ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-08-23 14:49:14 ~ IP : 49.206.18.17 ----------
+REQUEST URI : /index.php?route=product/product&path=59&product_id=50
+MOD DETAILS:
+   modFile   : /var/www/html/vqmod/xml/simple_blog_catalog.xml
+   id        : VQMOD CORE FOR OPENCART - DO NOT REMOVE
+   version   : 1.4.x and 1.5.x
+   vqmver    : 2.4.0
+   author    : Opcrat
+
+File Name    : catalog/view/theme/*/template/common/footer.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php echo $special; ?>
+
+----------------------------------------------------------------------
+
+

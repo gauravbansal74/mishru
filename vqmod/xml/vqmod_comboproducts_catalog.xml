@@ -5,15 +5,22 @@
 		  <add><![CDATA[
 			<script src="catalog/view/javascript/comboproducts.js" type="text/javascript"></script>
 			<style type="text/css">
+				.buyTheLook{
+				  width: 90px;
+  				  height: 25px;
+				}
 				#combo-section {
 					width: 100%;
 					margin: 0;
 				}
 				
 				#combo-section .combo-set {
-					padding: 0;
-					width: 100%;
-					min-height: 135px;
+					padding: 0 0 0 34px;
+					width: 32%;
+					min-height: 160px;
+					float: left;
+					margin: 0 0 60px;
+					right: 0;
 				}
 				
 				#combo-section .combo-set .combo-item {
@@ -31,15 +38,23 @@
 					text-align: center;
 				}
 				
-				.combo-item-name,.combo-item-price {
-					text-align: center;
+				.combo-item-name{
+					text-align: left;
+					font-size: medium;
+					word-wrap:break-word;
+					padding: 0px 0 0 18px;
+				}
+
+				.combo-item-price {
+					text-align: left;
 					font-size: smaller;
 					word-wrap:break-word;
+					padding: 0px 0 0 18px;
 				}
 				
 				.combo-action {
 					float:left;
-					margin:0px 10px;
+					margin:5px 0 0 0;
 					text-align:center;
 				}
 				
@@ -59,19 +74,24 @@
 				.btn-combo {
 					border: 1px solid #AF1E23;
 					border-radius: 4px;
-					box-shadow: #AF1E23;
 					margin:0;
 				}
+				.btn-combo:hover {
+					background: #AF1E23;
+					
+				}				
 				
 				.btn-combo-wishlist {
-					background: #AF1E23;
+					background:#b73438;
 					color:#fff;
 					margin:10px 0;
+					width:90px
 				}
 				
 				.btn-combo-cart {
 					color: #FFF;
-					background: #AF1E23;
+					background:#b73438;
+					width:90px
 				}
 			</style>
 		]]></add>
@@ -87,10 +107,8 @@
 				$this->load->model('catalog/product');
 				$this->load->model('checkout/combo_products');
 				
-				$getcombo = $this->model_checkout_combo_products->getCombo($combo_id);
-				
-				$products_in_combo = explode(",",$getcombo['product_id']);
-				
+				$getcombo = $this->model_checkout_combo_products->getCombo($combo_id);	
+				$products_in_combo = explode(",",$getcombo['product_id']);		
 				$price_total = 0;
 				$price_ori = 0;
 				$price_all = 0;
@@ -106,19 +124,18 @@
 					$product_info = $this->model_catalog_product->getProduct($product_id);
 
 					foreach ($this->model_catalog_product->getProductOptions($product_id) as $options) {
-
-						$size_dropdown[]='<div class="form-group required><label class="control-label" for="input-option'.$options['product_option_id'].'"></label><select name="option'.[$options['product_option_id']].'" id="input-option'.$options['product_option_id'].'" class="form-control"><option value="'.$options['name'].'">'.$options['name'].'</option>';
+						if ($options['name']=='Size'){
+						$size_dropdown[]='<div id="'.$product_id.'" class="form-group required" style="margin:4px 0 8px 0;"><label class="control-label" for="input-option'.$options['product_option_id'].'" style="display:none;"></label><select name="option['.$options['product_option_id'].']" id="input-option'.$options['product_option_id'].'" class="form-control buyTheLook"><option value="">'.$options['name'].'</option>';
 						
 						foreach ($options['product_option_value'] as $option_value) {
 							$size_dropdown1[]='<option value="'.$option_value['product_option_value_id'].'">'.$option_value['name'].'</option>';
 						}  
 						$size_dropdown2[]='</select></div>';
+						}
 					}
 					
 					$this->load->model('tool/image');
-					
-					$href = $this->url->link('product/product', 'product_id=' . $product_info['product_id']);
-					
+					$href = $this->url->link('product/product', 'product_id=' . $product_info['product_id']);	
 					if ($getcombo['override']) $price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')));
 					elseif ($product_info['special']) $price = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')));
 					else $price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')));
@@ -129,8 +146,8 @@
 					
 					$price_ori += $product_info['price'];
 					
-					if ($product_info['image']) $product_array[] = '<div class="combo-item"><div class="combo-item-img"><a href="'.$href.'"><img class="img-thumbnail" src="'. $this->model_tool_image->resize($product_info['image'], 80, 80) .'"></a></div><div class="combo-item-name">'.$product_info['name'].'</div><div class="combo-item-price">'.$price.'</div></div>';
-					else $product_array[] = '<div class="combo-item"><div class="combo-item-img"><a href="'.$href.'"><img class="img-thumbnail" src="'. $this->model_tool_image->resize('no_image.png', 80, 80) .'"></a></div><div class="combo-item-name">'.$product_info['name'].'</div><div class="combo-item-price">'.$price.'</div></div>';
+					if ($product_info['image']) $product_array[] = '<div class="combo-item-name">'.$product_info['name'].'</div><div class="combo-item-price">'.$price.'</div><div class="combo-item"><div class="combo-item-img"><a href="'.$href.'"><img class="img-thumbnail" src="'. $this->model_tool_image->resize($product_info['image'], 90, 115) .'"></a></div></div>';
+					else $product_array[] = '<div class="combo-item"><div class="combo-item-img"><a href="'.$href.'"><img class="img-thumbnail" src="'. $this->model_tool_image->resize('no_image.png', 90, 115) .'"></a></div><div class="combo-item-name">'.$product_info['name'].'</div><div class="combo-item-price">'.$price.'</div></div>';
 					
 					$wishlist_combo[] = 'wishlist_combo.add(\''.$product_id.'\')';
 					$cart_combo[] = 'cart_combo.add(\''.$product_id.'\')';
@@ -158,7 +175,7 @@
 				$html .= implode(' ',$size_dropdown);
 				$html .= implode(' ',$size_dropdown1);
 				$html .= implode(' ',$size_dropdown2);
-				$html .= '<div class="combo-action">'.$price_all.$cart_button.$wishlist_button.'</div>';
+				$html .= '<div class="combo-action">'.$cart_button.$wishlist_button.'</div>';
 				$html .= '</div>';
 				return $html;
 			}
@@ -174,13 +191,19 @@
 		<operation>
 		  <search position="after" ><![CDATA[if ($product_info) {]]></search>
 		  <add><![CDATA[
+
 			$getcombos = $this->model_checkout_combo_products->getCombosinclProduct($this->request->get['product_id']);
 			$html = '';
 			$buythelook_button ='';
 			if ($getcombos) {
-				$html .= '<div id="combo-section" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="combo-sectionLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">';
-				$html .= '<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="myModalLabel">'.$this->language->get('text_combo_header').'</h4></div>';
-				$html .='<div class="modal-body">';
+			$primary_product = $product_id;
+			$primary_product_href = $this->url->link('product/product', 'product_id=' .$primary_product);
+		  	$product_info1 = $this->model_catalog_product->getProduct($primary_product);
+		  	$this->load->model('tool/image');
+
+				$html .= '<div id="combo-section" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="combo-sectionLabel" aria-hidden="true"><div class="modal-dialog" style="width:800px;height:450px;"><div class="modal-content">';
+				$html .= '<div class="modal-header" style="padding:15px 15px 6px 0;"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;font-weight: lighter;font-style: initial;font-size: 24px;">'.$this->language->get('text_combo_header').'</h4></div>';
+				$html .='<div class="modal-body" style="padding:15px 36px;"><div class="primary-product" style="float: left;width: 35%;border-right: 1px solid #e5e5e5;padding: 0 40px 0 0;height: 100%;text-align:center;"><div class="primary-product-name" style="font-size:medium;word-wrap:break-word;">'.$product_info1['name'].'</div><div class="primary-product-img"><img src="'.$this->model_tool_image->resize($product_info1['image'], 213, 305).'"></div></div><div class="combo-products">';
 			}
 			foreach ($getcombos as $combo) {
 				$getcombo = $this->model_checkout_combo_products->getCombo($combo['combo_id']);
@@ -189,8 +212,8 @@
 				}
 			}
 			if ($getcombos) {
-			$html .= '</div></div></div></div>';
-			$buythelook_button ='<button type="button" href="javascript:void(0);" data-toggle="modal" data-target="#combo-section" class="btn btn-look btn-lg btn-block" title="Buy the Look">Buy the Look</button>';
+			$html .= '</div></div></div></div></div>';
+			$buythelook_button ='<button type="button" href="javascript:void(0);" data-toggle="modal" data-target="#combo-section" class="btn btn-look btn-lg btn-block" title="Shop the Look">Shop the Look</button>';
 			}
 		  ]]></add>
 		</operation>

@@ -31,8 +31,12 @@
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
+<link href='//fonts.googleapis.com/css?family=Sacramento' rel='stylesheet' type='text/css'>
 <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
-<link href="catalog/view/javascript/jquery/magnific/magnific-popup.css" rel="stylesheet">
+
+<link rel="stylesheet" href="catalog/view/css/responsiveslides.css">
+
+<script src="catalog/view/javascript/responsiveslides.js" type="text/javascript"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 <?php foreach ($styles as $style) { ?>
@@ -51,14 +55,13 @@
     <?php echo $language; ?>
     <div id="top-links" class="nav pull-right">
       <ul class="list-inline">
-        <li style="font-weight: bolder;text-transform: uppercase;color: #111;text-shadow: none;">Free Shipping Worldwide</li>
         <li class="dropdown"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span> <span class="caret"></span></a>
           <ul class="dropdown-menu dropdown-menu-right">
             <?php if ($logged) { ?>
             <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
             <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
             <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
-            <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
+            <li style="display:none;"><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
             <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
             <?php } else { ?>
             <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
@@ -101,7 +104,7 @@
       <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" style="font-family:sacramento;font-size:24px;">
         <?php foreach ($categories as $category) { ?>
         <?php if ($category['children']) { ?>
         <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
@@ -121,7 +124,6 @@
         <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
         <?php } ?>
         <?php } ?>
-   <li><a href="/blog" target="_new">Blog</a></li>
       </ul>
     </div>
   </nav>
