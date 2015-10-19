@@ -232,11 +232,15 @@ class ControllerProductProduct extends Controller {
 			$data['region3'] = $product_info['region3'];
 			$data['region4'] = $product_info['region4'];
 			$data['region5'] = $product_info['region5'];
+			$data['region6'] = $product_info['region6'];
+			$data['region7'] = $product_info['region7'];
 			$data['region1_name'] = $product_info['region1_name'];
 			$data['region2_name'] = $product_info['region2_name'];
 			$data['region3_name'] = $product_info['region3_name'];
 			$data['region4_name'] = $product_info['region4_name'];
 			$data['region5_name'] = $product_info['region5_name'];
+			$data['region6_name'] = $product_info['region6_name'];
+			$data['region7_name'] = $product_info['region7_name'];
 			$data['customizable'] = $product_info['customizable'];
 
 			$data['text_select'] = $this->language->get('text_select');

@@ -195,66 +195,88 @@ var productId = getParameterByName("product_id");
                 for ($x = 0; $x < $region; $x++) {
                     if($x == 0){
                       $cutomregioncolor = explode(",", $region1);
-                     echo '<div>'.$region1_name;
-                     echo '<ul class="customPallette">';
+                      echo '<div>'.$region1_name;
+                      echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
                         $z = $y;
-                    echo '<li id="'.$z.'" region="1" color="'.$cutomregioncolor[$y].'" onclick="customshowhide($(this));" style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;background-color:#'.$cutomregioncolor[$y].';"></li>';
+                        echo '<li id="'.$z.'" region="1" color="'.$cutomregioncolor[$y].'" onclick="customshowhide($(this));" style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;background-color:#'.$cutomregioncolor[$y].';"></li>';
                       }
                       echo '</ul></div>';
                     }
 
                     if($x == 1){
-                      $cutomregioncolor = explode(".", $region2);
-                      echo '<div class="region2_title" style="display:none;width:100%;"><br/><br/>'.$region2_name;
+                      $cutomregioncolor = explode(",", $region2);
+                      echo '<div>'.$region2_name;
                       echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
-                      //  $z = $y+1;
-                        $childregioncolor =explode(",",$cutomregioncolor[$y]);
-                        echo '<li id="'.$y.'" region="2" color="'.$childregioncolor[1].'" onclick="customshowhide1($(this));"
-                        class="region2_'.$childregioncolor[0].' region2" value='.$childregioncolor[0].' style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;display:none;background-color:#'.$childregioncolor[1].';"></li>';
+                        $z = $y;
+                        echo '<li id="'.$z.'" region="2" color="'.$cutomregioncolor[$y].'" onclick="customshowhide($(this));" style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;background-color:#'.$cutomregioncolor[$y].';"></li>';
                       }
                       echo '</ul></div>';
                     }
 
                     if($x == 2){
-                      $cutomregioncolor = explode(".", $region3);
-                      echo '<div class="region3_title" style="display:none;width:100%;"><br/><br/>'.$region3_name;
+                      $cutomregioncolor = explode(",", $region3);
+                      echo '<div>'.$region3_name;
                       echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
-                      //  $z = $y+1;
-                        $childregioncolor =explode(",",$cutomregioncolor[$y]);
-                        echo '<li id="'.$y.'" region="3" color="'.$childregioncolor[1].'" onclick="customshowhide2($(this));"
-                        class="region3_'.$childregioncolor[0].' region3" value='.$childregioncolor[0].' style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;display:none;background-color:#'.$childregioncolor[1].';"></li>';
+                        $z = $y;
+                        echo '<li id="'.$z.'" region="3" color="'.$cutomregioncolor[$y].'" onclick="customshowhide($(this));" style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;background-color:#'.$cutomregioncolor[$y].';"></li>';
                       }
                       echo '</ul></div>';
                     }
 
 
                     if($x == 3){
-                     $cutomregioncolor = explode(".", $region4);
-                     echo '<div class="region4_title" style="display:none;width:100%;"><br/><br/>'.$region4_name;
-                     echo '<ul class="customPallette">';
+                    $cutomregioncolor = explode(",", $region4);
+                      echo '<div>'.$region4_name;
+                      echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
-                      //  $z = $y+1;
-                        $childregioncolor =explode(",",$cutomregioncolor[$y]);
-                        echo '<li id="'.$y.'" region="4" color="'.$childregioncolor[1].'" onclick="customshowhide3($(this));"
-                        class="region4_'.$childregioncolor[0].' region4" value='.$childregioncolor[0].' style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;display:none;background-color:#'.$childregioncolor[1].';"></li>';
+                        $z = $y;
+                        echo '<li id="'.$z.'" region="4" style="display:inline-block;float:left;">
+                                <img src="'.$cutomregioncolor[$y].'" width="70px"/>
+                              </li>';
                       }
-                      echo '</ul></div>';
+                      echo '</ul></div><br/><br/>';
                     }
 
                     if($x == 4){
-                      $cutomregioncolor = explode(".", $region5);
-                      echo '<div class="region5_title" style="display:none;"><br/><br/>'.$region5_name;
+                       $cutomregioncolor = explode(",", $region5);
+                      echo '<div>'.$region5_name;
                       echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
-                      //  $z = $y+1;
-                        $childregioncolor =explode(",",$cutomregioncolor[$y]);
-                        echo '<li id="'.$y.'" region="5" color="'.$childregioncolor[1].'" onclick="customshowhide4($(this));"
-                        class="region5_'.$childregioncolor[0].' region5" value='.$childregioncolor[0].' style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;display:none;background-color:#'.$childregioncolor[1].';"></li>';
+                        $z = $y;
+                        echo '<li id="'.$z.'" region="4" style="display:inline-block;float:left;">
+                                <img src="'.$cutomregioncolor[$y].'" width="70px"/>
+                              </li>';
                       }
-                      echo '</ul></div>';
+                      echo '</ul></div<br/><br/><br/><br/>';
+                    }
+
+                     if($x == 5){
+                       $cutomregioncolor = explode(",", $region6);
+                      echo '<div>'.$region6_name;
+                      echo '<ul class="customPallette">';
+                      for($y = 0; $y < count($cutomregioncolor); $y++){
+                        $z = $y;
+                        echo '<li id="'.$z.'" region="4" style="display:inline-block;float:left;">
+                                <img src="'.$cutomregioncolor[$y].'" width="70px"/>
+                              </li>';
+                      }
+                      echo '</ul></div<br/><br/><br/><br/>';
+                    }
+
+                     if($x == 6){
+                       $cutomregioncolor = explode(",", $region7);
+                      echo '<div>'.$region7_name;
+                      echo '<ul class="customPallette">';
+                      for($y = 0; $y < count($cutomregioncolor); $y++){
+                        $z = $y;
+                        echo '<li id="'.$z.'" region="4" style="display:inline-block;float:left;">
+                                <img src="'.$cutomregioncolor[$y].'" width="70px"/>
+                              </li>';
+                      }
+                      echo '</ul></div<br/><br/><br/><br/>';
                     }
                 } 
             }

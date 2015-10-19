@@ -9,3 +9,7 @@
 2015-10-19 19:23:29 - PHP Notice:  Error: Table 'db_mishru_2.oc_zone_to_geo_zone' doesn't exist<br />Error No: 1146<br />SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '99' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '1476') ORDER BY tr1.priority ASC in /var/www/html/mishru/system/library/db/mysqli.php on line 41
 2015-10-19 19:23:29 - PHP Notice:  Trying to get property of non-object in /var/www/html/mishru/system/library/tax.php on line 56
 2015-10-19 19:23:29 - PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/mishru/system/library/tax.php on line 56
+2015-10-19 20:47:11 - PHP Notice:  Undefined index: region6 in /var/www/html/mishru/admin/model/catalog/product.php on line 432
+2015-10-19 20:47:11 - PHP Notice:  Undefined index: region7 in /var/www/html/mishru/admin/model/catalog/product.php on line 433
+2015-10-19 20:47:11 - PHP Notice:  Undefined index: region6_name in /var/www/html/mishru/admin/model/catalog/product.php on line 439
+2015-10-19 20:47:11 - PHP Notice:  Undefined index: region7_name in /var/www/html/mishru/admin/model/catalog/product.php on line 440

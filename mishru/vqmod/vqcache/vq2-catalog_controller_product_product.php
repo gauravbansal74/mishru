@@ -351,6 +351,8 @@ class ControllerProductProduct extends Controller {
 			$data['region3'] = $product_info['region3'];
 			$data['region4'] = $product_info['region4'];
 			$data['region5'] = $product_info['region5'];
+			$data['region6'] = $product_info['region6'];
+			$data['region7'] = $product_info['region7'];
 			$data['customizable'] = $product_info['customizable'];
 
 			$data['text_select'] = $this->language->get('text_select');

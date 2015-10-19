@@ -981,6 +981,28 @@
                         <?php } ?>
                       </div>
                 </div>
+
+
+                <div class="form-group">
+                      <label class="col-sm-2 control-label" for="input-region6<?php echo $language['language_id']; ?>"><?php echo $entry_region6; ?></label>
+                      <div class="col-sm-10">
+                        <input type="text" name="product_description[<?php echo $language['language_id']; ?>][region6]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['region6'] : ''; ?>" placeholder="<?php echo $entry_region6; ?>" id="input-region6<?php echo $language['language_id']; ?>" class="form-control" />
+                        <?php if (isset($error_name[$language['language_id']])) { ?>
+                        <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
+                        <?php } ?>
+                      </div>
+                </div>
+
+
+                <div class="form-group">
+                      <label class="col-sm-2 control-label" for="input-region7<?php echo $language['language_id']; ?>"><?php echo $entry_region7; ?></label>
+                      <div class="col-sm-10">
+                        <input type="text" name="product_description[<?php echo $language['language_id']; ?>][region7]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['region7'] : ''; ?>" placeholder="<?php echo $entry_region7; ?>" id="input-region7<?php echo $language['language_id']; ?>" class="form-control" />
+                        <?php if (isset($error_name[$language['language_id']])) { ?>
+                        <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
+                        <?php } ?>
+                      </div>
+                </div>
               
             </div>
           </div>

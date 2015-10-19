@@ -1,11 +1,11 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'https://mishru.com/admin/');
-define('HTTP_CATALOG', 'https://mishru.com/');
+define('HTTP_SERVER', 'http://localhost/mishru/admin/');
+define('HTTP_CATALOG', 'http://localhost/mishru/');
 
 // HTTPS
-define('HTTPS_SERVER', 'https://mishru.com/admin/');
-define('HTTPS_CATALOG', 'https://mishru.com/');
+define('HTTPS_SERVER', 'http://localhost/mishru/admin/');
+define('HTTPS_CATALOG', 'http://localhost/mishru/');
 
 // DIR
 define('DIR_APPLICATION', '/var/www/html/mishru/admin/');

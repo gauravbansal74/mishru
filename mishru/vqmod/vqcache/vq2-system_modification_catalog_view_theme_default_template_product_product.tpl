@@ -222,6 +222,35 @@ var productId = getParameterByName("product_id");
                       }
                       echo '</ul><br/><br/>';
                     }
+
+
+                    if($x == 5){
+                      echo 'Color 2';
+                      $cutomregioncolor = explode(".", $region2);
+                      echo '<ul >';
+                      for($y = 0; $y < count($cutomregioncolor); $y++){
+                      //  $z = $y+1;
+                        $childregioncolor =explode(",",$cutomregioncolor[$y]);
+                        echo '<li id="'.$y.'" region="5" color="'.$childregioncolor[1].'" onclick="customshowhide4($(this));"
+                        class="region5_'.$childregioncolor[0].' region5" value='.$childregioncolor[0].' style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;display:none;background-color:#'.$childregioncolor[1].';"></li>';
+                      }
+                      echo '</ul><br/><br/>';
+                    }
+
+
+
+                    if($x == 6){
+                      echo 'Color 2';
+                      $cutomregioncolor = explode(".", $region2);
+                      echo '<ul >';
+                      for($y = 0; $y < count($cutomregioncolor); $y++){
+                      //  $z = $y+1;
+                        $childregioncolor =explode(",",$cutomregioncolor[$y]);
+                        echo '<li id="'.$y.'" region="5" color="'.$childregioncolor[1].'" onclick="customshowhide4($(this));"
+                        class="region5_'.$childregioncolor[0].' region5" value='.$childregioncolor[0].' style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;display:none;background-color:#'.$childregioncolor[1].';"></li>';
+                      }
+                      echo '</ul><br/><br/>';
+                    }
                 } 
             }
 
