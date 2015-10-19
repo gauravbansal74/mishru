@@ -296,3 +296,9 @@ admin/controller/common/filemanager.php
 admin/language/english/common/filemanager.php
 admin/view/template/common/filemanager.tpl
 admin/controller/common/logout.php
+catalog/controller/module/featured.php
+catalog/language/english/module/featured.php
+catalog/controller/module/carousel.php
+catalog/view/theme/default/template/module/carousel.tpl
+catalog/model/total/sub_total.php
+catalog/language/english/total/sub_total.php

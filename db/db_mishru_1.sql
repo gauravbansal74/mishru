@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 19, 2015 at 03:16 PM
+-- Generation Time: Oct 19, 2015 at 03:22 PM
 -- Server version: 5.5.41-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.9
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `db_mishru_2`
+-- Database: `db_mishru_1`
 --
 
 -- --------------------------------------------------------
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `oc_address` (
   `custom_field` text NOT NULL,
   PRIMARY KEY (`address_id`),
   KEY `customer_id` (`customer_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `oc_address`
@@ -54,9 +54,10 @@ INSERT INTO `oc_address` (`address_id`, `customer_id`, `firstname`, `lastname`, 
 (4, 4, 'kauaa', 'crow', '', 'H,no 102, e block, may flower park', '', 'hyderabad', '500076', 99, 1476, ''),
 (5, 4, 'kauaa', 'crow', '', 'H,no 102, e block, may flower park', '', 'hyderabad', '500076', 99, 1476, ''),
 (6, 4, 'kauaa', 'kaki', 'blacl', 'H,no 102, e block, may flower park', '', 'hyderabad', 'poiuyt', 99, 1476, ''),
-(7, 5, 'Nikhil', 'Nagarajan', '', 'Begumpet', '', 'Hyderabad', '500016', 99, 1476, ''),
 (8, 6, 'Praneet', 'Chandra', '', 'D-31', '', 'Hyderabad', '500034', 99, 1476, ''),
-(9, 7, 'Gaurav', 'Kumar', '', 'aslkh`', '', 'lkjk', '125055', 99, 1475, '');
+(9, 7, 'Gaurav', 'Kumar', '', 'aslkh`', '', 'lkjk', '125055', 99, 1475, ''),
+(7, 5, 'Nikhil', 'Nagarajan', '', 'Koundinya, 45 Chikoti Gardens', 'Begumpet', 'Hyderabad', '500016', 99, 1476, 'a:0:{}'),
+(10, 8, 'Gaurav', 'Kumar', '', 'aslkh`', '', 'lkjk', '125055', 99, 1475, '');
 
 -- --------------------------------------------------------
 
@@ -185,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `oc_attribute` (
   `attribute_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`attribute_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 
@@ -250,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `oc_banner` (
   `name` varchar(64) NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`banner_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `oc_banner`
@@ -272,17 +273,17 @@ CREATE TABLE IF NOT EXISTS `oc_banner_image` (
   `image` varchar(255) NOT NULL,
   `sort_order` int(3) NOT NULL DEFAULT '0',
   PRIMARY KEY (`banner_image_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=106 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=110 ;
 
 --
 -- Dumping data for table `oc_banner_image`
 --
 
 INSERT INTO `oc_banner_image` (`banner_image_id`, `banner_id`, `link`, `image`, `sort_order`) VALUES
-(102, 7, '', 'catalog/Slider/banner-1.jpg', 0),
-(103, 7, '', 'catalog/Slider/banner-2.jpg', 0),
-(104, 7, '', 'catalog/Slider/banner-3.jpg', 0),
-(105, 7, '', 'catalog/Slider/Banner-4.jpg', 0);
+(109, 7, '', 'catalog/Slider/Banner-4.jpg', 0),
+(108, 7, '', 'catalog/Slider/banner-3.jpg', 0),
+(107, 7, '', 'catalog/Slider/banner-2.jpg', 0),
+(106, 7, '', 'catalog/Slider/banner-1.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -303,10 +304,10 @@ CREATE TABLE IF NOT EXISTS `oc_banner_image_description` (
 --
 
 INSERT INTO `oc_banner_image_description` (`banner_image_id`, `language_id`, `banner_id`, `title`) VALUES
-(105, 1, 7, 'Slider4'),
-(103, 1, 7, 'Slider2'),
-(104, 1, 7, 'Slider3'),
-(102, 1, 7, 'Slider1');
+(109, 1, 7, 'Slider4'),
+(108, 1, 7, 'Slider3'),
+(107, 1, 7, 'Slider2'),
+(106, 1, 7, 'Slider1');
 
 -- --------------------------------------------------------
 
@@ -333,9 +334,9 @@ CREATE TABLE IF NOT EXISTS `oc_category` (
 --
 
 INSERT INTO `oc_category` (`category_id`, `image`, `parent_id`, `top`, `column`, `sort_order`, `status`, `date_added`, `date_modified`) VALUES
-(61, '', 0, 0, 1, 0, 1, '2015-05-09 04:46:27', '2015-05-09 04:46:27'),
+(61, '', 0, 1, 1, 0, 1, '2015-05-09 04:46:27', '2015-08-21 07:21:45'),
 (60, '', 0, 1, 1, 0, 1, '2015-04-28 10:36:56', '2015-04-28 10:36:56'),
-(59, '', 0, 1, 1, 0, 1, '2015-04-28 10:36:12', '2015-05-19 15:40:21');
+(59, '', 0, 1, 1, 0, 1, '2015-04-28 10:36:12', '2015-06-21 08:15:17');
 
 -- --------------------------------------------------------
 
@@ -361,8 +362,8 @@ CREATE TABLE IF NOT EXISTS `oc_category_description` (
 
 INSERT INTO `oc_category_description` (`category_id`, `language_id`, `name`, `description`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
 (60, 1, 'Lehengas', '&lt;p&gt;&lt;b style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;Lehenga&lt;/b&gt;&lt;span style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;&amp;nbsp;or lehnga or&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;Ghagra&lt;/b&gt;&lt;span style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;&amp;nbsp;or&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;Pavadai&lt;/b&gt;&lt;span style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;&amp;nbsp;in Tamil or&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;Langa&lt;/b&gt;&lt;span style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;&amp;nbsp;in Telugu and Kannada&amp;nbsp;&lt;/span&gt;&lt;sup id=&quot;cite_ref-Fashions_from_India_and_Pakistan_-_Tom_Tierney_1-0&quot; class=&quot;reference&quot; style=&quot;line-height: 1; unicode-bidi: -webkit-isolate; font-size: 11.1999998092651px; color: rgb(37, 37, 37); font-family: sans-serif;&quot;&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Lehenga#cite_note-Fashions_from_India_and_Pakistan_-_Tom_Tierney-1&quot; style=&quot;color: rgb(11, 0, 128); white-space: nowrap; background-image: none; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;span style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;&amp;nbsp;is a form of&amp;nbsp;&lt;/span&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Skirt&quot; title=&quot;Skirt&quot; style=&quot;color: rgb(11, 0, 128); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px; background: none rgb(255, 255, 255);&quot;&gt;skirt&lt;/a&gt;&lt;span style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;&amp;nbsp;which is long, embroidered and pleated. It is worn as the bottom portion of a&amp;nbsp;&lt;/span&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Gagra_choli&quot; title=&quot;Gagra choli&quot; style=&quot;color: rgb(11, 0, 128); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px; background: none rgb(255, 255, 255);&quot;&gt;Gagra choli&lt;/a&gt;&lt;span style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;&amp;nbsp;or&amp;nbsp;&lt;/span&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Langa_Voni&quot; title=&quot;Langa Voni&quot; style=&quot;color: rgb(11, 0, 128); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px; background: none rgb(255, 255, 255);&quot;&gt;Langa Voni&lt;/a&gt;&lt;span style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;. It is secured at the waist and leaves the lower back and&amp;nbsp;&lt;/span&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Midriff&quot; title=&quot;Midriff&quot; style=&quot;color: rgb(11, 0, 128); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px; background: none rgb(255, 255, 255);&quot;&gt;midriff&lt;/a&gt;&lt;span style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;bare.&lt;/span&gt;&lt;sup id=&quot;cite_ref-2&quot; class=&quot;reference&quot; style=&quot;line-height: 1; unicode-bidi: -webkit-isolate; font-size: 11.1999998092651px; color: rgb(37, 37, 37); font-family: sans-serif;&quot;&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Lehenga#cite_note-2&quot; style=&quot;color: rgb(11, 0, 128); white-space: nowrap; background-image: none; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;span style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;&amp;nbsp;In North India and&amp;nbsp;&lt;/span&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Pakistan&quot; title=&quot;Pakistan&quot; style=&quot;color: rgb(11, 0, 128); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px; background: none rgb(255, 255, 255);&quot;&gt;Pakistan&lt;/a&gt;&lt;span style=&quot;color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; line-height: 22.3999996185303px;&quot;&gt;&amp;nbsp;a lot of embroidery work is done on a lehenga and is popular during the festivals and weddings&lt;/span&gt;&lt;br&gt;&lt;/p&gt;', 'Lehenga', '', ''),
-(59, 1, 'Anarkalis', '&lt;h1 style=&quot;font-stretch: normal; font-size: 28px; line-height: 30px; font-family: FuturaStd, Tahoma, sans-serif; letter-spacing: 2px; margin-bottom: 17px;margin-top:0px; text-align: center; text-transform: uppercase; color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;display: block; color: rgb(106, 106, 106); font-stretch: normal; font-size: 12px; line-height: 20px; letter-spacing: 0px; margin: 0px;&quot;&gt;WOMEN''S&lt;/span&gt;JUMPERS &amp;amp; CARDIGANS&lt;/h1&gt;\r\n&lt;p class=&quot;copy&quot; style=&quot;margin-right: auto; margin-bottom: 0px; margin-left: auto; padding: 0px; font-stretch: normal; line-height: 14px; font-family: FuturaStd, Tahoma, sans-serif; text-align: center; width: 650px; color: rgb(0, 0, 0);&quot;&gt;Rework your blanket knits with festival-ready fringing and tasseled ponchos by Abercrombie &amp;amp; Fitch. We’re talking clean lines in structured knits and longline coatigans for cool cover-ups.&lt;/p&gt;', 'Anarkalis', '', ''),
-(61, 1, 'Customizables', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'Customizable', '', '');
+(61, 1, 'Customizables', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'Customizable', '', ''),
+(59, 1, 'Suits ', '&lt;h1 style=&quot;font-stretch: normal; font-size: 28px; line-height: 30px; font-family: FuturaStd, Tahoma, sans-serif; letter-spacing: 2px; margin-bottom: 17px;margin-top:0px; text-align: center; text-transform: uppercase; color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;display: block; color: rgb(106, 106, 106); font-stretch: normal; font-size: 12px; line-height: 20px; letter-spacing: 0px; margin: 0px;&quot;&gt;WOMEN''S&lt;/span&gt;&lt;/h1&gt;&lt;h1 style=&quot;font-stretch: normal; font-size: 28px; line-height: 30px; font-family: FuturaStd, Tahoma, sans-serif; letter-spacing: 2px; margin-bottom: 17px;margin-top:0px; text-align: center; text-transform: uppercase; color: rgb(0, 0, 0);&quot;&gt;Kurta Sets / ANARKALI''s / salwar sets&lt;/h1&gt;\r\n&lt;p class=&quot;copy&quot; style=&quot;margin-right: auto; margin-bottom: 0px; margin-left: auto; padding: 0px; font-stretch: normal; line-height: 14px; font-family: FuturaStd, Tahoma, sans-serif; text-align: center; width: 650px; color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(143, 143, 143); font-family: lora, ''times new roman''; font-size: 11px; letter-spacing: 1.0800000429153442px; line-height: 20.520000457763672px; text-transform: uppercase; text-decoration: underline;&quot;&gt;&amp;nbsp;INDIAN FORMAL, ETHNIC &amp;amp; EMBROIDERED SUITS&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;/p&gt;', 'Anarkalis', '', '');
 
 -- --------------------------------------------------------
 
@@ -457,7 +458,9 @@ CREATE TABLE IF NOT EXISTS `oc_combo_category` (
 --
 
 INSERT INTO `oc_combo_category` (`combo_id`, `category_id`) VALUES
-(3, 59);
+(3, 59),
+(4, 59),
+(5, 59);
 
 -- --------------------------------------------------------
 
@@ -475,7 +478,9 @@ CREATE TABLE IF NOT EXISTS `oc_combo_products` (
 --
 
 INSERT INTO `oc_combo_products` (`combo_id`, `product_id`) VALUES
-(3, 52);
+(3, 50),
+(4, 50),
+(5, 50);
 
 -- --------------------------------------------------------
 
@@ -494,14 +499,16 @@ CREATE TABLE IF NOT EXISTS `oc_combo_setting` (
   `priority` int(3) NOT NULL DEFAULT '0',
   `override` int(11) NOT NULL,
   PRIMARY KEY (`combo_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `oc_combo_setting`
 --
 
 INSERT INTO `oc_combo_setting` (`combo_id`, `combo_name`, `primary_product`, `product_id`, `discount_type`, `discount_number`, `display_detail`, `priority`, `override`) VALUES
-(3, 'second', 52, '50', 'fixed amount', 1, 1, 1, 0);
+(3, 'Trial1', 50, '59', 'fixed amount', 0, 1, 1, 0),
+(4, 'Trial2', 50, '50', 'fixed amount', 0, 1, 0, 0),
+(5, 'Trial3', 50, '52', 'fixed amount', 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -877,10 +884,10 @@ CREATE TABLE IF NOT EXISTS `oc_currency` (
 --
 
 INSERT INTO `oc_currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-(1, 'Pound Sterling', 'GBP', '£', '', '2', 0.01020000, 1, '2015-05-27 19:26:45'),
-(2, 'US Dollar', 'USD', '$', '', '2', 0.01560000, 1, '2015-05-27 19:26:45'),
-(3, 'Euro', 'EUR', '', '€', '2', 0.01440000, 1, '2015-05-27 19:26:45'),
-(4, 'Indian Rupee', 'INR', 'Rs.', '', '', 1.00000000, 1, '2015-05-27 22:19:03');
+(1, 'Pound Sterling', 'GBP', '£', '', '2', 0.00990000, 1, '2015-10-19 17:27:57'),
+(2, 'US Dollar', 'USD', '$', '', '2', 0.01540000, 1, '2015-10-19 17:27:57'),
+(3, 'Euro', 'EUR', '', '€', '2', 0.01360000, 1, '2015-10-19 17:27:57'),
+(4, 'Indian Rupee', 'INR', 'Rs.', '', '', 1.00000000, 1, '2015-10-19 17:27:57');
 
 -- --------------------------------------------------------
 
@@ -911,7 +918,7 @@ CREATE TABLE IF NOT EXISTS `oc_customer` (
   `token` varchar(255) NOT NULL,
   `date_added` datetime NOT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `oc_customer`
@@ -919,12 +926,13 @@ CREATE TABLE IF NOT EXISTS `oc_customer` (
 
 INSERT INTO `oc_customer` (`customer_id`, `customer_group_id`, `store_id`, `firstname`, `lastname`, `email`, `telephone`, `fax`, `password`, `salt`, `cart`, `wishlist`, `newsletter`, `address_id`, `custom_field`, `ip`, `status`, `approved`, `safe`, `token`, `date_added`) VALUES
 (1, 1, 0, 'Praneet', 'Chandra', 'praneet.chandra@colossus360.com', '01234567890', '', 'ca3828e9adcb7d4b1392b3e0e61e6ba4a5a2cf27', '936ec5297', 'a:0:{}', '', 1, 1, '', '49.206.32.27', 1, 1, 0, '', '2015-04-28 12:26:33'),
-(2, 1, 0, 'Praneet', 'Chandra', 'praneetsahaj@gmail.com', '0987654321', '', '6a49606c1e4e0d25071551889549873406a18aea', '232a2e2dc', 'a:0:{}', 'a:1:{i:0;i:50;}', 1, 2, '', '111.93.24.238', 1, 1, 0, '', '2015-05-04 08:03:45'),
+(2, 1, 0, 'Praneet', 'Chandra', 'praneetsahaj@gmail.com', '0987654321', '', '409549eb5fc76f30a9afbf66767b001f078b92d3', 'ca0e377e1', 'a:1:{s:84:"YToyOntzOjEwOiJwcm9kdWN0X2lkIjtpOjcyO3M6Njoib3B0aW9uIjthOjE6e2k6MjczO3M6MjoiNTYiO319";i:999999;}', 'a:1:{i:0;i:50;}', 1, 2, '', '49.206.42.21', 1, 1, 0, '', '2015-05-04 08:03:45'),
 (3, 1, 0, '98778675', '&amp;^%8778', 'bansal.kauaa@gmail.com', 'poiuytrewq', '', 'bca68fcb1d4b7e292dbc5515c95d03a83f9002fe', '8e17b2eed', 'a:0:{}', '', 1, 3, '', '49.206.62.103', 1, 1, 0, '', '2015-05-20 13:40:07'),
-(4, 1, 0, 'kauaa', 'crow', 'aman.aviator1@gmail.com', '7799456642', '', '5153330d8db8d1f3f9eafa937591f50d1f9fd68a', '6a0199798', 'a:0:{}', 'a:1:{i:0;i:59;}', 1, 4, '', '49.206.62.103', 1, 1, 0, '', '2015-05-20 13:42:56'),
-(5, 1, 0, 'Nikhil', 'Nagarajan', 'nikhil@mishru.com', '9000977755', '', '67805457731b98e51a9e66fc1adaa28b9d10c5c2', '80f5c92ed', 'a:1:{s:40:"YToxOntzOjEwOiJwcm9kdWN0X2lkIjtpOjUyO30=";i:1;}', 'a:1:{i:0;i:52;}', 1, 7, '', '130.43.158.7', 1, 1, 0, '', '2015-05-24 13:59:36'),
-(7, 1, 0, 'Gaurav', 'Kumar', 'gauravbansal74@gmail.com', '09573127285', '', 'c87dea2029783e419f34f776c9f0ca994583c12c', 'b207e3e25', 'a:0:{}', '', 1, 9, '', '49.206.62.103', 1, 1, 0, '', '2015-05-25 14:16:39'),
-(6, 1, 0, 'Praneet', 'Chandra', 'praneetsahaj@gmaiol.com', '0987654321', '', '886fd631828833f7139038ae22e4b72ea340d26d', '7df9093a6', 'a:1:{s:84:"YToyOntzOjEwOiJwcm9kdWN0X2lkIjtpOjU5O3M6Njoib3B0aW9uIjthOjE6e2k6MjM2O3M6MjoiMzUiO319";i:1;}', '', 1, 8, '', '49.206.62.103', 1, 1, 0, '', '2015-05-24 17:03:11');
+(4, 1, 0, 'kauaa', 'crow', 'aman.aviator1@gmail.com', '7799456642', '', 'f3693fddfde52c41f27b3d549ab7a817d5e922b5', 'e149acd4b', 'a:1:{s:40:"YToxOntzOjEwOiJwcm9kdWN0X2lkIjtpOjUwO30=";i:1;}', 'a:1:{i:0;i:59;}', 1, 4, '', '49.206.62.103', 1, 1, 0, '', '2015-05-20 13:42:56'),
+(5, 1, 0, 'Nikhil', 'Nagarajan', 'nikhil@mishru.com', '9000977755', '', '18be17e97f19348c2d7dea9d7cedc41b49c4765d', '47b75de8a', 'a:3:{s:84:"YToyOntzOjEwOiJwcm9kdWN0X2lkIjtpOjc2O3M6Njoib3B0aW9uIjthOjE6e2k6Mjc3O3M6MjoiODEiO319";i:1;s:84:"YToyOntzOjEwOiJwcm9kdWN0X2lkIjtpOjcxO3M6Njoib3B0aW9uIjthOjE6e2k6Mjc0O3M6MjoiNjUiO319";i:1;s:88:"YToyOntzOjEwOiJwcm9kdWN0X2lkIjtpOjcyO3M6Njoib3B0aW9uIjthOjE6e2k6MjgwO3M6MzoiMTAyIjt9fQ==";i:1;}', 'a:2:{i:2;i:73;i:3;i:75;}', 1, 7, 'a:0:{}', '49.204.253.59', 1, 1, 0, '', '2015-05-24 13:59:36'),
+(7, 1, 0, 'Gaurav', 'Kumar', 'gauravbansal74@gmail.com', '09573127285', '', 'c039f421f8f6461cd3e0dc42023452ed23123af4', '84d3b6e96', 'a:0:{}', '', 1, 9, '', '49.206.62.103', 1, 1, 0, '', '2015-05-25 14:16:39'),
+(6, 1, 0, 'Praneet', 'Chandra', 'praneetsahaj@gmaiol.com', '0987654321', '', '886fd631828833f7139038ae22e4b72ea340d26d', '7df9093a6', 'a:1:{s:84:"YToyOntzOjEwOiJwcm9kdWN0X2lkIjtpOjU5O3M6Njoib3B0aW9uIjthOjE6e2k6MjM2O3M6MjoiMzUiO319";i:1;}', '', 1, 8, '', '49.206.62.103', 1, 1, 0, '', '2015-05-24 17:03:11'),
+(8, 1, 0, 'Gaurav', 'Kumar', 'mishruhyd@gmail.com', '09876543210', '', '91c0fc0c0016ccda001100d175573d6a8e8f295a', '3b49d1cd7', 'a:0:{}', '', 1, 10, '', '49.206.31.147', 1, 1, 0, '', '2015-06-21 12:20:13');
 
 -- --------------------------------------------------------
 
@@ -940,7 +948,7 @@ CREATE TABLE IF NOT EXISTS `oc_customer_activity` (
   `ip` varchar(40) NOT NULL,
   `date_added` datetime NOT NULL,
   PRIMARY KEY (`activity_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=54 ;
 
 --
 -- Dumping data for table `oc_customer_activity`
@@ -980,10 +988,26 @@ INSERT INTO `oc_customer_activity` (`activity_id`, `customer_id`, `key`, `data`,
 (31, 4, 'order_account', 'a:3:{s:11:"customer_id";s:1:"4";s:4:"name";s:10:"kauaa crow";s:8:"order_id";i:26;}', '49.206.62.103', '2015-05-25 16:38:51'),
 (32, 4, 'order_account', 'a:3:{s:11:"customer_id";s:1:"4";s:4:"name";s:10:"kauaa crow";s:8:"order_id";i:27;}', '49.206.62.103', '2015-05-25 16:48:10'),
 (33, 4, 'login', 'a:2:{s:11:"customer_id";s:1:"4";s:4:"name";s:10:"kauaa crow";}', '111.93.24.238', '2015-05-26 07:05:04'),
-(34, 4, 'login', 'a:2:{s:11:"customer_id";s:1:"4";s:4:"name";s:10:"kauaa crow";}', '49.206.62.103', '2015-05-27 18:17:01'),
-(35, 4, 'order_account', 'a:3:{s:11:"customer_id";s:1:"4";s:4:"name";s:10:"kauaa crow";s:8:"order_id";i:34;}', '49.206.62.103', '2015-05-27 18:17:11'),
-(36, 4, 'order_account', 'a:3:{s:11:"customer_id";s:1:"4";s:4:"name";s:10:"kauaa crow";s:8:"order_id";i:35;}', '49.206.62.103', '2015-05-27 18:18:55'),
-(37, 4, 'order_account', 'a:3:{s:11:"customer_id";s:1:"4";s:4:"name";s:10:"kauaa crow";s:8:"order_id";i:36;}', '49.206.62.103', '2015-05-27 18:19:28');
+(34, 5, 'login', 'a:2:{s:11:"customer_id";s:1:"5";s:4:"name";s:16:"Nikhil Nagarajan";}', '130.43.158.7', '2015-05-30 22:01:03'),
+(35, 0, 'order_guest', 'a:2:{s:4:"name";s:9:"Praneet C";s:8:"order_id";i:34;}', '111.93.24.238', '2015-06-01 05:45:46'),
+(36, 4, 'login', 'a:2:{s:11:"customer_id";s:1:"4";s:4:"name";s:10:"kauaa crow";}', '111.93.24.238', '2015-06-01 05:47:44'),
+(37, 4, 'order_account', 'a:3:{s:11:"customer_id";s:1:"4";s:4:"name";s:10:"kauaa crow";s:8:"order_id";i:35;}', '111.93.24.238', '2015-06-01 05:48:02'),
+(38, 4, 'order_account', 'a:3:{s:11:"customer_id";s:1:"4";s:4:"name";s:10:"kauaa crow";s:8:"order_id";i:36;}', '111.93.24.238', '2015-06-01 05:55:34'),
+(39, 4, 'login', 'a:2:{s:11:"customer_id";s:1:"4";s:4:"name";s:10:"kauaa crow";}', '49.206.62.103', '2015-06-01 13:46:50'),
+(40, 5, 'login', 'a:2:{s:11:"customer_id";s:1:"5";s:4:"name";s:16:"Nikhil Nagarajan";}', '130.43.158.7', '2015-06-08 17:21:41'),
+(41, 5, 'address_edit', 'a:2:{s:11:"customer_id";s:1:"5";s:4:"name";s:16:"Nikhil Nagarajan";}', '130.43.158.7', '2015-06-08 17:23:03'),
+(42, 5, 'password', 'a:2:{s:11:"customer_id";s:1:"5";s:4:"name";s:16:"Nikhil Nagarajan";}', '130.43.158.7', '2015-06-08 17:23:36'),
+(43, 7, 'forgotten', 'a:2:{s:11:"customer_id";s:1:"7";s:4:"name";s:12:"Gaurav Kumar";}', '49.206.31.147', '2015-06-21 12:17:53'),
+(44, 7, 'forgotten', 'a:2:{s:11:"customer_id";s:1:"7";s:4:"name";s:12:"Gaurav Kumar";}', '49.206.31.147', '2015-06-21 12:18:38'),
+(45, 8, 'register', 'a:2:{s:11:"customer_id";i:8;s:4:"name";s:12:"Gaurav Kumar";}', '49.206.31.147', '2015-06-21 12:20:13'),
+(46, 4, 'forgotten', 'a:2:{s:11:"customer_id";s:1:"4";s:4:"name";s:10:"kauaa crow";}', '49.206.31.147', '2015-06-21 12:20:58'),
+(47, 5, 'forgotten', 'a:2:{s:11:"customer_id";s:1:"5";s:4:"name";s:16:"Nikhil Nagarajan";}', '130.43.158.7', '2015-06-30 15:26:01'),
+(48, 5, 'login', 'a:2:{s:11:"customer_id";s:1:"5";s:4:"name";s:16:"Nikhil Nagarajan";}', '130.43.158.7', '2015-06-30 15:28:40'),
+(49, 2, 'forgotten', 'a:2:{s:11:"customer_id";s:1:"2";s:4:"name";s:15:"Praneet Chandra";}', '49.206.42.21', '2015-07-01 14:34:03'),
+(50, 2, 'login', 'a:2:{s:11:"customer_id";s:1:"2";s:4:"name";s:15:"Praneet Chandra";}', '49.206.42.21', '2015-07-01 14:35:26'),
+(51, 5, 'login', 'a:2:{s:11:"customer_id";s:1:"5";s:4:"name";s:16:"Nikhil Nagarajan";}', '49.204.250.136', '2015-07-28 02:54:08'),
+(52, 5, 'login', 'a:2:{s:11:"customer_id";s:1:"5";s:4:"name";s:16:"Nikhil Nagarajan";}', '49.204.253.59', '2015-07-30 05:37:28'),
+(53, 5, 'login', 'a:2:{s:11:"customer_id";s:1:"5";s:4:"name";s:16:"Nikhil Nagarajan";}', '49.204.253.59', '2015-07-30 06:32:29');
 
 -- --------------------------------------------------------
 
@@ -1066,7 +1090,7 @@ CREATE TABLE IF NOT EXISTS `oc_customer_ip` (
   `date_added` datetime NOT NULL,
   PRIMARY KEY (`customer_ip_id`),
   KEY `ip` (`ip`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `oc_customer_ip`
@@ -1080,7 +1104,11 @@ INSERT INTO `oc_customer_ip` (`customer_ip_id`, `customer_id`, `ip`, `date_added
 (5, 5, '130.43.158.7', '2015-05-24 13:59:36'),
 (6, 6, '49.206.62.103', '2015-05-24 17:03:11'),
 (7, 7, '49.206.62.103', '2015-05-25 14:16:39'),
-(8, 4, '111.93.24.238', '2015-05-26 07:05:04');
+(8, 4, '111.93.24.238', '2015-05-26 07:05:04'),
+(9, 8, '49.206.31.147', '2015-06-21 12:20:13'),
+(10, 2, '49.206.42.21', '2015-07-01 14:35:26'),
+(11, 5, '49.204.250.136', '2015-07-28 02:54:08'),
+(12, 5, '49.204.253.59', '2015-07-30 05:37:28');
 
 -- --------------------------------------------------------
 
@@ -1098,7 +1126,7 @@ CREATE TABLE IF NOT EXISTS `oc_customer_login` (
   PRIMARY KEY (`customer_login_id`),
   KEY `email` (`email`),
   KEY `ip` (`ip`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `oc_customer_login`
@@ -1106,8 +1134,9 @@ CREATE TABLE IF NOT EXISTS `oc_customer_login` (
 
 INSERT INTO `oc_customer_login` (`customer_login_id`, `email`, `ip`, `total`, `date_added`, `date_modified`) VALUES
 (2, 'praneet.chandra@colossus360.com', '49.206.32.27', 1, '2015-04-30 17:01:18', '2015-04-30 17:01:18'),
-(7, 'praneetsahaj@gmail.com', '49.206.62.103', 1, '2015-05-25 17:32:20', '2015-05-25 17:32:20'),
-(5, 'nikhil.nagarajan@gmail.com', '130.43.158.7', 6, '2015-05-16 23:56:28', '2015-05-24 17:57:32');
+(8, 'aman.aviator1@gmail.com', '49.206.2.114', 3, '2015-06-14 10:11:37', '2015-06-14 10:15:00'),
+(5, 'nikhil.nagarajan@gmail.com', '130.43.158.7', 6, '2015-05-16 23:56:28', '2015-05-24 17:57:32'),
+(11, 'nikhil.nagarajan@gmail.com', '49.204.250.136', 1, '2015-07-28 06:53:59', '2015-07-28 06:53:59');
 
 -- --------------------------------------------------------
 
@@ -1277,7 +1306,7 @@ CREATE TABLE IF NOT EXISTS `oc_extension` (
   `type` varchar(32) NOT NULL,
   `code` varchar(32) NOT NULL,
   PRIMARY KEY (`extension_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=449 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=452 ;
 
 --
 -- Dumping data for table `oc_extension`
@@ -1285,6 +1314,7 @@ CREATE TABLE IF NOT EXISTS `oc_extension` (
 
 INSERT INTO `oc_extension` (`extension_id`, `type`, `code`) VALUES
 (23, 'payment', 'cod'),
+(449, 'module', 'simple_blog'),
 (59, 'total', 'total'),
 (410, 'module', 'banner'),
 (426, 'module', 'carousel'),
@@ -1303,7 +1333,8 @@ INSERT INTO `oc_extension` (`extension_id`, `type`, `code`) VALUES
 (435, 'feed', 'google_sitemap'),
 (441, 'payment', 'pp_pro'),
 (447, 'payment', 'payu'),
-(448, 'total', 'sub_total');
+(450, 'module', 'simple_blog_category'),
+(451, 'module', 'merkent_instagram');
 
 -- --------------------------------------------------------
 
@@ -1424,7 +1455,7 @@ CREATE TABLE IF NOT EXISTS `oc_information` (
   `sort_order` int(3) NOT NULL DEFAULT '0',
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`information_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `oc_information`
@@ -1432,10 +1463,12 @@ CREATE TABLE IF NOT EXISTS `oc_information` (
 
 INSERT INTO `oc_information` (`information_id`, `bottom`, `sort_order`, `status`) VALUES
 (3, 1, 3, 1),
-(4, 1, 1, 1),
+(10, 0, 0, 1),
 (5, 1, 4, 1),
 (6, 1, 2, 1),
-(7, 0, 8, 1);
+(7, 0, 8, 1),
+(8, 1, 1, 1),
+(9, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1459,12 +1492,13 @@ CREATE TABLE IF NOT EXISTS `oc_information_description` (
 --
 
 INSERT INTO `oc_information_description` (`information_id`, `language_id`, `title`, `description`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
-(4, 1, 'About Us', '&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; line-height: 20px; color: rgb(0, 0, 0);&quot;&gt;&lt;span color=&quot;#000000&quot; style=&quot;font-family: ''Helvetica Neue'';&quot;&gt;&lt;span style=&quot;font-weight: 700;&quot;&gt;WELCOME TO MISHRU&lt;/span&gt;- the ultimate destination for finding the right traditional Indian outfit for any occasion, from anywhere in the world. Our extensive collection of products can be split into three categories:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; line-height: 20px; color: rgb(0, 0, 0);&quot;&gt;&lt;span color=&quot;#000000&quot; style=&quot;font-family: ''Helvetica Neue'';&quot;&gt;- The Signature Couture Line&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; line-height: 20px; color: rgb(0, 0, 0);&quot;&gt;&lt;span color=&quot;#000000&quot; style=&quot;font-family: ''Helvetica Neue'';&quot;&gt;- The Customisable Range&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; line-height: 20px; color: rgb(0, 0, 0);&quot;&gt;&lt;span color=&quot;#000000&quot; style=&quot;font-family: ''Helvetica Neue'';&quot;&gt;- Accessories That Complete Your Look&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; line-height: 20px; color: rgb(0, 0, 0);&quot;&gt;&lt;span color=&quot;#000000&quot; style=&quot;font-family: ''Helvetica Neue'';&quot;&gt;With designs that range from simply elegant to absolutely glamorous, we have you covered for any occasion, for simple day outings, for a piece that carries the mark of your personal style and for those that keep pace with the latest trends. Whether you are in an urban center or a town on the periphery of a city anywhere in the world, we promise you a shopping experience that you would want to keep coming back for.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; line-height: 20px; color: rgb(0, 0, 0);&quot;&gt;&lt;span color=&quot;#000000&quot; style=&quot;font-family: ''Helvetica Neue'';&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; line-height: 20px; color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;font-weight: 700; font-family: ''Helvetica Neue'';&quot;&gt;WHY US?&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; line-height: 20px; color: rgb(0, 0, 0);&quot;&gt;&lt;span color=&quot;#000000&quot; style=&quot;font-family: ''Helvetica Neue'';&quot;&gt;This question is our favourite - Because we let you have a say in the design and even give an under-the-table nudge to the hidden fashionista in you.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; line-height: 20px; color: rgb(0, 0, 0);&quot;&gt;&lt;span color=&quot;#000000&quot; style=&quot;font-family: ''Helvetica Neue'';&quot;&gt;The number of times we (you included) have said &quot;I would have bought this set if only the border was a little different&quot; and thought &quot;I wish this gorgeous piece came in a different colour green&quot; and the likes could fill a book. So, we decided to go out of our way to ensure that you don’t ever have to say that again.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; line-height: 20px; color: rgb(0, 0, 0);&quot;&gt;&lt;span color=&quot;#000000&quot; style=&quot;font-family: ''Helvetica Neue'';&quot;&gt;We also went that extra mile to ensure that you never have to look around the room to ensure that no one else is wearing that same outfit, because our Signature Couture Line means just that - Limited Editions and Completely Exclusive.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; line-height: 20px; color: rgb(0, 0, 0);&quot;&gt;&lt;span color=&quot;#000000&quot; style=&quot;font-family: ''Helvetica Neue'';&quot;&gt;Having answered the most important question, here we are - a few months and many sleepless nights later, in July, launching that one shopping portal that makes even online shopping an experience to remember.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; line-height: 20px; color: rgb(0, 0, 0);&quot;&gt;&lt;span color=&quot;#000000&quot; style=&quot;font-family: ''Helvetica Neue'';&quot;&gt;Our designs and our labour, your choices and tweaks result in only one thing - Perfection Delivered.&lt;/span&gt;&lt;/p&gt;\r\n', 'about,mishru,team', '', ''),
+(10, 1, 'Get Started', '&lt;div class=&quot;col-sm-12&quot;&gt;	&lt;div class=&quot;row_container_gs&quot;&gt;		&lt;div class=&quot;col-sm-6&quot;&gt;			&lt;h2 class=&quot;gs-title&quot;&gt;				&lt;span&gt;1.&lt;/span&gt;				Pick Your Favourite Design			&lt;/h2&gt;\r\n			&lt;p class=&quot;gs-body&quot;&gt;				Choose one (or many) of the Lehengas and Anarkalis in the collection.			&lt;/p&gt;\r\n			&lt;a href=&quot;https://mishru.com/index.php?route=product/category&amp;amp;path=61&quot;&gt;SHOP STYLES NOW&lt;/a&gt;		&lt;/div&gt;\r\n		&lt;div class=&quot;col-sm-6&quot;&gt;&lt;img src=&quot;https://mishru.com/image/catalog/GetStarted/how_it_works_03.jpg&quot;&gt;					&lt;/div&gt;\r\n	&lt;/div&gt;\r\n&lt;/div&gt;', 'Get Started', 'Get Started Page, Custom design, how to shop', 'custom,getstarted,howtoshop'),
 (5, 1, 'Terms &amp; Conditions', '&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: AvenirRegular; line-height: 1.5;&quot;&gt;1. Introduction&lt;/span&gt;&lt;br style=&quot;color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;/p&gt;&lt;ol style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;/ol&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;These Terms &amp;amp; Conditions are issued in compliance of the statutory requirement under Section 3 of the Information Technology (Intermediaries guidelines) Rules, 2011 formulated under the Information Technology Act, 2000.&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;Mishru.com, is an internet based content and e-commerce portal by Mishru Clothing Private Limited, a company incorporated under the laws of India.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;2. Definitions&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;Unless it is stated to be otherwise, the words a) ‘website’ or “Mishru” shall refer to Mishru.com, b) ‘we’, ‘us’ and ‘ours’ shall signify Mishru Clothing Private Ltd., its legal successors, franchisors, affiliates and partners c) ‘User’ and ‘you’ shall refer to any end user and any viewers, or any person who in any way uses the services provided by Mishru.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;3. Rights and Liabilities&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;Mishru offers services subject to the terms contained herein. Kindly read the Terms &amp;amp; Conditions in its entirety, as the same shall govern all contractual obligations between Mishru and its users. These Terms &amp;amp; Conditions shall constitute a binding contract between the website and its users. You are deemed to have agreed to all the conditions herein by your use of the website or any of the services offered. You agree hereby to use the website and its services strictly in adherence to the conditions stipulated herein. It is further stated that you shall be liable for all damages, including cost of litigation, which arise out of breach of any of the contractual obligations contained in the Terms &amp;amp; Conditions. Authorization to use the website is subject to abidance of all extant laws and the conditioned stipulated herein. You are hereby instructed to forbear from using Mishru or any of the services offered by the website unless you agree to the Terms &amp;amp; Conditions and the privacy policy appended herewith. The terms of this Terms &amp;amp; Conditions and the Privacy policy can without prior notice be subject to modifications.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;4. Modus Operandi&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;A user can purchase a product(s) from our ‘Couture Line” or customise and purchase a product within the parameters that we have provided from our “Customisable Line”. Users can also purchase accessories and footwear being sold on mishru.com.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;5. User Conduct and Rules:&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;All users hereby agree and undertake to use the website and services offered subject to, inter alia, the following stipulations. No user of Mishru shall within the website host, display, upload, modify, publish, transmit, update or share any information that —&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;(a) belongs to another person and to which the user does not have any right to;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;(b) is grossly harmful, harassing, blasphemous, defamatory, obscene, pornographic, paedophilic, libellous, invasive of another''s privacy, hateful, or racially or ethnically objectionable, disparaging, relating or encouraging money laundering or gambling, or otherwise unlawful in any manner whatever;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;(c) harm minors in any way;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;(d) infringes any patent, trademark, copyright or other proprietary rights;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;(e) violates any law for the time being in force;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;(f) deceives or misleads the addressee about the origin of such messages or communicates any information which is grossly offensive or menacing in nature;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;(g) impersonate another person;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;(h) contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer resource;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;(i) threatens the unity, integrity, defence, security or sovereignty of India, friendly relations with foreign states, or public order or causes incitement to the commission of any cognisable offence or prevents investigation of any offence or is insulting any other nation.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;span style=&quot;line-height: 1.5;&quot;&gt;6. Privacy Policy&lt;/span&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;The User hereby consents, expresses and agrees that he has read and fully understands the Privacy Policy of Mishru.com. The user further consents that the terms and contents of such Privacy Policy are acceptable to him. The privacy policy shall by reference be considered to be a part of this Terms &amp;amp; Conditions.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;span style=&quot;line-height: 1.5;&quot;&gt;7. Intellectual Property Rights&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;The content on the Website, interactive features and the trademarks, service marks and logos contained therein, are owned by or licensed to Mishru.com, subject to copyright and other intellectual property rights in India and relevant international conventions. Content on the Website is provided to you for your information and personal use only and may not be used, copied, reproduced, distributed, transmitted, broadcast, displayed, sold, licensed, or otherwise exploited for any purpose whatsoever without our prior written consent or as expressly provided herein. We reserves all rights not expressly granted in and to the Website and the Content contained therein.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;You agree to not engage in the use, copying, or distribution of any of the Content other than as expressly permitted herein for any commercial purposes. If you download or print a copy of the Content for personal use, you must retain all copyright and other proprietary notices or stamps or watermarks of Mishru contained therein. You agree not to circumvent, disable or otherwise interfere with security related features of the Website or features that prevent or restrict use or copying of any Content or enforce limitations on use of the Website or the Content therein.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;All trademarks reproduced in this website which are not the property of, or licensed to, the operator are acknowledged on the website.&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;span style=&quot;line-height: 1.5;&quot;&gt;8. Limitation of Proprietor’s Liability&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;We reserve the right to remove Content in our sole discretion and without prior notice. Mishru also reserves the right to terminate a user''s access to the Website at any time in its sole discretion and without prior notice.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse these websites. We shall in no manner have any responsibility whatsoever for the contents of the linked websites. You hereby specifically agree to relinquish us from any liability that occurs from the use of such third party websites.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;The manner in which business is conducted on this website restricts our ability to constantly monitor all the content that is uploaded onto the website and therefore it is herein stated that we shall in no manner be liable for any user submission that may contain any information that is disparaging, obscene or violates the rights of any third parties in any manner whatsoever.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;In no event shall Mishru, or any parent, subsidiary, affiliate, director, officer, employee, licensor, distributor, supplier, agent, reseller, owner, or operator, be liable to you for any direct, indirect, incidental, special, punitive, or consequential damages whatsoever resulting from any (i) errors, mistakes, or inaccuracies of content, (ii) personal injury or property damage, of any nature whatsoever, resulting from your access to and use of our website, (iii) any unauthorized access to or use of our secure servers and/or any and all personal information stored therein, (iv) any interruption or cessation of transmission to or from our website, (iv) any bugs, viruses, trojan horses, or the like, which may be transmitted to or through our website by any third party, and/or (v) any errors or omissions in any content or for any loss or damage of any kind incurred as a result of your use of any content posted, emailed, transmitted, or otherwise made available through the website, whether based on warranty, contract, tort, or any other legal theory, and whether or not the company is advised of the possibility of such damages. The foregoing limitation of liability shall apply to the fullest extent permitted by law in jurisdiction concerned.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;You specifically acknowledge that Mishru shall not be liable for user submissions or for any defamatory, offensive, or illegal conduct of any third party and that the risk of harm or damage from the foregoing rests entirely with you.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;9. CopyRight Infringements&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;If your work has been copied or posted on the website in a manner that constitutes copyright infringement you are required to immediately bring it to the notice of the Grievance officer designated herein with all necessary proof as to your title over the alleged infringed work. On receipt of such information and on ascertaining whether there has been any infringement, any content that violates the copyright of any other party, shall within a reasonable time, be without notice to the user responsible for its creation, removed from the website.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;span style=&quot;line-height: 1.5;&quot;&gt;10. Pricing&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;Prices for products are described on our Website and are incorporated into these Terms by reference. All prices are in the currency specified. Prices, products and Services may change at our discretion without prior notice. Special offers, discounts and such other may at the sole discretion of Mishru be withdrawn without any prior notice. In the event of a mistake as to the price as displayed on the website, if the price displayed is higher than the actual price then the customer would be charged for the latter. However, if the price displayed is lower than the actual price you would be intimated before we confirm/ship the order.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;11. Capacity to Contract&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;You hereby agree that you are 18 years of age or are acting through an authorised guardian or agent, and that you do not suffer from any deficiency or condition such as inter alia insolvency and insanity that renders you incapable of entering into a legally valid agreement.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;12.&amp;nbsp;&lt;span style=&quot;line-height: 1.5;&quot;&gt;Grievance Redressal&lt;/span&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;As is required under the Information Technology (Intermediaries guidelines) Rules, 2011, Sridhar T is designated as the Grievance Officer and all complaints may kindly be forwarded to complaints@mishru.com.&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;While reporting your grievance, kindly state the reasons for your concern and provide a link to the User Content in question.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;span style=&quot;line-height: 1.5;&quot;&gt;13. Copyright &amp;amp; Trademark Notice&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;Mishru.com and all copyrights and trademarks therein belongs to Mishru Clothing Private Limited and no portion of the Website including these Terms &amp;amp; Conditions and the Privacy policy appended hereto, may be copied, reproduced, transmitted, derived, or otherwise used for any purpose without the prior written permission of Mishru Clothing.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;span style=&quot;line-height: 1.5;&quot;&gt;14. Violations of These Terms &amp;amp; Conditions&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;In the event of any violations of the Terms &amp;amp; Conditions, including objectionable User behavior, Mishru and its management may by itself or on the report of any party to admin@mishru.com take cognizance of the offensive behavior, investigate the matter and take such action as we deem appropriate. All such decisions including termination of a user account are deemed final.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;span style=&quot;line-height: 1.5;&quot;&gt;15. Severability Clause&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;In the event that any provision of these Terms &amp;amp; Conditions are held to be invalid or unenforceable in whole or in part, by a court of competent jurisdiction, such invalidity or unenforceability shall attach only to such provision or part of such provision and the remaining part of such provision and all other provisions of these Terms shall continue to be in full force and effect.&lt;/p&gt;\r\n', 'termsandconditions', '', ''),
-(6, 1, 'Shipping', '&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;We endeavour to deliver your purchases within 14 days of placing the order. Our shipping partners are DHL / Blue Dart and you can track your shipments on https://www.bluedart.com/&lt;/span&gt;&lt;br&gt;&lt;/p&gt;\r\n', 'shipping', '', ''),
-(3, 1, 'Privacy Policy', '&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;This privacy policy is issued in compliance with the stipulations under the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011 [hereinafter referred to as the Rules] formulated under the Information Technology Act, 2010.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;1. GENERAL PRACTICES&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;The terms ''Personal data'' and ''Sensitive Personal information'' are as they are defined under the Information Technology Rules, 2011. Mishru has put in place security measures commensurate to the requirements under Section 8 of the Rules, which provide for “Reasonable Security Practices and Procedures”.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;We understand and endeavor to support your need for privacy. This privacy policy seeks inform you of the measures taken to protect your personal information and make sure that it doesn’t fall into the wrong hands. This privacy policy sets out how Mishru uses and protects any information that you give us when you use this website.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;Mishru is committed to ensuring that your privacy is protected. In the event that we ask you to provide certain information by which you can be identified when using this website, you can be assured that it will only be used in accordance with this privacy statement. Mishru endeavors to do everything we reasonably can to protect your rights of privacy on systems and the Website controlled by us, but we are not liable for any unauthorized or unlawful disclosures of your personal and confidential information made by third parties who are not subject to our control, for example advertisers and websites that have links to our Website. Users are advised to take note that the information and privacy practices of our business partners, advertisers, sponsors or other sites to which we provide hyperlinks, may be different from ours. The terms of this privacy policy is subject to change at any time without notice. To make sure you are aware of any changes, please review this policy periodically.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;2. TYPES OF INFORMATION COLLECTED&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;On using Mishru you agree to let us use the following information for helping us customise our services to your convenience. The categories of information collected are as follows:-&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Registration Information: Information which you provide when you register on Mishru, which may include some or all of the following: - Information about your personal identity such as gender, age, preferences etc.; Your contact details such as your physical addresses, postal addresses, telephone and fax numbers and the like. Your usernames, passwords, email addresses and other security-related information used by you in relation to our Services. In the case of Facebook aligned services, publicly available information of your friends, their likes and dislikes, etc.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Purchase Details: Your account history with us including (without limitation) all billing information and communications, payment history etc. We maintain this in encrypted form on a separate, secure, offline server.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Usage: Information about your navigation using our Services, for example the URLs of websites, including links to third party websites that are linked to our website.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;System information: Information such as your web requests, IP address, browser type, browser language, date and time of request.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Transactional Information: Transactional history (other than banking details) about your e-commerce activities. All payments are made through a secured third party namely, PayU. Their privacy policy can be viewed here: https://www.payu.in/privacyPolicy&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Communications made on or through Mishru: We are entitled to collect your public communications with other users and the contents thereof, whether they be in the form of text, images, sounds or videos, on this website, whether they be normal users, customers or designers. This will include, not without limitation, conversations on any Mishru groups or Forums.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Uploaded Information: Data either created by you or by a third party and which you wish to store on our servers such as image files, documents, sound files, videos etc.&lt;/li&gt;&lt;/ul&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;span style=&quot;line-height: 1.5;&quot;&gt;3. DATA COLLECTION &amp;amp; DISCLOSURE&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;/ul&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;We only collect your Personal Information to conduct our business and to enable us to deliver and improve our Services. We do not for any reason whatsoever sell your Personal Information to any third party or otherwise trade on it. We will only disclose your Personal Information in accordance with this Privacy Policy. If we wish to use it for any other purpose, we will obtain your prior consent. If you decline to submit personal information to us, then we will unfortunately not be in a position to provide any Services to you. Any of the information which you provide when you use certain Services are to an open, public environment. This includes, without limitation, any group, community or forum. Such information is not confidential, does not constitute Personal Information, and is not subject to protection under this Privacy Policy. Since such public environments are accessible by third parties, it is possible that third parties may collect and collate and use such information for their own purposes. You should accordingly be careful when deciding to share any of your Personal Information in such public environments. Mishru, its parent company, its agents and such are not liable to you or any third party for any damages that you or any third party may suffer howsoever arising from your disclosure of Personal Information in any public environment. You accordingly disclose information in a public environment at your own risk.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;4. PURPOSE OF THE INFORMATION COLLECTED&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;By accepting the Terms of Service you agree that we may collect and store your Personal Information as long as you use our Services subject to the limitations set out in this Privacy Policy.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;A. We collect your Registration and Payment details for the following reasons:&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;We need your identity details, contact details, banking information and account history to manage our relationship with you and provide Services to you. This information may be used to inform you of trending designs or products similar to those that you have chosen to buy on earlier occasions. We will only disclose this information in the manner provided in this privacy policy.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;We use certain of your information either directly or through secured and authorised third parties to compile statistical data, which would be used, without limitation, for judging popularity of designs and for our business and marketing activities. We may disclose such information about you, provided that the information is in an aggregated form that is not capable of being used or interpreted in such a manner as to identify you.&lt;/li&gt;&lt;/ul&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;B.&amp;nbsp;&lt;span style=&quot;line-height: 1.5;&quot;&gt;We collect and store your data concerning your Usage, your System details and Communications made on or through Mishru to:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Determine and verify the Charges payable by you and to administer our relationship with you.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Comply with any statutory, regulatory requirements and our obligations under law.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Monitor your use of our Services for the purposes of ensuring compliance with our Terms of Use.&lt;/li&gt;&lt;/ul&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;C.&amp;nbsp;&lt;span style=&quot;line-height: 1.5;&quot;&gt;We are entitled to monitor all data uploaded to Mishru:-&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;To determine any Intellectual Property claims that may arise regarding text, images, audio or video uploaded onto Mishru.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;To determine the authenticity of designs&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;To archive the same for subsequent designs or products.&lt;/li&gt;&lt;/ul&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;Any Personal Information which we collect and which we may use in an aggregated format ensuring you are not individually identified is our property. Sometime Mishru use &quot;cookies&quot; so that we can provide you with more customised information when you return to our website. &quot;Cookies&quot; are used to store user preferences and to track user trends, so as to enhance your interactive experience and generally improve our Services to you. You can set your browser to notify you when you are sent a &quot;cookie&quot;, giving you the chance to decide whether or not to accept it. If you do accept a &quot;cookie&quot;, you thereby agree to our use of any Personal Information collected by us using that Cookie.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;You may update your Profile Information at any time on the website. You acknowledge and agree that in the interests of improving personalisation and Service efficiency, we may, under controlled and secure circumstances, share your Personal Information with our affiliates, any entity which is our subsidiary or holding company or a subsidiary of our holding company or an entity which controls, is controlled by or is under common control with us. In the event of the transfer of ownership of the website from Lokya Technologies, we are authorised to transfer all information including sensitive personal information to that successor company.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;5. EXCEPTIONS&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;Provided that the information we collect shall be shared, without obtaining prior consent from provider of information, with Government agencies mandated under the law to obtain information including sensitive personal data or information for the purpose of verification of identity, or for prevention, detection, investigation, including cyber incidents, prosecution, and punishment of offences. Provided that any personal information required by any law enforcement agencies shall be given only on the receipt of a written request by any such agency or any person authorised on their behalf to collect such information. Mishru or its parent company or agents will not be liable to you or any third party for any damages whatsoever arising from such interception, disclosure, monitoring and storage.&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;To ensure that the security and integrity of our Services are safeguarded, we may monitor your Personal Information. This monitoring may include (without limitation) the filtering of incoming and outgoing electronic data messages to identify, limit and/or prevent the transmission of spam, viruses and/or unlawful, defamatory, obscene or otherwise undesirable material or content. Mishru is free to authorise or to outsource to third party service providers the function of monitoring the general traffic on the website, maintenance of security and hosting of the website. To the extent that it may be necessary, and solely for the purposes of providing the Service to you, you agree that we may disclose to such third party any of your Personal Information that may be necessary for the procurement of services from the third party.&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;If we are required to intercept, disclose, monitor and/or store your Personal Information by law enforcement agencies or to conduct our business or to secure our systems or to enforce our own rights, we will do so in a manner permissible under the law.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;6. GRIEVANCE REDRESSAL&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;In the event of any grievance regarding breach of privacy kindly contact our grievance officer at complaints@mishru.com.&lt;/p&gt;\r\n', 'privacy policy', '', '');
-INSERT INTO `oc_information_description` (`information_id`, `language_id`, `title`, `description`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
-(7, 1, 'Payment Terms &amp; Exchange Policy', '&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;b style=&quot;text-transform: uppercase;&quot;&gt;PAYMENT&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;The entire payment has to be made online prior to confirmation of order.&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;We are providing worldwide delivery, hence an additional amount for import charges in certain countries may be applicable. If such charges are applicable for the country of delivery, we will be sending you an e-mail with the details of the payment and procedure for making the payment. The product will be shipped to you only after Custom Duties have been cleared.&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;In the rare case of returned / exchanged product, the Custom Duties will not have to be repaid. It is a one-time payment only.&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;&lt;b style=&quot;text-transform: uppercase;&quot;&gt;RETURN &amp;amp; EXCHANGE POLICY&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;&lt;br&gt;&lt;br&gt;In the rare case when a problem does occur, we offer you a hassle-free return / replacement policy for unused garments only. We will process all exchanges / replacement for products:&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;That have been damaged during transit&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;That have been received in a damaged condition&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;When the size of the garment doesn’t match the sizes specified by you or&amp;nbsp;&lt;br&gt;mentioned in the size chart&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;When the product your receive does not match the product you ordered&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;** Please note that the sizes that you provide / are maintained by us are body measurements only. The garment will be made with adequate leeway to ensure a comfort fit.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;&lt;b style=&quot;text-transform: uppercase;&quot;&gt;RETURN / EXCHANGE PROCESS&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;For damaged products, send us an e-mail with photographs of the damage within 12 hours of your receipt of the product at&lt;/span&gt;&lt;/span&gt;&lt;a href=&quot;mailto:returns@mishru.com&quot; style=&quot;color: rgb(0, 0, 0); outline: none;&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;returns@mishru.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#00000a&quot; style=&quot;color: rgb(0, 0, 10);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;For size mismatch, send us an e-mail with the details of the mismatch at returns@mishru.com&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;We will send a confirmation e-mail initiating the replacement procedure&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;Post receipt of the confirmation e-mail, please send the product to -&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;Plot No. 44, Whisper Valley, Raidurg, Jubilee Hills, Hyderabad 5000008&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;spa&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;After receipt of the product, we will deliver the replacement product to you.&lt;/span&gt;&lt;/span&gt;&lt;/spa&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;Since we provide world-wide delivery, we will be unable to arrange for a product pick-up.&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;Thereby, to compensate you for your troubles, we will be giving you a 10% discount on the replacement product or the next buy. The discount will be valid for 3 months from the date of receipt of the garment and the amount for the same will be credited as a Gift Card to your account.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;&lt;b style=&quot;text-transform: uppercase;&quot;&gt;REPLACEMENT / EXCHANGED PRODUCTS&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;The replacement for the returned product will be the undamaged / corrected size version of the product that you had originally bought.&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;In the event of unavailability of that product, we will provide you with a gift card of the same amount that will be valid for 3 months from the time the gift card is added to your account.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;', 'payment', '', '');
+(3, 1, 'Privacy Policy', '&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;This privacy policy is issued in compliance with the stipulations under the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011 [hereinafter referred to as the Rules] formulated under the Information Technology Act, 2010.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;1. GENERAL PRACTICES&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;The terms ''Personal data'' and ''Sensitive Personal information'' are as they are defined under the Information Technology Rules, 2011. Mishru has put in place security measures commensurate to the requirements under Section 8 of the Rules, which provide for “Reasonable Security Practices and Procedures”.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;We understand and endeavor to support your need for privacy. This privacy policy seeks inform you of the measures taken to protect your personal information and make sure that it doesn’t fall into the wrong hands. This privacy policy sets out how Mishru uses and protects any information that you give us when you use this website.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;Mishru is committed to ensuring that your privacy is protected. In the event that we ask you to provide certain information by which you can be identified when using this website, you can be assured that it will only be used in accordance with this privacy statement. Mishru endeavors to do everything we reasonably can to protect your rights of privacy on systems and the Website controlled by us, but we are not liable for any unauthorized or unlawful disclosures of your personal and confidential information made by third parties who are not subject to our control, for example advertisers and websites that have links to our Website. Users are advised to take note that the information and privacy practices of our business partners, advertisers, sponsors or other sites to which we provide hyperlinks, may be different from ours. The terms of this privacy policy is subject to change at any time without notice. To make sure you are aware of any changes, please review this policy periodically.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;2. TYPES OF INFORMATION COLLECTED&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;On using Mishru you agree to let us use the following information for helping us customise our services to your convenience. The categories of information collected are as follows:-&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Registration Information: Information which you provide when you register on Mishru, which may include some or all of the following: - Information about your personal identity such as gender, age, preferences etc.; Your contact details such as your physical addresses, postal addresses, telephone and fax numbers and the like. Your usernames, passwords, email addresses and other security-related information used by you in relation to our Services. In the case of Facebook aligned services, publicly available information of your friends, their likes and dislikes, etc.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Purchase Details: Your account history with us including (without limitation) all billing information and communications, payment history etc. We maintain this in encrypted form on a separate, secure, offline server.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Usage: Information about your navigation using our Services, for example the URLs of websites, including links to third party websites that are linked to our website.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;System information: Information such as your web requests, IP address, browser type, browser language, date and time of request.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Transactional Information: Transactional history (other than banking details) about your e-commerce activities. All payments are made through a secured third party namely, PayU. Their privacy policy can be viewed here: https://www.payu.in/privacyPolicy&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Communications made on or through Mishru: We are entitled to collect your public communications with other users and the contents thereof, whether they be in the form of text, images, sounds or videos, on this website, whether they be normal users, customers or designers. This will include, not without limitation, conversations on any Mishru groups or Forums.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Uploaded Information: Data either created by you or by a third party and which you wish to store on our servers such as image files, documents, sound files, videos etc.&lt;/li&gt;&lt;/ul&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;span style=&quot;line-height: 1.5;&quot;&gt;3. DATA COLLECTION &amp;amp; DISCLOSURE&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;/ul&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;We only collect your Personal Information to conduct our business and to enable us to deliver and improve our Services. We do not for any reason whatsoever sell your Personal Information to any third party or otherwise trade on it. We will only disclose your Personal Information in accordance with this Privacy Policy. If we wish to use it for any other purpose, we will obtain your prior consent. If you decline to submit personal information to us, then we will unfortunately not be in a position to provide any Services to you. Any of the information which you provide when you use certain Services are to an open, public environment. This includes, without limitation, any group, community or forum. Such information is not confidential, does not constitute Personal Information, and is not subject to protection under this Privacy Policy. Since such public environments are accessible by third parties, it is possible that third parties may collect and collate and use such information for their own purposes. You should accordingly be careful when deciding to share any of your Personal Information in such public environments. Mishru, its parent company, its agents and such are not liable to you or any third party for any damages that you or any third party may suffer howsoever arising from your disclosure of Personal Information in any public environment. You accordingly disclose information in a public environment at your own risk.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;4. PURPOSE OF THE INFORMATION COLLECTED&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;By accepting the Terms of Service you agree that we may collect and store your Personal Information as long as you use our Services subject to the limitations set out in this Privacy Policy.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;A. We collect your Registration and Payment details for the following reasons:&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;We need your identity details, contact details, banking information and account history to manage our relationship with you and provide Services to you. This information may be used to inform you of trending designs or products similar to those that you have chosen to buy on earlier occasions. We will only disclose this information in the manner provided in this privacy policy.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;We use certain of your information either directly or through secured and authorised third parties to compile statistical data, which would be used, without limitation, for judging popularity of designs and for our business and marketing activities. We may disclose such information about you, provided that the information is in an aggregated form that is not capable of being used or interpreted in such a manner as to identify you.&lt;/li&gt;&lt;/ul&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;B.&amp;nbsp;&lt;span style=&quot;line-height: 1.5;&quot;&gt;We collect and store your data concerning your Usage, your System details and Communications made on or through Mishru to:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Determine and verify the Charges payable by you and to administer our relationship with you.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Comply with any statutory, regulatory requirements and our obligations under law.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;Monitor your use of our Services for the purposes of ensuring compliance with our Terms of Use.&lt;/li&gt;&lt;/ul&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;C.&amp;nbsp;&lt;span style=&quot;line-height: 1.5;&quot;&gt;We are entitled to monitor all data uploaded to Mishru:-&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;To determine any Intellectual Property claims that may arise regarding text, images, audio or video uploaded onto Mishru.&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;To determine the authenticity of designs&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;To archive the same for subsequent designs or products.&lt;/li&gt;&lt;/ul&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;Any Personal Information which we collect and which we may use in an aggregated format ensuring you are not individually identified is our property. Sometime Mishru use &quot;cookies&quot; so that we can provide you with more customised information when you return to our website. &quot;Cookies&quot; are used to store user preferences and to track user trends, so as to enhance your interactive experience and generally improve our Services to you. You can set your browser to notify you when you are sent a &quot;cookie&quot;, giving you the chance to decide whether or not to accept it. If you do accept a &quot;cookie&quot;, you thereby agree to our use of any Personal Information collected by us using that Cookie.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;You may update your Profile Information at any time on the website. You acknowledge and agree that in the interests of improving personalisation and Service efficiency, we may, under controlled and secure circumstances, share your Personal Information with our affiliates, any entity which is our subsidiary or holding company or a subsidiary of our holding company or an entity which controls, is controlled by or is under common control with us. In the event of the transfer of ownership of the website from Lokya Technologies, we are authorised to transfer all information including sensitive personal information to that successor company.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;5. EXCEPTIONS&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;Provided that the information we collect shall be shared, without obtaining prior consent from provider of information, with Government agencies mandated under the law to obtain information including sensitive personal data or information for the purpose of verification of identity, or for prevention, detection, investigation, including cyber incidents, prosecution, and punishment of offences. Provided that any personal information required by any law enforcement agencies shall be given only on the receipt of a written request by any such agency or any person authorised on their behalf to collect such information. Mishru or its parent company or agents will not be liable to you or any third party for any damages whatsoever arising from such interception, disclosure, monitoring and storage.&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;To ensure that the security and integrity of our Services are safeguarded, we may monitor your Personal Information. This monitoring may include (without limitation) the filtering of incoming and outgoing electronic data messages to identify, limit and/or prevent the transmission of spam, viruses and/or unlawful, defamatory, obscene or otherwise undesirable material or content. Mishru is free to authorise or to outsource to third party service providers the function of monitoring the general traffic on the website, maintenance of security and hosting of the website. To the extent that it may be necessary, and solely for the purposes of providing the Service to you, you agree that we may disclose to such third party any of your Personal Information that may be necessary for the procurement of services from the third party.&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;If we are required to intercept, disclose, monitor and/or store your Personal Information by law enforcement agencies or to conduct our business or to secure our systems or to enforce our own rights, we will do so in a manner permissible under the law.&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;6. GRIEVANCE REDRESSAL&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular;&quot;&gt;In the event of any grievance regarding breach of privacy kindly contact our grievance officer at complaints@mishru.com.&lt;/p&gt;\r\n', 'privacy policy', '', ''),
+(7, 1, 'Payment Terms &amp; Exchange Policy', '&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;b style=&quot;text-transform: uppercase;&quot;&gt;PAYMENT&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;The entire payment has to be made online prior to confirmation of order.&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;We are providing worldwide delivery, hence an additional amount for import charges in certain countries may be applicable. If such charges are applicable for the country of delivery, we will be sending you an e-mail with the details of the payment and procedure for making the payment. The product will be shipped to you only after Custom Duties have been cleared.&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;In the rare case of returned / exchanged product, the Custom Duties will not have to be repaid. It is a one-time payment only.&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;&lt;b style=&quot;text-transform: uppercase;&quot;&gt;RETURN &amp;amp; EXCHANGE POLICY&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;&lt;br&gt;&lt;br&gt;In the rare case when a problem does occur, we offer you a hassle-free return / replacement policy for unused garments only. We will process all exchanges / replacement for products:&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;That have been damaged during transit&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;That have been received in a damaged condition&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;When the size of the garment doesn’t match the sizes specified by you or&amp;nbsp;&lt;br&gt;mentioned in the size chart&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;When the product your receive does not match the product you ordered&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;** Please note that the sizes that you provide / are maintained by us are body measurements only. The garment will be made with adequate leeway to ensure a comfort fit.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;&lt;b style=&quot;text-transform: uppercase;&quot;&gt;RETURN / EXCHANGE PROCESS&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;For damaged products, send us an e-mail with photographs of the damage within 12 hours of your receipt of the product at&lt;/span&gt;&lt;/span&gt;&lt;a href=&quot;mailto:returns@mishru.com&quot; style=&quot;color: rgb(0, 0, 0); outline: none;&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;returns@mishru.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#00000a&quot; style=&quot;color: rgb(0, 0, 10);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;For size mismatch, send us an e-mail with the details of the mismatch at returns@mishru.com&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;We will send a confirmation e-mail initiating the replacement procedure&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;Post receipt of the confirmation e-mail, please send the product to -&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;Plot No. 44, Whisper Valley, Raidurg, Jubilee Hills, Hyderabad 5000008&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;spa&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;After receipt of the product, we will deliver the replacement product to you.&lt;/span&gt;&lt;/span&gt;&lt;/spa&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;Since we provide world-wide delivery, we will be unable to arrange for a product pick-up.&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;Thereby, to compensate you for your troubles, we will be giving you a 10% discount on the replacement product or the next buy. The discount will be valid for 3 months from the date of receipt of the garment and the amount for the same will be credited as a Gift Card to your account.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;&lt;b style=&quot;text-transform: uppercase;&quot;&gt;REPLACEMENT / EXCHANGED PRODUCTS&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p lang=&quot;en-GB&quot; style=&quot;margin-bottom: 5px; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;ul style=&quot;margin-right: 0px; margin-bottom: 20px; margin-left: 20px; padding: 0px; list-style-position: outside; list-style-image: none; color: rgb(0, 0, 0); font-family: AvenirRegular; font-size: 11px;&quot;&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;The replacement for the returned product will be the undamaged / corrected size version of the product that you had originally bought.&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;li style=&quot;margin-bottom: 5px;&quot;&gt;&lt;p align=&quot;JUSTIFY&quot; style=&quot;margin-bottom: 5px;&quot;&gt;&lt;span color=&quot;#222222&quot; style=&quot;color: rgb(34, 34, 34);&quot;&gt;&lt;span lang=&quot;en-GB&quot;&gt;In the event of unavailability of that product, we will provide you with a gift card of the same amount that will be valid for 3 months from the time the gift card is added to your account.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;', 'payment', '', ''),
+(6, 1, 'Shipping', '&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: ''Helvetica Neue'';&quot;&gt;We endeavour to deliver your purchases within 14 days of placing the order. Our shipping partners are DHL / Blue Dart and you can track your shipments on https://www.bluedart.com/&lt;/span&gt;&lt;br&gt;&lt;/p&gt;\r\n', 'shipping', '', ''),
+(8, 1, 'The Company', '&lt;p&gt;The Company content comes here&lt;/p&gt;', 'The Company', '', ''),
+(9, 1, 'The Team', '&lt;p&gt;The Team content comes here&lt;br&gt;&lt;/p&gt;', 'The Team', '', '');
 
 -- --------------------------------------------------------
 
@@ -1484,11 +1518,13 @@ CREATE TABLE IF NOT EXISTS `oc_information_to_layout` (
 --
 
 INSERT INTO `oc_information_to_layout` (`information_id`, `store_id`, `layout_id`) VALUES
-(4, 0, 11),
+(10, 0, 11),
 (3, 0, 11),
 (5, 0, 11),
 (7, 0, 0),
-(6, 0, 0);
+(6, 0, 0),
+(8, 0, 11),
+(9, 0, 11);
 
 -- --------------------------------------------------------
 
@@ -1508,10 +1544,12 @@ CREATE TABLE IF NOT EXISTS `oc_information_to_store` (
 
 INSERT INTO `oc_information_to_store` (`information_id`, `store_id`) VALUES
 (3, 0),
-(4, 0),
 (5, 0),
 (6, 0),
-(7, 0);
+(7, 0),
+(8, 0),
+(9, 0),
+(10, 0);
 
 -- --------------------------------------------------------
 
@@ -1549,7 +1587,7 @@ CREATE TABLE IF NOT EXISTS `oc_layout` (
   `layout_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   PRIMARY KEY (`layout_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `oc_layout`
@@ -1568,7 +1606,8 @@ INSERT INTO `oc_layout` (`layout_id`, `name`) VALUES
 (10, 'Affiliate'),
 (11, 'Information'),
 (12, 'Compare'),
-(13, 'Search');
+(13, 'Search'),
+(14, 'Blog');
 
 -- --------------------------------------------------------
 
@@ -1583,7 +1622,7 @@ CREATE TABLE IF NOT EXISTS `oc_layout_module` (
   `position` varchar(14) NOT NULL,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`layout_module_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=93 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=116 ;
 
 --
 -- Dumping data for table `oc_layout_module`
@@ -1595,15 +1634,15 @@ INSERT INTO `oc_layout_module` (`layout_module_id`, `layout_id`, `code`, `positi
 (20, 5, '0', 'column_left', 2),
 (69, 10, 'affiliate', 'column_right', 1),
 (92, 6, 'account', 'column_left', 1),
-(76, 1, 'featured.28', 'content_top', 2),
-(75, 1, 'slideshow.27', 'content_top', 1),
-(74, 1, 'carousel.29', 'content_top', 3),
+(105, 14, 'simple_blog', 'content_top', 0),
+(114, 1, 'html.32', 'content_top', 1),
 (88, 3, 'category', 'column_left', 1),
 (87, 3, 'banner.30', 'column_left', 2),
-(77, 1, 'html.31', 'content_top', 4),
 (90, 2, 'comboproducts', 'content_bottom', 0),
 (89, 3, 'filter', 'column_left', 3),
-(91, 11, 'information', 'column_left', 0);
+(91, 11, 'information', 'column_left', 0),
+(115, 1, 'merkent_instagram.33', 'content_top', 2),
+(113, 1, 'slideshow.27', 'content_top', 0);
 
 -- --------------------------------------------------------
 
@@ -1617,7 +1656,7 @@ CREATE TABLE IF NOT EXISTS `oc_layout_route` (
   `store_id` int(11) NOT NULL,
   `route` varchar(255) NOT NULL,
   PRIMARY KEY (`layout_route_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=77 ;
 
 --
 -- Dumping data for table `oc_layout_route`
@@ -1627,7 +1666,7 @@ INSERT INTO `oc_layout_route` (`layout_route_id`, `layout_id`, `store_id`, `rout
 (64, 6, 0, 'account/%'),
 (17, 10, 0, 'affiliate/%'),
 (61, 3, 0, 'product/category'),
-(54, 1, 0, 'common/home'),
+(76, 1, 0, 'common/home'),
 (62, 2, 0, 'product/product'),
 (63, 11, 0, 'information/information'),
 (23, 7, 0, 'checkout/%'),
@@ -1636,7 +1675,8 @@ INSERT INTO `oc_layout_route` (`layout_route_id`, `layout_id`, `store_id`, `rout
 (34, 4, 0, ''),
 (45, 5, 0, 'product/manufacturer'),
 (52, 12, 0, 'product/compare'),
-(53, 13, 0, 'product/search');
+(53, 13, 0, 'product/search'),
+(73, 14, 0, 'common/blog');
 
 -- --------------------------------------------------------
 
@@ -1714,7 +1754,7 @@ CREATE TABLE IF NOT EXISTS `oc_manufacturer` (
   `image` varchar(255) DEFAULT NULL,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`manufacturer_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
@@ -1775,7 +1815,7 @@ CREATE TABLE IF NOT EXISTS `oc_module` (
   `code` varchar(32) NOT NULL,
   `setting` text NOT NULL,
   PRIMARY KEY (`module_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 --
 -- Dumping data for table `oc_module`
@@ -1785,8 +1825,9 @@ INSERT INTO `oc_module` (`module_id`, `name`, `code`, `setting`) VALUES
 (30, 'Category', 'banner', 'a:5:{s:4:"name";s:17:"Banner - Category";s:9:"banner_id";s:1:"6";s:5:"width";s:3:"300";s:6:"height";s:3:"300";s:6:"status";s:1:"1";}'),
 (29, 'Home Page', 'carousel', 'a:5:{s:4:"name";s:20:"Carousel - Home Page";s:9:"banner_id";s:1:"8";s:5:"width";s:3:"130";s:6:"height";s:3:"100";s:6:"status";s:1:"1";}'),
 (28, 'Home Page', 'featured', 'a:6:{s:4:"name";s:20:"Featured - Home Page";s:7:"product";a:4:{i:0;s:2:"43";i:1;s:2:"40";i:2;s:2:"42";i:3;s:2:"30";}s:5:"limit";s:1:"4";s:5:"width";s:3:"200";s:6:"height";s:3:"200";s:6:"status";s:1:"1";}'),
-(27, 'Home Page', 'slideshow', 'a:5:{s:4:"name";s:21:"Slideshow - Home Page";s:9:"banner_id";s:1:"7";s:5:"width";s:4:"1140";s:6:"height";s:3:"380";s:6:"status";s:1:"1";}'),
-(31, 'Instagram Feed', 'html', 'a:3:{s:4:"name";s:14:"Instagram Feed";s:18:"module_description";a:1:{i:1;a:2:{s:5:"title";s:0:"";s:11:"description";s:171:"&lt;div id=&quot;instagramCarousel&quot; style=&quot;margin-top:15px;&quot;&gt;\r\n  &lt;ul id=&quot;instafeed&quot;&gt;\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n  &lt;/ul&gt;\r\n\r\n\r\n&lt;/div&gt;";}}s:6:"status";s:1:"1";}');
+(27, 'Slideshow - Home Page', 'slideshow', 'a:5:{s:4:"name";s:21:"Slideshow - Home Page";s:9:"banner_id";s:1:"7";s:5:"width";s:4:"1500";s:6:"height";s:3:"500";s:6:"status";s:1:"1";}'),
+(32, 'homepage-side1', 'html', 'a:3:{s:4:"name";s:14:"homepage-side1";s:18:"module_description";a:1:{i:1;a:2:{s:5:"title";s:0:"";s:11:"description";s:320:"&amp;nbsp; &lt;img src=&quot;https://mishru.com/image/catalog/Homepage Images/4L8A1667.JPG&quot;&gt;&amp;nbsp; &amp;nbsp;&lt;img src=&quot;https://mishru.com/image/catalog/Homepage Images/4L8A1520.JPG&quot;&gt;&amp;nbsp; &amp;nbsp;&lt;img src=&quot;https://mishru.com/image/catalog/Homepage Images/4L8A1740.JPG&quot;&gt;";}}s:6:"status";s:1:"1";}'),
+(33, 'Mishru @ Instagram', 'merkent_instagram', 'a:11:{s:8:"continue";s:1:"0";s:4:"name";s:18:"Mishru @ Instagram";s:9:"client_id";s:32:"7a597e51abce43faa3584d320574fe52";s:4:"type";s:8:"username";s:8:"username";s:14:"mishruclothing";s:6:"follow";s:19:"Mishru on Instagram";s:9:"col_count";s:1:"3";s:9:"row_count";s:1:"2";s:10:"resolution";s:14:"low_resolution";s:6:"status";s:1:"1";s:6:"userid";s:9:"690111864";}');
 
 -- --------------------------------------------------------
 
@@ -1799,7 +1840,7 @@ CREATE TABLE IF NOT EXISTS `oc_option` (
   `type` varchar(32) NOT NULL,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`option_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `oc_option`
@@ -1817,7 +1858,11 @@ INSERT INTO `oc_option` (`option_id`, `type`, `sort_order`) VALUES
 (10, 'datetime', 9),
 (11, 'select', 10),
 (12, 'date', 11),
-(13, 'textarea', 0);
+(13, 'textarea', 0),
+(14, 'textarea', 0),
+(15, 'select', 0),
+(16, 'select', 0),
+(17, 'select', 0);
 
 -- --------------------------------------------------------
 
@@ -1848,7 +1893,11 @@ INSERT INTO `oc_option_description` (`option_id`, `language_id`, `name`) VALUES
 (10, 1, 'Date &amp; Time'),
 (12, 1, 'Delivery Date'),
 (11, 1, 'Size'),
-(13, 1, 'Custom Size');
+(13, 1, 'CustomSize'),
+(14, 1, 'Customizable'),
+(15, 1, 'Size'),
+(16, 1, 'Size'),
+(17, 1, 'Size');
 
 -- --------------------------------------------------------
 
@@ -1862,7 +1911,7 @@ CREATE TABLE IF NOT EXISTS `oc_option_value` (
   `image` varchar(255) NOT NULL,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`option_value_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=77 ;
 
 --
 -- Dumping data for table `oc_option_value`
@@ -1880,9 +1929,37 @@ INSERT INTO `oc_option_value` (`option_value_id`, `option_id`, `image`, `sort_or
 (31, 1, '', 2),
 (23, 2, '', 1),
 (24, 2, '', 2),
-(48, 11, '', 3),
-(47, 11, '', 2),
-(46, 11, '', 1);
+(49, 11, '', 7),
+(48, 11, '', 4),
+(47, 11, '', 3),
+(46, 11, '', 2),
+(71, 15, '', 6),
+(55, 15, '', 5),
+(54, 15, '', 4),
+(53, 15, '', 3),
+(52, 15, '', 2),
+(51, 15, '', 1),
+(73, 16, '', 6),
+(58, 16, '', 5),
+(61, 16, '', 4),
+(60, 16, '', 3),
+(59, 16, '', 2),
+(57, 16, '', 1),
+(72, 17, '', 6),
+(67, 17, '', 5),
+(66, 17, '', 4),
+(65, 17, '', 3),
+(64, 17, '', 2),
+(63, 17, '', 1),
+(68, 11, '', 1),
+(69, 11, '', 5),
+(70, 11, '', 6),
+(50, 15, '', 0),
+(62, 17, '', 0),
+(56, 16, '', 0),
+(74, 15, '', 7),
+(75, 16, '', 7),
+(76, 17, '', 7);
 
 -- --------------------------------------------------------
 
@@ -1914,9 +1991,37 @@ INSERT INTO `oc_option_value_description` (`option_value_id`, `language_id`, `op
 (40, 1, 5, 'Blue'),
 (23, 1, 2, 'Checkbox 1'),
 (24, 1, 2, 'Checkbox 2'),
-(48, 1, 11, 'Large'),
-(47, 1, 11, 'Medium'),
-(46, 1, 11, 'Small');
+(49, 1, 11, 'Custom'),
+(48, 1, 11, '8'),
+(47, 1, 11, '6'),
+(46, 1, 11, '4'),
+(71, 1, 15, '14'),
+(55, 1, 15, '12'),
+(54, 1, 15, '10'),
+(53, 1, 15, '8'),
+(52, 1, 15, '6'),
+(51, 1, 15, '4'),
+(73, 1, 16, '14'),
+(58, 1, 16, '12'),
+(61, 1, 16, '10'),
+(60, 1, 16, '8'),
+(59, 1, 16, '6'),
+(57, 1, 16, '4'),
+(72, 1, 17, '14'),
+(67, 1, 17, '12'),
+(66, 1, 17, '10'),
+(65, 1, 17, '8'),
+(64, 1, 17, '6'),
+(63, 1, 17, '4'),
+(68, 1, 11, '2'),
+(69, 1, 11, '10'),
+(70, 1, 11, '12'),
+(50, 1, 15, '2'),
+(62, 1, 17, '2'),
+(56, 1, 16, '2'),
+(74, 1, 15, 'Custom'),
+(75, 1, 16, 'Custom'),
+(76, 1, 17, 'Custom');
 
 -- --------------------------------------------------------
 
@@ -1987,7 +2092,7 @@ CREATE TABLE IF NOT EXISTS `oc_order` (
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   PRIMARY KEY (`order_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
 
 --
 -- Dumping data for table `oc_order`
@@ -2027,9 +2132,21 @@ INSERT INTO `oc_order` (`order_id`, `invoice_no`, `invoice_prefix`, `store_id`, 
 (31, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'http://mishru.com/', 0, 1, 'Praneet', 'Chandra', 'pchandra@gainsight.com', '0987654321', '', 'a:0:{}', 'Praneet', 'Chandra', '', 'D-31', '', 'Hyderabad', '500034', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'PayUMoney Checkout', 'payu', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', 'Yo Yo Honey Singh', 1.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '111.93.24.238', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6', '2015-05-26 06:56:54', '2015-05-26 06:56:54'),
 (32, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'http://mishru.com/', 0, 1, 'Praneet', 'Chandra', 'pchandra@gainsight.com', '0987654321', '', 'a:0:{}', 'Praneet', 'Chandra', '', 'D-31', '', 'Hyderabad', '500034', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'PayUMoney Checkout', 'payu', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', 'Yo Yo Honey Singh', 1.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '111.93.24.238', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6', '2015-05-26 06:57:11', '2015-05-26 06:57:11'),
 (33, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'http://mishru.com/', 4, 1, 'kauaa', 'crow', 'aman.aviator1@gmail.com', '7799456642', '', 'b:0;', 'kauaa', 'crow', '', 'H,no 102, e block, may flower park', '', 'hyderabad', '500076', 'India', 99, 'Andhra Pradesh', 1476, '', 'b:0;', 'PayUMoney Checkout', 'payu', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', 'Yo Yo Honey Singh', 2.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '111.93.24.238', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6', '2015-05-26 07:05:11', '2015-05-26 07:05:11'),
-(34, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'http://128.199.76.108/mishru/', 4, 1, 'kauaa', 'crow', 'aman.aviator1@gmail.com', '7799456642', '', 'b:0;', 'kauaa', 'crow', '', 'H,no 102, e block, may flower park', '', 'hyderabad', '500076', 'India', 99, 'Andhra Pradesh', 1476, '', 'b:0;', 'Cash On Delivery', 'cod', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 20000.0000, 1, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.206.62.103', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6', '2015-05-27 18:17:09', '2015-05-27 18:17:11'),
-(35, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'http://128.199.76.108/mishru/', 4, 1, 'kauaa', 'crow', 'aman.aviator1@gmail.com', '7799456642', '', 'b:0;', 'kauaa', 'crow', '', 'H,no 102, e block, may flower park', '', 'hyderabad', '500076', 'India', 99, 'Andhra Pradesh', 1476, '', 'b:0;', 'Cash On Delivery', 'cod', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 20000.0000, 1, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.206.62.103', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6', '2015-05-27 18:18:54', '2015-05-27 18:18:55'),
-(36, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'http://128.199.76.108/mishru/', 4, 1, 'kauaa', 'crow', 'aman.aviator1@gmail.com', '7799456642', '', 'b:0;', 'kauaa', 'crow', '', 'H,no 102, e block, may flower park', '', 'hyderabad', '500076', 'India', 99, 'Andhra Pradesh', 1476, '', 'b:0;', 'Cash On Delivery', 'cod', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 20000.0000, 1, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.206.62.103', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.65 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6', '2015-05-27 18:19:27', '2015-05-27 18:19:28');
+(34, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'http://mishru.com/', 0, 1, 'Praneet', 'C', 'p@c1.com', '0987654321', '', 'a:0:{}', 'Praneet', 'C', '', 'D-31', '', 'Hyderabad', '500034', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'Cash On Delivery', 'cod', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 1.0000, 1, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '111.93.24.238', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6', '2015-06-01 05:45:43', '2015-06-01 05:45:44'),
+(35, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'http://mishru.com/', 4, 1, 'kauaa', 'crow', 'aman.aviator1@gmail.com', '7799456642', '', 'b:0;', 'kauaa', 'crow', '', 'H,no 102, e block, may flower park', '', 'hyderabad', '500076', 'India', 99, 'Andhra Pradesh', 1476, '', 'b:0;', 'Cash On Delivery', 'cod', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 3.0000, 1, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '111.93.24.238', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6', '2015-06-01 05:47:51', '2015-06-01 05:48:00'),
+(36, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'http://mishru.com/', 4, 1, 'kauaa', 'crow', 'aman.aviator1@gmail.com', '7799456642', '', 'b:0;', 'kauaa', 'crow', '', 'H,no 102, e block, may flower park', '', 'hyderabad', '500076', 'India', 99, 'Andhra Pradesh', 1476, '', 'b:0;', 'Cash On Delivery', 'cod', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 1.0000, 1, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '111.93.24.238', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6', '2015-06-01 05:55:31', '2015-06-01 05:55:33'),
+(37, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'http://mishru.com/', 0, 1, 'Praneet', 'Chandra', 'praneetsahaj@gmail.com', '0987654321', '', 'a:0:{}', 'Praneet', 'Chandra', '', 'D-31', '', 'Hyderabad', '500034', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'PayUMoney Checkout', 'payu', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 1.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.206.2.114', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6', '2015-06-21 10:02:08', '2015-06-21 10:02:08'),
+(38, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'http://mishru.com/', 0, 1, 'Praneet', 'Chandra', 'praneetsahaj@gmail.com', '0987654321', '', 'a:0:{}', 'Praneet', 'Chandra', '', 'D-31', '', 'Hyderabad', '500034', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'PayUMoney Checkout', 'payu', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 1.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.206.2.114', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6', '2015-06-21 10:09:31', '2015-06-21 10:09:31'),
+(39, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'http://mishru.com/', 0, 1, 'Praneet', 'Chandra', 'praneetsahaj@gmail.com', '0987654321', '', 'a:0:{}', 'Praneet', 'Chandra', '', 'D-31', '', 'Hyderabad', '500034', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'PayUMoney Checkout', 'payu', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 1.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.206.2.114', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6', '2015-06-21 10:10:14', '2015-06-21 10:10:14'),
+(40, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'https://mishru.com/', 5, 1, 'Nikhil', 'Nagarajan', 'nikhil@mishru.com', '9000977755', '', 'a:0:{}', 'Nikhil', 'Nagarajan', '', 'Koundinya, 45 Chikoti Gardens', 'Begumpet', 'Hyderabad', '500016', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'PayUMoney Checkout', 'payu', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 20001.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '130.43.158.7', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36', 'en-US,en;q=0.8', '2015-06-30 15:38:29', '2015-06-30 15:38:29'),
+(41, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'https://mishru.com/', 0, 1, 'Praneet', 'Chandra', 'praneetsahaj@gmail.com', '09581810789', '', 'a:0:{}', 'Praneet', 'Chandra', '', 'D-31', '', 'Hyderabad', '500034', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'Cash On Delivery', 'cod', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 20000.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.204.253.59', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6,it;q=0.4', '2015-07-30 06:02:45', '2015-07-30 06:02:45'),
+(42, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'https://mishru.com/', 0, 1, 'Praneet', 'Chandra', 'praneetsahaj@gmail.com', '09581810789', '', 'a:0:{}', 'Praneet', 'Chandra', '', 'D-31', '', 'Hyderabad', '500034', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'Cash On Delivery', 'cod', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', 'test', 20000.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.204.253.59', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6,it;q=0.4', '2015-07-30 06:05:21', '2015-07-30 06:05:21'),
+(43, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'https://mishru.com/', 0, 1, 'Praneet', 'Chandra', 'praneetsahaj@gmail.com', '09581810789', '', 'a:0:{}', 'Praneet', 'Chandra', '', 'D-31', '', 'Hyderabad', '500034', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'Cash On Delivery', 'cod', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 20000.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.204.253.59', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6,it;q=0.4', '2015-07-30 06:05:40', '2015-07-30 06:05:40'),
+(44, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'https://mishru.com/', 5, 1, 'Nikhil', 'Nagarajan', 'nikhil@mishru.com', '9000977755', '', 'a:0:{}', 'Nikhil', 'Nagarajan', '', 'Koundinya, 45 Chikoti Gardens', 'Begumpet', 'Hyderabad', '500016', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'Cash On Delivery', 'cod', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 20000.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.204.253.59', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36', 'en-US,en;q=0.8', '2015-07-30 06:06:55', '2015-07-30 06:06:55'),
+(45, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'https://mishru.com/', 0, 1, 'Praneet', 'Chandra', 'praneetsahaj@gmail.com', '09581810789', '', 'a:0:{}', 'Praneet', 'Chandra', '', 'D-31', '', 'Hyderabad', '500034', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'Cash On Delivery', 'cod', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 20000.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.204.253.59', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36', 'en-US,en;q=0.8,hi;q=0.6,it;q=0.4', '2015-07-30 06:08:48', '2015-07-30 06:08:48'),
+(46, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'https://mishru.com/', 5, 1, 'Nikhil', 'Nagarajan', 'nikhil@mishru.com', '9000977755', '', 'a:0:{}', 'Nikhil', 'Nagarajan', '', 'Koundinya, 45 Chikoti Gardens', 'Begumpet', 'Hyderabad', '500016', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'Cash On Delivery', 'cod', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 20000.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.204.253.59', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36', 'en-US,en;q=0.8', '2015-07-30 06:11:35', '2015-07-30 06:11:35'),
+(47, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'https://mishru.com/', 5, 1, 'Nikhil', 'Nagarajan', 'nikhil@mishru.com', '9000977755', '', 'a:0:{}', 'Nikhil', 'Nagarajan', '', 'Koundinya, 45 Chikoti Gardens', 'Begumpet', 'Hyderabad', '500016', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'Free Checkout', 'free_checkout', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 0.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.204.253.59', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36', 'en-US,en;q=0.8', '2015-07-30 06:24:55', '2015-07-30 06:24:55'),
+(48, 0, 'INV-2015-00', 0, 'Mishru Clothing', 'https://mishru.com/', 0, 1, 'Praneet', 'Chandra', 'praneetsahaj@gmail.com', '+919581810789', '', 'a:0:{}', 'Praneet', 'Chandra', '', 'A-1 P&amp;T Quarters', '', 'Hyderabad', '500003', 'India', 99, 'Andhra Pradesh', 1476, '', 'a:0:{}', 'PayUMoney Checkout', 'payu', '', '', '', '', '', '', '', '', 0, '', 0, '', 'a:0:{}', '', '', '', 20000.0000, 0, 0, 0.0000, 0, '', 1, 4, 'INR', 1.00000000, '49.206.18.17', '', 'Mozilla/5.0 (Linux; Android 5.1.1; MotoG3 Build/LPI23.72-33) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.133 Mobile Safari/537.36', 'en-US,en;q=0.8', '2015-08-24 16:18:21', '2015-08-24 16:18:21');
 
 -- --------------------------------------------------------
 
@@ -2147,9 +2264,9 @@ INSERT INTO `oc_order_history` (`order_history_id`, `order_id`, `order_status_id
 (12, 27, 1, 0, '', '2015-05-25 16:48:08'),
 (13, 28, 2, 0, 'orderId: 28\nTransaction Id: 403993715512145642\nmihpayid: 403993715512145642\nmode: CC\nstatus: success\nunmappedstatus: captured\nkey: JBZaLc\ntxnid: 28\namount: 1.0\naddedon: 2015-05-26 02:23:24\nproductinfo: opencart products information\nfirstname: kauaa\nlastname: \naddress1: H no 102  e block  may flower park\naddress2: \ncity: hyderabad\nstate: \ncountry: India\nzipcode: 500076\nemail: Praneetsahaj@gmail.com\nphone: 9581810789\nudf1: \nudf2: \nudf3: \nudf4: \nudf5: \nudf6: \nudf7: \nudf8: \nudf9: \nudf10: \nhash: 43c7e6d65206e9b17b654500b1de8d731c3e61bbb8226156743f1c9b3137df09e76605a4a62c0d410f13049128efc49473535f283b23bf0665532ae71a272277\nfield1: 514639724594\nfield2: 999999\nfield3: 1514384240251461\nfield4: -1\nfield5: \nfield6: \nfield7: \nfield8: \nfield9: SUCCESS\nPG_TYPE: HDFCPG\nbank_ref_num: 1514384240251461\nbankcode: CC\nerror: E000\nerror_Message: No Error\nname_on_card: Praneet Chandra\ncardnum: 434678XXXXXX1595\ncardhash: This field is no longer supported in postback params.\namount_split: {&quot;PAYU&quot;:&quot;1.0&quot;}\npayuMoneyId: 1110163092\ndiscount: 0.00\nnet_amount_debit: 1\n', '2015-05-25 16:54:14'),
 (14, 29, 2, 0, 'orderId: 29\nTransaction Id: 403993715512145644\nmihpayid: 403993715512145644\nmode: CC\nstatus: success\nunmappedstatus: captured\nkey: JBZaLc\ntxnid: 29\namount: 1.0\naddedon: 2015-05-26 02:25:29\nproductinfo: opencart products information\nfirstname: kauaa\nlastname: \naddress1: H no 102  e block  may flower park\naddress2: \ncity: hyderabad\nstate: \ncountry: India\nzipcode: 500076\nemail: Praneetsahaj@gmail.com\nphone: 9581810789\nudf1: \nudf2: \nudf3: \nudf4: \nudf5: \nudf6: \nudf7: \nudf8: \nudf9: \nudf10: \nhash: 25d1a2df159fc8cce79dd67f61ad98ce9b12720518cdad15cd18e79b08aab8c2e255d5963842045173769a88bb65d817958ba852285365e68a2a9d339c30bf7b\nfield1: 289106\nfield2: 514606338498\nfield3: 20150526\nfield4: MC\nfield5: 338498\nfield6: 00\nfield7: 0\nfield8: 3DS\nfield9:  Successful Verification of Secure Hash:  -- Approved -- Transaction Successful -- Unable to be determined--E219\nPG_TYPE: AXISPG\nbank_ref_num: 289106\nbankcode: CC\nerror: E000\nerror_Message: No Error\nname_on_card: PRaneet Chandra\ncardnum: 512345XXXXXX2346\ncardhash: This field is no longer supported in postback params.\namount_split: {&quot;PAYU&quot;:&quot;1.0&quot;}\npayuMoneyId: 1110163093\ndiscount: 0.00\nnet_amount_debit: 1\n', '2015-05-25 16:56:36'),
-(15, 34, 1, 0, '', '2015-05-27 18:17:11'),
-(16, 35, 1, 0, '', '2015-05-27 18:18:55'),
-(17, 36, 1, 0, '', '2015-05-27 18:19:28');
+(15, 34, 1, 0, '', '2015-06-01 05:45:44'),
+(16, 35, 1, 0, '', '2015-06-01 05:48:00'),
+(17, 36, 1, 0, '', '2015-06-01 05:55:33');
 
 -- --------------------------------------------------------
 
@@ -2167,7 +2284,7 @@ CREATE TABLE IF NOT EXISTS `oc_order_option` (
   `value` text NOT NULL,
   `type` varchar(32) NOT NULL,
   PRIMARY KEY (`order_option_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `oc_order_option`
@@ -2192,7 +2309,18 @@ INSERT INTO `oc_order_option` (`order_option_id`, `order_id`, `order_product_id`
 (16, 31, 35, 236, 35, 'Size', 'Medium', 'select'),
 (17, 32, 36, 236, 35, 'Size', 'Medium', 'select'),
 (18, 33, 37, 236, 35, 'Size', 'Medium', 'select'),
-(19, 36, 40, 237, 37, 'Size', 'Large', 'select');
+(19, 34, 38, 236, 35, 'Size', 'Medium', 'select'),
+(20, 35, 39, 238, 0, 'Textarea', 'Color1:#fff,\nColor2:#4444,\nSize:23,23,234,233', 'textarea'),
+(21, 35, 39, 236, 36, 'Size', 'Small', 'select'),
+(22, 35, 40, 236, 35, 'Size', 'Medium', 'select'),
+(23, 36, 41, 236, 34, 'Size', 'Large', 'select'),
+(24, 37, 42, 236, 35, 'Size', 'Medium', 'select'),
+(25, 38, 43, 236, 35, 'Size', 'Medium', 'select'),
+(26, 39, 44, 236, 35, 'Size', 'Medium', 'select'),
+(27, 40, 45, 236, 36, 'Size', 'Small', 'select'),
+(28, 47, 53, 277, 81, 'Size', '6', 'select'),
+(29, 47, 54, 274, 65, 'Size', '10', 'select'),
+(30, 47, 55, 280, 102, 'Size', '10', 'select');
 
 -- --------------------------------------------------------
 
@@ -2212,7 +2340,7 @@ CREATE TABLE IF NOT EXISTS `oc_order_product` (
   `tax` decimal(15,4) NOT NULL DEFAULT '0.0000',
   `reward` int(8) NOT NULL,
   PRIMARY KEY (`order_product_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
 
 --
 -- Dumping data for table `oc_order_product`
@@ -2256,9 +2384,25 @@ INSERT INTO `oc_order_product` (`order_product_id`, `order_id`, `product_id`, `n
 (35, 31, 59, 'Polo Tshirt', 'Test', 1, 1.0000, 1.0000, 0.0000, 0),
 (36, 32, 59, 'Polo Tshirt', 'Test', 1, 1.0000, 1.0000, 0.0000, 0),
 (37, 33, 59, 'Polo Tshirt', 'Test', 2, 1.0000, 2.0000, 0.0000, 0),
-(38, 34, 50, 'Red Jacqard Anarkali', 'Red Jacqard Anarkali', 1, 20000.0000, 20000.0000, 0.0000, 0),
-(39, 35, 50, 'Red Jacqard Anarkali', 'Red Jacqard Anarkali', 1, 20000.0000, 20000.0000, 0.0000, 0),
-(40, 36, 50, 'Red Jacqard Anarkali', 'Red Jacqard Anarkali', 1, 20000.0000, 20000.0000, 0.0000, 0);
+(38, 34, 59, 'Polo Tshirt', 'Test', 1, 1.0000, 1.0000, 0.0000, 0),
+(39, 35, 59, 'Polo Tshirt', 'Test', 1, 1.0000, 1.0000, 0.0000, 0),
+(40, 35, 59, 'Polo Tshirt', 'Test', 2, 1.0000, 2.0000, 0.0000, 0),
+(41, 36, 59, 'Polo Tshirt', 'Test', 1, 1.0000, 1.0000, 0.0000, 0),
+(42, 37, 59, 'Polo Tshirt', 'Test', 1, 1.0000, 1.0000, 0.0000, 0),
+(43, 38, 59, 'Polo Tshirt', 'Test', 1, 1.0000, 1.0000, 0.0000, 0),
+(44, 39, 59, 'Polo Tshirt', 'Test', 1, 1.0000, 1.0000, 0.0000, 0),
+(45, 40, 59, 'Polo Tshirt', 'Test', 1, 1.0000, 1.0000, 0.0000, 0),
+(46, 40, 50, 'Red Jacqard Anarkali', 'Red Jacqard Anarkali', 1, 20000.0000, 20000.0000, 0.0000, 0),
+(47, 41, 50, 'Red Jacqard Anarkali', 'Red Jacqard Anarkali', 1, 20000.0000, 20000.0000, 0.0000, 0),
+(48, 42, 50, 'Red Jacqard Anarkali', 'Red Jacqard Anarkali', 1, 20000.0000, 20000.0000, 0.0000, 0),
+(49, 43, 50, 'Red Jacqard Anarkali', 'Red Jacqard Anarkali', 1, 20000.0000, 20000.0000, 0.0000, 0),
+(50, 44, 50, 'Red Jacqard Anarkali', 'Red Jacqard Anarkali', 1, 20000.0000, 20000.0000, 0.0000, 0),
+(51, 45, 50, 'Red Jacqard Anarkali', 'Red Jacqard Anarkali', 1, 20000.0000, 20000.0000, 0.0000, 0),
+(52, 46, 50, 'Red Jacqard Anarkali', 'Red Jacqard Anarkali', 1, 20000.0000, 20000.0000, 0.0000, 0),
+(53, 47, 76, 'Pre Draped Saree', 'Pre Draped Sarees', 1, 0.0000, 0.0000, 0.0000, 0),
+(54, 47, 71, 'Green  Heavy Neckline', 'Green  Heavy Neckline', 1, 0.0000, 0.0000, 0.0000, 0),
+(55, 47, 72, 'Lehenga With Peplum Top', 'Lehenga With Peplum Top', 1, 0.0000, 0.0000, 0.0000, 0),
+(56, 48, 50, 'Red Jacqard Anarkali', 'Red Jacqard Anarkali', 1, 20000.0000, 20000.0000, 0.0000, 0);
 
 -- --------------------------------------------------------
 
@@ -2354,7 +2498,7 @@ CREATE TABLE IF NOT EXISTS `oc_order_total` (
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`order_total_id`),
   KEY `order_id` (`order_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=73 ;
 
 --
 -- Dumping data for table `oc_order_total`
@@ -2418,12 +2562,21 @@ INSERT INTO `oc_order_total` (`order_total_id`, `order_id`, `code`, `title`, `va
 (55, 31, '', 'Total', 1.0000, 9),
 (56, 32, '', 'Total', 1.0000, 9),
 (57, 33, '', 'Total', 2.0000, 9),
-(58, 34, 'sub_total', 'Sub-Total', 20000.0000, 0),
-(59, 34, 'total', 'Total', 20000.0000, 9),
-(60, 35, 'sub_total', 'Sub-Total', 20000.0000, 0),
-(61, 35, 'total', 'Total', 20000.0000, 9),
-(62, 36, 'sub_total', 'Sub-Total', 20000.0000, 0),
-(63, 36, 'total', 'Total', 20000.0000, 9);
+(58, 34, '', 'Total', 1.0000, 9),
+(59, 35, '', 'Total', 3.0000, 9),
+(60, 36, '', 'Total', 1.0000, 9),
+(61, 37, '', 'Total', 1.0000, 9),
+(62, 38, '', 'Total', 1.0000, 9),
+(63, 39, '', 'Total', 1.0000, 9),
+(64, 40, '', 'Total', 20001.0000, 9),
+(65, 41, '', 'Total', 20000.0000, 9),
+(66, 42, '', 'Total', 20000.0000, 9),
+(67, 43, '', 'Total', 20000.0000, 9),
+(68, 44, '', 'Total', 20000.0000, 9),
+(69, 45, '', 'Total', 20000.0000, 9),
+(70, 46, '', 'Total', 20000.0000, 9),
+(71, 47, '', 'Total', 0.0000, 9),
+(72, 48, '', 'Total', 20000.0000, 9);
 
 -- --------------------------------------------------------
 
@@ -2487,20 +2640,34 @@ CREATE TABLE IF NOT EXISTS `oc_product` (
   `date_modified` datetime NOT NULL,
   `customizable` int(11) DEFAULT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=61 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=81 ;
 
 --
 -- Dumping data for table `oc_product`
 --
 
 INSERT INTO `oc_product` (`product_id`, `model`, `sku`, `upc`, `ean`, `jan`, `isbn`, `mpn`, `location`, `quantity`, `stock_status_id`, `image`, `manufacturer_id`, `shipping`, `price`, `points`, `tax_class_id`, `date_available`, `weight`, `weight_class_id`, `length`, `width`, `height`, `length_class_id`, `subtract`, `minimum`, `sort_order`, `status`, `viewed`, `date_added`, `date_modified`, `customizable`) VALUES
-(50, 'Red Jacqard Anarkali', '', '', '', '', '', '', '', 999, 5, 'catalog/image1xxl.jpg', 0, 0, 20000.0000, 0, 0, '2015-04-28', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 470, '2015-04-28 10:40:27', '2015-05-27 18:20:35', NULL),
+(50, 'Red Jacqard Anarkali', '', '', '', '', '', '', '', 1, 5, 'catalog/image1xxl.jpg', 0, 0, 20000.0000, 0, 0, '2015-04-28', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 771, '2015-04-28 10:40:27', '2015-06-02 12:22:58', NULL),
 (51, 'CustomizableAnarkalis', '', '', '', '', '', '', '', 1, 6, '', 0, 1, 0.0000, 0, 0, '2015-05-09', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 3, '2015-05-09 17:09:09', '2015-05-09 22:17:22', NULL),
-(52, 'CustomizableAnarkalis', '', '', '', '', '', '', '', 1, 6, 'catalog/_90K6360 cream.jpg', 0, 0, 999.0000, 0, 0, '2015-05-09', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 622, '2015-05-09 22:18:10', '2015-05-27 17:04:15', NULL),
+(52, 'CustomizableAnarkalis', '', '', '', '', '', '', '', 1, 6, 'catalog/_90K6360 cream.jpg', 0, 0, 1.0000, 0, 0, '2015-05-09', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 646, '2015-05-09 22:18:10', '2015-06-30 18:34:49', NULL),
 (53, 'polo', '', '', '', '', '', '', '', 1, 6, 'catalog/image1xxl.jpg', 0, 1, 8000.0000, 0, 0, '2015-05-18', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2015-05-18 09:12:25', '0000-00-00 00:00:00', NULL),
 (54, 'polo', '', '', '', '', '', '', '', 1, 6, 'catalog/image1xxl.jpg', 0, 1, 8000.0000, 0, 0, '2015-05-18', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2015-05-18 09:14:06', '0000-00-00 00:00:00', NULL),
+(60, 'Grean Heavy Neckline', '', '', '', '', '', '', '', 1, 6, '', 0, 0, 0.0000, 0, 0, '2015-06-20', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2015-06-20 11:06:11', '0000-00-00 00:00:00', NULL),
+(61, 'Green Heavy Neckline', '', '', '', '', '', '', '', 1, 6, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-black.jpg', 0, 1, 0.0000, 0, 0, '2015-06-21', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2015-06-21 09:12:51', '0000-00-00 00:00:00', NULL),
 (57, 'mmm', '', '', '', '', '', '', '', 1, 6, 'catalog/image1xxl.jpg', 0, 1, 122222.0000, 0, 0, '2015-05-18', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2015-05-18 10:50:34', '0000-00-00 00:00:00', NULL),
-(60, 'ASOS test', '', '', '', '', '', '', '', 800, 6, 'catalog/logos/image1xxl.jpg', 0, 0, 999.0000, 0, 0, '2015-05-27', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2015-05-27 17:09:50', '0000-00-00 00:00:00', NULL);
+(59, 'Test', '', '', '', '', '', '', '', 97, 6, 'catalog/image1xxl.jpg', 0, 0, 1.0000, 0, 0, '2015-05-18', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 208, '2015-05-18 12:39:57', '2015-06-30 18:21:23', NULL),
+(68, 'Pre Draped Saree', '', '', '', '', '', '', '', 1, 6, 'catalog/Saree/Pre Draped Saree/F75H2721 blue.jpg', 0, 1, 0.0000, 0, 0, '2015-06-21', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2015-06-21 10:31:28', '0000-00-00 00:00:00', NULL),
+(69, 'Pre Draped Saree', '', '', '', '', '', '', '', 1, 6, 'catalog/Saree/Pre Draped Saree/F75H2721 blue.jpg', 0, 1, 0.0000, 0, 0, '2015-06-21', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2015-06-21 10:31:29', '0000-00-00 00:00:00', NULL),
+(71, 'Green  Heavy Neckline', '', '', '', '', '', '', '', 99999, 6, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-original.jpg', 0, 0, 0.0000, 0, 0, '2015-06-27', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 0, 1, 1, 191, '2015-06-27 14:08:09', '2015-08-12 12:13:52', NULL),
+(72, 'Lehenga With Peplum Top', '', '', '', '', '', '', '', 999999, 6, 'catalog/Lehengas/Lehenga With Peplum Top/IMG_0585 original.jpg', 0, 0, 0.0000, 0, 0, '2015-06-27', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 0, 1, 1, 142, '2015-06-27 15:03:40', '2015-07-05 09:42:22', NULL),
+(73, 'Pattu Silk Lehenga', '', '', '', '', '', '', '', 999999, 6, 'catalog/Lehengas/Pattu Silk Lehenga/F75H2520 copy 2.jpg', 0, 0, 0.0000, 0, 0, '2015-06-27', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 79, '2015-06-27 15:44:58', '2015-07-05 09:42:42', NULL),
+(74, 'Peach chiffon anarkali', '', '', '', '', '', '', '', 1, 6, 'catalog/anarkalis/Peach chiffon anarkali/Peach chiffon anarkali-Lblue.jpg', 0, 1, 0.0000, 0, 0, '2015-06-28', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2015-06-28 11:31:45', '0000-00-00 00:00:00', NULL),
+(75, 'Peach chiffon anarkali', '', '', '', '', '', '', '', 999999, 6, 'catalog/anarkalis/Peach chiffon anarkali/Peach chiffon anarkali-original.jpg', 0, 0, 0.0000, 0, 0, '2015-06-28', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 75, '2015-06-28 11:37:44', '2015-07-05 09:43:07', NULL),
+(76, 'Pre Draped Sarees', '', '', '', '', '', '', '', 99999, 6, 'catalog/Saree/Pre Draped Saree/F75H2721 original.jpg', 0, 0, 0.0000, 0, 0, '2015-06-28', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 47, '2015-06-28 12:25:36', '2015-07-05 09:43:33', NULL),
+(77, 'Purple heavy embroidery anarkali', '', '', '', '', '', '', '', 99999, 6, 'catalog/anarkalis/Purple heavy embroidery anarkali/Purple heavy embroidery anarkali-original.jpg', 0, 0, 0.0000, 0, 0, '2015-06-28', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 51, '2015-06-28 12:51:44', '2015-07-05 09:43:54', NULL),
+(78, 'Red Jacquard Anarkali', '', '', '', '', '', '', '', 1, 6, 'catalog/anarkalis/Red Jacquard Anarkali/Red Jacquard Anarkali-original.jpg', 0, 1, 0.0000, 0, 0, '2015-06-28', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 0, '2015-06-28 13:27:10', '0000-00-00 00:00:00', NULL),
+(79, 'Red Jacquard Anarkali', '', '', '', '', '', '', '', 999999, 6, 'catalog/anarkalis/Red Jacquard Anarkali/Red Jacquard Anarkali-original.jpg', 0, 0, 0.0000, 0, 0, '2015-06-28', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 23, '2015-06-28 13:32:41', '2015-07-05 09:44:13', NULL),
+(80, 'Pre Stitched Saree', '', '', '', '', '', '', '', 1, 6, 'catalog/Pre Stitched Saree/F75H2721 original.jpg', 0, 1, 0.0000, 0, 0, '2015-06-30', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, 21, '2015-06-30 17:57:31', '2015-06-30 18:32:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -2538,6 +2705,11 @@ CREATE TABLE IF NOT EXISTS `oc_product_description` (
   `region3` text,
   `region4` text,
   `region5` text,
+  `region1_name` text,
+  `region2_name` text,
+  `region3_name` text,
+  `region4_name` text,
+  `region5_name` text,
   PRIMARY KEY (`product_id`,`language_id`),
   KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -2546,9 +2718,18 @@ CREATE TABLE IF NOT EXISTS `oc_product_description` (
 -- Dumping data for table `oc_product_description`
 --
 
-INSERT INTO `oc_product_description` (`product_id`, `language_id`, `name`, `description`, `tag`, `meta_title`, `meta_description`, `meta_keyword`, `customizable`, `region`, `region1`, `region2`, `region3`, `region4`, `region5`) VALUES
-(52, 1, 'Customizable Anarkalis', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', 'Anarkalis', '', '', '1', 5, '000000,2d040d,940200,007d64', '0,000000.0,ffb177.1,2d040d.1,ffb177.2,940200.2,ffb177.3,007d64.3,ffb177', '0,ffb177.2,2d040d', '0,ffb177.2,2d040d', '0,ffb177.2,2d040d'),
-(50, 1, 'Red Jacqard Anarkali', '&lt;p&gt;&lt;a href=&quot;http://www.asos.com/Men/Polo-Shirts/Cat/pgecategory.aspx?cid=4616&quot; style=&quot;outline: none; color: rgb(102, 102, 102); font-family: futura-pt, tahoma, geneva, verdana, arial, sans-serif; font-size: 14px; line-height: 18.2000007629395px;&quot;&gt;&lt;strong&gt;Polo shirt&lt;/strong&gt;&lt;/a&gt;&lt;span style=&quot;font-family: futura-pt, tahoma, geneva, verdana, arial, sans-serif; font-size: 14px; line-height: 18.2000007629395px;&quot;&gt;&amp;nbsp;by&amp;nbsp;&lt;/span&gt;&lt;a href=&quot;http://www.asos.com/Men/A-To-Z-Of-Brands/Asos-Collection/Cat/pgecategory.aspx?cid=3159&quot; style=&quot;outline: none; color: rgb(102, 102, 102); font-family: futura-pt, tahoma, geneva, verdana, arial, sans-serif; font-size: 14px; line-height: 18.2000007629395px;&quot;&gt;&lt;strong&gt;ASOS&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;ul style=&quot;margin: 10px 0px 0px 20px; padding: 0px; font-family: futura-pt, tahoma, geneva, verdana, arial, sans-serif; font-size: 14px; line-height: 18.2000007629395px;&quot;&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Breathable cotton pique&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Ribbed collar and cuffs&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Two button placket&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Embroidered triangle&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Slim fit - cut closely to the body&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Machine wash&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;100% Cotton&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Our model wears a size Medium and is 189cm/6''2.5&quot; tall&lt;/li&gt;&lt;/ul&gt;', 'Red Jacqard Anarkali, Anarkali', 'Red Jacqard Anarkali', '', '', '0', 0, '', '', '', '', '');
+INSERT INTO `oc_product_description` (`product_id`, `language_id`, `name`, `description`, `tag`, `meta_title`, `meta_description`, `meta_keyword`, `customizable`, `region`, `region1`, `region2`, `region3`, `region4`, `region5`, `region1_name`, `region2_name`, `region3_name`, `region4_name`, `region5_name`) VALUES
+(59, 1, 'Polo Tshirt', '&lt;p&gt;\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n&lt;/p&gt;&lt;p class=&quot;p1&quot;&gt;A T Shirt&lt;/p&gt;', '', 'Test Test', 'Test Test', 'Test Test', '0', 0, '0', '0', '0', '0', '0', '', '', '', '', ''),
+(50, 1, 'Red Jacqard Anarkali', '&lt;p&gt;&lt;a href=&quot;http://www.asos.com/Men/Polo-Shirts/Cat/pgecategory.aspx?cid=4616&quot; style=&quot;outline: none; color: rgb(102, 102, 102); font-family: futura-pt, tahoma, geneva, verdana, arial, sans-serif; font-size: 14px; line-height: 18.2000007629395px;&quot;&gt;&lt;strong&gt;Polo shirt&lt;/strong&gt;&lt;/a&gt;&lt;span style=&quot;font-family: futura-pt, tahoma, geneva, verdana, arial, sans-serif; font-size: 14px; line-height: 18.2000007629395px;&quot;&gt;&amp;nbsp;by&amp;nbsp;&lt;/span&gt;&lt;a href=&quot;http://www.asos.com/Men/A-To-Z-Of-Brands/Asos-Collection/Cat/pgecategory.aspx?cid=3159&quot; style=&quot;outline: none; color: rgb(102, 102, 102); font-family: futura-pt, tahoma, geneva, verdana, arial, sans-serif; font-size: 14px; line-height: 18.2000007629395px;&quot;&gt;&lt;strong&gt;ASOS&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;ul style=&quot;margin: 10px 0px 0px 20px; padding: 0px; font-family: futura-pt, tahoma, geneva, verdana, arial, sans-serif; font-size: 14px; line-height: 18.2000007629395px;&quot;&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Breathable cotton pique&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Ribbed collar and cuffs&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Two button placket&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Embroidered triangle&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Slim fit - cut closely to the body&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Machine wash&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;100% Cotton&lt;/li&gt;&lt;li style=&quot;margin: 0px; padding: 0px; list-style: disc; line-height: 20px;&quot;&gt;Our model wears a size Medium and is 189cm/6''2.5&quot; tall&lt;/li&gt;&lt;/ul&gt;', 'Red Jacqard Anarkali, Anarkali', 'Red Jacqard Anarkali', '', '', '0', 0, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL),
+(52, 1, 'Customizable Anarkalis', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', 'Anarkalis', '', '', '1', 5, '000000,2d040d,940200,007d64', '0,000000.0,ffb177.1,2d040d.1,ffb177.2,940200.2,ffb177.3,007d64.3,ffb177', '0,ffb177.2,2d040d', '0,ffb177.2,2d040d', '0,ffb177.2,2d040d', 'Color 1', 'Color 2', 'Color 3', 'Color 4', 'Color 5'),
+(71, 1, 'Green  Heavy Neckline', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', 'Green Heavy Neckline', '', '', '1', 1, '81846E,B91547,CA3A3A,3F328E,3B3231,7C3335', '0', '0', '0', '0', 'Suit Color', '0', '0', '0', '0'),
+(72, 1, 'Lehenga With Peplum Top', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', 'Lehenga With Peplum Top', '', '', '1', 1, 'A20600,151A83,EE7B7B,005D1A,171A84,B8D479,911C64,CCAC00', '0', '0', '0', '0', 'Suit Color', '0', '0', '0', '0'),
+(73, 1, 'Pattu Silk Lehenga', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', 'Pattu Silk Lehenga', '', '', '1', 1, 'F73267,004E12,B11C11,CD2823,821E67,F2AE86,E7C120,101010,005AC4', '0', '0', '0', '0', 'Suit Color', '0', '0', '0', '0'),
+(75, 1, 'Peach chiffon anarkali', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', 'Peach chiffon anarkali', '', '', '1', 1, 'FD9D7E,7ED5DF,C2CC8F,9AED9F,F7CC7A,FE7976', '0', '0', '0', '0', 'Suit Color', '0', '0', '0', '0'),
+(76, 1, 'Pre Draped Saree', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', 'Pre Draped Saree', '', '', '1', 1, 'FF3649,F78E4E,700E35,F5BF5D,0F4277,00551C', '0', 'o', '0', '0', 'Saree Color', '0', '0', '0', '0'),
+(77, 1, 'Purple heavy embroidery anarkali', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', 'Purple heavy embroidery anarkali', '', '', '1', 1, 'B330A0,DE0056,D0A61D,232323,290F6A,0D1940,2E6D16,B21011,E3830B', '0', '0', '0', '0', 'Suit Color', '0', '0', '0', '0'),
+(79, 1, 'Red Jacquard Anarkali', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', 'Red Jacquard Anarkali', '', '', '1', 1, 'F80131,AD0637,171715,11115D', '0', '0', '0', '0', 'Suit Color', '0', '0', '0', '0'),
+(80, 1, 'Pre Stitched Saree', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', 'Pre Stitched Saree Draped', '', '', '1', 1, 'FF4D4D,001F5C,003300,E68A00,33001A,FFCC00', '', '', '', '', 'Saree Colour', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -2567,7 +2748,7 @@ CREATE TABLE IF NOT EXISTS `oc_product_discount` (
   `date_end` date NOT NULL DEFAULT '0000-00-00',
   PRIMARY KEY (`product_discount_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=441 ;
 
 -- --------------------------------------------------------
 
@@ -2587,7 +2768,9 @@ CREATE TABLE IF NOT EXISTS `oc_product_filter` (
 
 INSERT INTO `oc_product_filter` (`product_id`, `filter_id`) VALUES
 (50, 2),
-(52, 3);
+(52, 3),
+(59, 2),
+(80, 3);
 
 -- --------------------------------------------------------
 
@@ -2602,16 +2785,32 @@ CREATE TABLE IF NOT EXISTS `oc_product_image` (
   `sort_order` int(3) NOT NULL DEFAULT '0',
   PRIMARY KEY (`product_image_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2415 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2536 ;
 
 --
 -- Dumping data for table `oc_product_image`
 --
 
 INSERT INTO `oc_product_image` (`product_image_id`, `product_id`, `image`, `sort_order`) VALUES
-(2414, 50, 'catalog/anarkalis/RedJacqardAnarkali/Image 2.jpg', 0),
-(2413, 50, 'catalog/anarkalis/RedJacqardAnarkali/Image 3.jpg', 0),
-(2362, 54, 'catalog/image1xxl.jpg', 0);
+(2416, 50, 'catalog/anarkalis/RedJacqardAnarkali/Image 3.jpg', 0),
+(2415, 50, 'catalog/anarkalis/RedJacqardAnarkali/Image 2.jpg', 0),
+(2362, 54, 'catalog/image1xxl.jpg', 0),
+(2532, 59, '', 0),
+(2533, 59, '', 0),
+(2534, 59, 'catalog/image1xxl.jpg', 0),
+(2531, 59, 'catalog/_90K6360 cream.jpg', 0),
+(2417, 60, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-blue.jpg', 0),
+(2418, 60, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-original.jpg', 0),
+(2419, 60, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-pink.jpg', 0),
+(2420, 60, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-red.jpg', 0),
+(2421, 60, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-wine.jpg', 0),
+(2422, 61, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-black.jpg', 0),
+(2423, 61, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-blue.jpg', 0),
+(2424, 61, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-original.jpg', 0),
+(2425, 61, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-pink.jpg', 0),
+(2426, 61, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-red.jpg', 0),
+(2427, 61, 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-wine.jpg', 0),
+(2535, 80, '', 0);
 
 -- --------------------------------------------------------
 
@@ -2626,17 +2825,35 @@ CREATE TABLE IF NOT EXISTS `oc_product_option` (
   `value` text NOT NULL,
   `required` tinyint(1) NOT NULL,
   PRIMARY KEY (`product_option_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=239 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=281 ;
 
 --
 -- Dumping data for table `oc_product_option`
 --
 
 INSERT INTO `oc_product_option` (`product_option_id`, `product_id`, `option_id`, `value`, `required`) VALUES
-(238, 60, 11, '', 1),
+(244, 50, 13, '', 0),
+(236, 59, 11, '', 1),
 (230, 53, 11, '', 1),
 (231, 54, 11, '', 1),
-(237, 50, 11, '', 1);
+(242, 52, 13, '', 0),
+(243, 59, 13, '', 0),
+(241, 52, 14, '', 0),
+(240, 52, 11, '', 1),
+(245, 60, 6, '', 0),
+(246, 60, 6, '', 0),
+(247, 61, 6, '', 1),
+(248, 61, 6, '', 0),
+(279, 79, 15, '', 1),
+(278, 77, 15, '', 1),
+(277, 76, 17, '', 1),
+(276, 75, 15, '', 1),
+(274, 71, 15, '', 1),
+(275, 73, 16, '', 1),
+(270, 80, 11, '', 1),
+(271, 80, 14, '', 0),
+(272, 80, 13, '', 0),
+(280, 72, 16, '', 1);
 
 -- --------------------------------------------------------
 
@@ -2659,22 +2876,81 @@ CREATE TABLE IF NOT EXISTS `oc_product_option_value` (
   `weight` decimal(15,8) NOT NULL,
   `weight_prefix` varchar(1) NOT NULL,
   PRIMARY KEY (`product_option_value_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=111 ;
 
 --
 -- Dumping data for table `oc_product_option_value`
 --
 
 INSERT INTO `oc_product_option_value` (`product_option_value_id`, `product_option_id`, `product_id`, `option_id`, `option_value_id`, `quantity`, `subtract`, `price`, `price_prefix`, `points`, `points_prefix`, `weight`, `weight_prefix`) VALUES
-(40, 238, 60, 11, 46, 9, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
-(39, 238, 60, 11, 47, 90, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
-(38, 238, 60, 11, 48, 900, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(63, 274, 71, 15, 52, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(62, 274, 71, 15, 51, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(37, 240, 52, 11, 46, 0, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(34, 236, 59, 11, 48, 90, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(35, 236, 59, 11, 47, 2, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(36, 236, 59, 11, 46, 5, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
 (23, 230, 53, 11, 48, 3, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
 (24, 230, 53, 11, 47, 2, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
 (25, 231, 54, 11, 48, 2, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
 (26, 231, 54, 11, 47, 4, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
 (27, 231, 54, 11, 46, 1, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
-(37, 237, 50, 11, 48, 1, 1, 0.0000, '+', 0, '+', 0.00000000, '+');
+(66, 274, 71, 15, 55, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(38, 240, 52, 11, 47, 0, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(39, 240, 52, 11, 48, 0, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(40, 240, 52, 11, 49, 0, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(61, 274, 71, 15, 50, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(65, 274, 71, 15, 54, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(64, 274, 71, 15, 53, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(48, 270, 80, 11, 68, 1, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(99, 280, 72, 16, 58, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(49, 270, 80, 11, 46, 1, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(50, 270, 80, 11, 47, 1, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(52, 270, 80, 11, 69, 1, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(51, 270, 80, 11, 48, 1, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(53, 270, 80, 11, 70, 1, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(102, 280, 72, 16, 61, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(97, 280, 72, 16, 56, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(98, 280, 72, 16, 57, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(100, 280, 72, 16, 59, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(101, 280, 72, 16, 60, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(103, 274, 71, 15, 71, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(72, 275, 73, 16, 61, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(71, 275, 73, 16, 60, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(70, 275, 73, 16, 59, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(69, 275, 73, 16, 58, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(68, 275, 73, 16, 57, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(67, 275, 73, 16, 56, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(78, 276, 75, 15, 55, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(77, 276, 75, 15, 54, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(76, 276, 75, 15, 53, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(75, 276, 75, 15, 52, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(74, 276, 75, 15, 51, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(73, 276, 75, 15, 50, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(84, 277, 76, 17, 67, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(83, 277, 76, 17, 66, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(82, 277, 76, 17, 65, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(81, 277, 76, 17, 64, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(80, 277, 76, 17, 63, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(79, 277, 76, 17, 62, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(90, 278, 77, 15, 55, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(89, 278, 77, 15, 54, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(88, 278, 77, 15, 53, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(87, 278, 77, 15, 52, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(86, 278, 77, 15, 51, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(85, 278, 77, 15, 50, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(96, 279, 79, 15, 55, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(95, 279, 79, 15, 54, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(94, 279, 79, 15, 53, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(93, 279, 79, 15, 52, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(92, 279, 79, 15, 51, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(91, 279, 79, 15, 50, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(104, 280, 72, 16, 73, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(105, 275, 73, 16, 73, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(106, 276, 75, 15, 71, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(107, 277, 76, 17, 72, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(108, 278, 77, 15, 71, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(109, 279, 79, 15, 71, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+'),
+(110, 274, 71, 15, 74, 99, 1, 0.0000, '+', 0, '+', 0.00000000, '+');
 
 -- --------------------------------------------------------
 
@@ -2707,7 +2983,9 @@ CREATE TABLE IF NOT EXISTS `oc_product_related` (
 
 INSERT INTO `oc_product_related` (`product_id`, `related_id`) VALUES
 (50, 52),
-(52, 50);
+(52, 50),
+(52, 80),
+(80, 52);
 
 -- --------------------------------------------------------
 
@@ -2721,7 +2999,7 @@ CREATE TABLE IF NOT EXISTS `oc_product_reward` (
   `customer_group_id` int(11) NOT NULL DEFAULT '0',
   `points` int(8) NOT NULL DEFAULT '0',
   PRIMARY KEY (`product_reward_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=546 ;
 
 -- --------------------------------------------------------
 
@@ -2739,7 +3017,7 @@ CREATE TABLE IF NOT EXISTS `oc_product_special` (
   `date_end` date NOT NULL DEFAULT '0000-00-00',
   PRIMARY KEY (`product_special_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=440 ;
 
 -- --------------------------------------------------------
 
@@ -2765,7 +3043,18 @@ INSERT INTO `oc_product_to_category` (`product_id`, `category_id`) VALUES
 (53, 59),
 (54, 59),
 (57, 59),
-(60, 59);
+(59, 59),
+(60, 59),
+(71, 59),
+(72, 60),
+(73, 60),
+(74, 61),
+(75, 59),
+(76, 59),
+(77, 59),
+(78, 61),
+(79, 59),
+(80, 59);
 
 -- --------------------------------------------------------
 
@@ -2802,8 +3091,22 @@ INSERT INTO `oc_product_to_layout` (`product_id`, `store_id`, `layout_id`) VALUE
 (52, 0, 2),
 (53, 0, 2),
 (54, 0, 2),
+(60, 0, 2),
+(61, 0, 0),
 (57, 0, 0),
-(60, 0, 2);
+(59, 0, 2),
+(68, 0, 0),
+(69, 0, 0),
+(71, 0, 0),
+(72, 0, 0),
+(73, 0, 0),
+(74, 0, 0),
+(75, 0, 0),
+(76, 0, 0),
+(77, 0, 0),
+(78, 0, 0),
+(79, 0, 0),
+(80, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -2828,7 +3131,21 @@ INSERT INTO `oc_product_to_store` (`product_id`, `store_id`) VALUES
 (53, 0),
 (54, 0),
 (57, 0),
-(60, 0);
+(59, 0),
+(60, 0),
+(61, 0),
+(68, 0),
+(69, 0),
+(71, 0),
+(72, 0),
+(73, 0),
+(74, 0),
+(75, 0),
+(76, 0),
+(77, 0),
+(78, 0),
+(79, 0),
+(80, 0);
 
 -- --------------------------------------------------------
 
@@ -2996,7 +3313,7 @@ CREATE TABLE IF NOT EXISTS `oc_review` (
   `date_modified` datetime NOT NULL,
   PRIMARY KEY (`review_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -3012,13 +3329,14 @@ CREATE TABLE IF NOT EXISTS `oc_setting` (
   `value` text NOT NULL,
   `serialized` tinyint(1) NOT NULL,
   PRIMARY KEY (`setting_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2505 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3392 ;
 
 --
 -- Dumping data for table `oc_setting`
 --
 
 INSERT INTO `oc_setting` (`setting_id`, `store_id`, `code`, `key`, `value`, `serialized`) VALUES
+(3266, 0, 'simple_blog', 'simple_blog_author_information', '1', 0),
 (2494, 0, 'total', 'total_sort_order', '9', 0),
 (2493, 0, 'total', 'total_status', '1', 0),
 (8, 0, 'free_checkout', 'free_checkout_sort_order', '1', 0),
@@ -3033,141 +3351,433 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `code`, `key`, `value`, `ser
 (146, 0, 'category', 'category_status', '1', 0),
 (1412, 0, 'account', 'account_status', '1', 0),
 (159, 0, 'affiliate', 'affiliate_status', '1', 0),
-(1024, 0, 'magiczoomplus', 'magiczoomplus_settings', 'a:130:{s:20:"magiczoomplus_status";s:1:"1";s:8:"template";s:4:"left";s:11:"magicscroll";s:3:"Yes";s:15:"thumb-max-width";s:3:"500";s:16:"thumb-max-height";s:3:"500";s:24:"category-thumb-max-width";s:3:"100";s:25:"category-thumb-max-height";s:3:"100";s:29:"manufacturers-thumb-max-width";s:3:"150";s:30:"manufacturers-thumb-max-height";s:3:"150";s:22:"search-thumb-max-width";s:2:"80";s:23:"search-thumb-max-height";s:2:"80";s:21:"right-thumb-max-width";s:2:"75";s:22:"right-thumb-max-height";s:2:"75";s:20:"left-thumb-max-width";s:2:"75";s:21:"left-thumb-max-height";s:2:"75";s:10:"zoom-width";s:3:"400";s:11:"zoom-height";s:3:"400";s:13:"zoom-position";s:5:"right";s:10:"zoom-align";s:5:"right";s:13:"zoom-distance";s:2:"15";s:11:"expand-size";s:10:"fit-screen";s:15:"expand-position";s:6:"center";s:12:"expand-align";s:6:"screen";s:13:"square-images";s:7:"disable";s:13:"expand-effect";s:4:"back";s:14:"restore-effect";s:6:"linear";s:12:"expand-speed";s:3:"500";s:13:"restore-speed";s:2:"-1";s:14:"expand-trigger";s:5:"click";s:20:"expand-trigger-delay";s:3:"200";s:15:"restore-trigger";s:4:"auto";s:14:"keep-thumbnail";s:3:"Yes";s:7:"opacity";s:2:"50";s:15:"opacity-reverse";s:3:"Yes";s:9:"zoom-fade";s:3:"Yes";s:18:"zoom-window-effect";s:6:"shadow";s:18:"zoom-fade-in-speed";s:3:"200";s:19:"zoom-fade-out-speed";s:3:"200";s:3:"fps";s:2:"25";s:9:"smoothing";s:3:"Yes";s:15:"smoothing-speed";s:2:"40";s:8:"pan-zoom";s:3:"Yes";s:18:"selector-max-width";s:2:"70";s:19:"selector-max-height";s:2:"70";s:16:"selectors-margin";s:2:"85";s:16:"selectors-change";s:5:"click";s:15:"selectors-class";s:0:"";s:23:"preload-selectors-small";s:3:"Yes";s:21:"preload-selectors-big";s:2:"No";s:16:"selectors-effect";s:4:"fade";s:22:"selectors-effect-speed";s:3:"400";s:25:"selectors-mouseover-delay";s:2:"60";s:13:"initialize-on";s:4:"load";s:17:"click-to-activate";s:2:"No";s:19:"click-to-deactivate";s:2:"No";s:12:"show-loading";s:3:"Yes";s:11:"loading-msg";s:15:"Loading zoom...";s:15:"loading-opacity";s:2:"75";s:18:"loading-position-x";s:2:"-1";s:18:"loading-position-y";s:2:"-1";s:12:"entire-image";s:2:"No";s:10:"show-title";s:7:"disable";s:12:"show-caption";s:2:"No";s:14:"caption-source";s:5:"Title";s:13:"caption-width";s:1:"0";s:14:"caption-height";s:1:"0";s:16:"caption-position";s:6:"bottom";s:13:"caption-speed";s:3:"250";s:26:"use-effect-on-product-page";s:17:"Zoom &amp; Expand";s:27:"use-effect-on-category-page";s:2:"No";s:32:"use-effect-on-manufacturers-page";s:2:"No";s:25:"use-effect-on-search-page";s:2:"No";s:29:"use-effect-on-bestsellers-box";s:2:"No";s:25:"use-effect-on-special-box";s:2:"No";s:26:"use-effect-on-featured-box";s:2:"No";s:24:"use-effect-on-latest-box";s:2:"No";s:20:"link-to-product-page";s:3:"Yes";s:7:"z-index";s:3:"100";s:12:"show-message";s:3:"Yes";s:7:"message";s:46:"Move your mouse over image or click to enlarge";s:11:"right-click";s:2:"No";s:11:"imagemagick";s:3:"off";s:13:"image-quality";s:3:"100";s:18:"background-opacity";s:2:"30";s:16:"background-color";s:7:"#000000";s:16:"background-speed";s:3:"200";s:7:"buttons";s:4:"show";s:15:"buttons-display";s:21:"previous, next, close";s:16:"buttons-position";s:4:"auto";s:16:"always-show-zoom";s:2:"No";s:9:"drag-mode";s:2:"No";s:13:"move-on-click";s:3:"Yes";s:1:"x";s:2:"-1";s:1:"y";s:2:"-1";s:17:"preserve-position";s:2:"No";s:15:"fit-zoom-window";s:3:"Yes";s:14:"disable-expand";s:2:"No";s:12:"disable-zoom";s:2:"No";s:16:"slideshow-effect";s:8:"dissolve";s:14:"slideshow-loop";s:3:"Yes";s:15:"slideshow-speed";s:3:"800";s:8:"keyboard";s:3:"Yes";s:13:"keyboard-ctrl";s:2:"No";s:9:"watermark";s:0:"";s:19:"watermark-max-width";s:3:"50%";s:20:"watermark-max-height";s:3:"50%";s:17:"watermark-opacity";s:2:"50";s:18:"watermark-position";s:6:"center";s:18:"watermark-offset-x";s:1:"0";s:18:"watermark-offset-y";s:1:"0";s:4:"hint";s:3:"Yes";s:9:"hint-text";s:4:"Zoom";s:13:"hint-position";s:8:"top left";s:12:"hint-opacity";s:2:"75";s:12:"scroll-style";s:12:"with-borders";s:16:"show-image-title";s:2:"No";s:4:"loop";s:8:"continue";s:5:"speed";s:1:"0";s:5:"width";s:1:"0";s:6:"height";s:2:"80";s:10:"item-width";s:1:"0";s:11:"item-height";s:1:"0";s:4:"step";s:1:"6";s:5:"items";s:1:"6";s:6:"arrows";s:6:"inside";s:14:"arrows-opacity";s:2:"60";s:20:"arrows-hover-opacity";s:3:"100";s:11:"slider-size";s:3:"10%";s:6:"slider";s:5:"false";s:8:"duration";s:4:"1000";}', 1),
-(2492, 0, 'config', 'config_google_captcha_status', '0', 0),
-(2491, 0, 'config', 'config_google_captcha_secret', '', 0),
-(2490, 0, 'config', 'config_google_captcha_public', '', 0),
-(2489, 0, 'config', 'config_google_analytics_status', '0', 0),
-(2488, 0, 'config', 'config_google_analytics', '', 0),
-(2487, 0, 'config', 'config_error_filename', 'error.log', 0),
-(2375, 0, 'config', 'config_address', 'Plot #401, Zehra Nagar,\r\nRoad No. 10, Banjara Hills,\r\nHyderabad - 500034,\r\nTelangana, INDIA', 0),
-(2486, 0, 'config', 'config_error_log', '1', 0),
-(2485, 0, 'config', 'config_error_display', '1', 0),
-(2484, 0, 'config', 'config_compression', '0', 0),
-(2483, 0, 'config', 'config_encryption', '8a858506e441fd353698c6edeabf817a', 0),
-(2482, 0, 'config', 'config_password', '1', 0),
-(2481, 0, 'config', 'config_maintenance', '0', 0),
+(2993, 0, 'magiczoomplus', 'magiczoomplus_settings', 'a:130:{s:20:"magiczoomplus_status";s:1:"1";s:8:"template";s:4:"left";s:11:"magicscroll";s:3:"Yes";s:15:"thumb-max-width";s:3:"500";s:16:"thumb-max-height";s:3:"500";s:24:"category-thumb-max-width";s:3:"100";s:25:"category-thumb-max-height";s:3:"100";s:29:"manufacturers-thumb-max-width";s:3:"150";s:30:"manufacturers-thumb-max-height";s:3:"150";s:22:"search-thumb-max-width";s:2:"80";s:23:"search-thumb-max-height";s:3:"500";s:21:"right-thumb-max-width";s:2:"75";s:22:"right-thumb-max-height";s:3:"500";s:20:"left-thumb-max-width";s:2:"75";s:21:"left-thumb-max-height";s:3:"500";s:10:"zoom-width";s:3:"400";s:11:"zoom-height";s:3:"400";s:13:"zoom-position";s:5:"right";s:10:"zoom-align";s:5:"right";s:13:"zoom-distance";s:2:"15";s:11:"expand-size";s:10:"fit-screen";s:15:"expand-position";s:6:"center";s:12:"expand-align";s:6:"screen";s:13:"square-images";s:7:"disable";s:13:"expand-effect";s:4:"back";s:14:"restore-effect";s:6:"linear";s:12:"expand-speed";s:3:"500";s:13:"restore-speed";s:2:"-1";s:14:"expand-trigger";s:5:"click";s:20:"expand-trigger-delay";s:3:"200";s:15:"restore-trigger";s:4:"auto";s:14:"keep-thumbnail";s:3:"Yes";s:7:"opacity";s:2:"50";s:15:"opacity-reverse";s:3:"Yes";s:9:"zoom-fade";s:3:"Yes";s:18:"zoom-window-effect";s:6:"shadow";s:18:"zoom-fade-in-speed";s:3:"200";s:19:"zoom-fade-out-speed";s:3:"200";s:3:"fps";s:2:"25";s:9:"smoothing";s:3:"Yes";s:15:"smoothing-speed";s:2:"40";s:8:"pan-zoom";s:3:"Yes";s:18:"selector-max-width";s:2:"70";s:19:"selector-max-height";s:2:"70";s:16:"selectors-margin";s:2:"85";s:16:"selectors-change";s:5:"click";s:15:"selectors-class";s:0:"";s:23:"preload-selectors-small";s:3:"Yes";s:21:"preload-selectors-big";s:2:"No";s:16:"selectors-effect";s:4:"fade";s:22:"selectors-effect-speed";s:3:"400";s:25:"selectors-mouseover-delay";s:2:"60";s:13:"initialize-on";s:4:"load";s:17:"click-to-activate";s:2:"No";s:19:"click-to-deactivate";s:2:"No";s:12:"show-loading";s:3:"Yes";s:11:"loading-msg";s:15:"Loading zoom...";s:15:"loading-opacity";s:2:"75";s:18:"loading-position-x";s:2:"-1";s:18:"loading-position-y";s:2:"-1";s:12:"entire-image";s:2:"No";s:10:"show-title";s:7:"disable";s:12:"show-caption";s:2:"No";s:14:"caption-source";s:5:"Title";s:13:"caption-width";s:1:"0";s:14:"caption-height";s:1:"0";s:16:"caption-position";s:6:"bottom";s:13:"caption-speed";s:3:"250";s:26:"use-effect-on-product-page";s:17:"Zoom &amp; Expand";s:27:"use-effect-on-category-page";s:2:"No";s:32:"use-effect-on-manufacturers-page";s:2:"No";s:25:"use-effect-on-search-page";s:2:"No";s:29:"use-effect-on-bestsellers-box";s:2:"No";s:25:"use-effect-on-special-box";s:2:"No";s:26:"use-effect-on-featured-box";s:2:"No";s:24:"use-effect-on-latest-box";s:2:"No";s:20:"link-to-product-page";s:3:"Yes";s:7:"z-index";s:3:"100";s:12:"show-message";s:3:"Yes";s:7:"message";s:46:"Move your mouse over image or click to enlarge";s:11:"right-click";s:2:"No";s:11:"imagemagick";s:3:"off";s:13:"image-quality";s:3:"100";s:18:"background-opacity";s:2:"30";s:16:"background-color";s:7:"#000000";s:16:"background-speed";s:3:"200";s:7:"buttons";s:4:"show";s:15:"buttons-display";s:21:"previous, next, close";s:16:"buttons-position";s:4:"auto";s:16:"always-show-zoom";s:2:"No";s:9:"drag-mode";s:2:"No";s:13:"move-on-click";s:3:"Yes";s:1:"x";s:2:"-1";s:1:"y";s:2:"-1";s:17:"preserve-position";s:2:"No";s:15:"fit-zoom-window";s:3:"Yes";s:14:"disable-expand";s:2:"No";s:12:"disable-zoom";s:2:"No";s:16:"slideshow-effect";s:8:"dissolve";s:14:"slideshow-loop";s:3:"Yes";s:15:"slideshow-speed";s:3:"800";s:8:"keyboard";s:3:"Yes";s:13:"keyboard-ctrl";s:2:"No";s:9:"watermark";s:0:"";s:19:"watermark-max-width";s:3:"50%";s:20:"watermark-max-height";s:3:"50%";s:17:"watermark-opacity";s:2:"50";s:18:"watermark-position";s:6:"center";s:18:"watermark-offset-x";s:1:"0";s:18:"watermark-offset-y";s:1:"0";s:4:"hint";s:3:"Yes";s:9:"hint-text";s:4:"Zoom";s:13:"hint-position";s:8:"top left";s:12:"hint-opacity";s:2:"75";s:12:"scroll-style";s:12:"with-borders";s:16:"show-image-title";s:2:"No";s:4:"loop";s:8:"continue";s:5:"speed";s:1:"0";s:5:"width";s:1:"0";s:6:"height";s:1:"0";s:10:"item-width";s:1:"0";s:11:"item-height";s:1:"0";s:4:"step";s:1:"6";s:5:"items";s:1:"6";s:6:"arrows";s:6:"inside";s:14:"arrows-opacity";s:2:"60";s:20:"arrows-hover-opacity";s:3:"100";s:11:"slider-size";s:3:"10%";s:6:"slider";s:5:"false";s:8:"duration";s:4:"1000";}', 1),
+(3268, 0, 'simple_blog', 'simple_blog_share_social_site', '1', 0),
+(3390, 0, 'google_sitemap', 'google_sitemap_status', '1', 0),
+(3389, 0, 'config', 'config_google_captcha_status', '0', 0),
+(3388, 0, 'config', 'config_google_captcha_secret', '', 0),
+(3387, 0, 'config', 'config_google_captcha_public', '', 0),
+(3386, 0, 'config', 'config_google_analytics_status', '0', 0),
+(3385, 0, 'config', 'config_google_analytics', '', 0),
+(3384, 0, 'config', 'config_error_filename', 'error.log', 0),
+(3383, 0, 'config', 'config_error_log', '1', 0),
 (103, 0, 'free_checkout', 'free_checkout_status', '1', 0),
 (104, 0, 'free_checkout', 'free_checkout_order_status_id', '1', 0),
-(2480, 0, 'config', 'config_file_mime_allowed', 'text/plain\r\nimage/png\r\nimage/jpeg\r\nimage/gif\r\nimage/bmp\r\nimage/tiff\r\nimage/svg+xml\r\napplication/zip\r\n&quot;application/zip&quot;\r\napplication/x-zip\r\n&quot;application/x-zip&quot;\r\napplication/x-zip-compressed\r\n&quot;application/x-zip-compressed&quot;\r\napplication/rar\r\n&quot;application/rar&quot;\r\napplication/x-rar\r\n&quot;application/x-rar&quot;\r\napplication/x-rar-compressed\r\n&quot;application/x-rar-compressed&quot;\r\napplication/octet-stream\r\n&quot;application/octet-stream&quot;\r\naudio/mpeg\r\nvideo/quicktime\r\napplication/pdf', 0),
-(2477, 0, 'config', 'config_seo_url', '0', 0),
-(2478, 0, 'config', 'config_file_max_size', '300000', 0),
-(2479, 0, 'config', 'config_file_ext_allowed', 'zip\r\ntxt\r\npng\r\njpe\r\njpeg\r\njpg\r\ngif\r\nbmp\r\nico\r\ntiff\r\ntif\r\nsvg\r\nsvgz\r\nzip\r\nrar\r\nmsi\r\ncab\r\nmp3\r\nqt\r\nmov\r\npdf\r\npsd\r\nai\r\neps\r\nps\r\ndoc', 0),
-(2473, 0, 'config', 'config_fraud_status_id', '7', 0),
-(2474, 0, 'config', 'config_secure', '0', 0),
-(2475, 0, 'config', 'config_shared', '0', 0),
-(2476, 0, 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai''hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', 0),
-(2463, 0, 'config', 'config_mail_parameter', '', 0),
-(2464, 0, 'config', 'config_mail_smtp_hostname', 'ssl://smtp.gmail.com', 0),
-(2465, 0, 'config', 'config_mail_smtp_username', 'gauravbansal74@gmail.com', 0),
-(2466, 0, 'config', 'config_mail_smtp_password', '12345qwerty', 0),
-(2467, 0, 'config', 'config_mail_smtp_port', '465', 0),
-(2468, 0, 'config', 'config_mail_smtp_timeout', '5', 0),
-(2469, 0, 'config', 'config_mail_alert', 'gauravbansal74@gmail.com', 0),
-(2470, 0, 'config', 'config_fraud_detection', '0', 0),
-(2471, 0, 'config', 'config_fraud_key', '', 0),
-(2472, 0, 'config', 'config_fraud_score', '', 0),
-(2462, 0, 'config', 'config_mail_protocol', 'smtp', 0),
-(2461, 0, 'config', 'config_ftp_status', '0', 0),
-(2460, 0, 'config', 'config_ftp_root', '', 0),
-(2459, 0, 'config', 'config_ftp_password', '', 0),
-(2458, 0, 'config', 'config_ftp_username', '', 0),
-(2457, 0, 'config', 'config_ftp_port', '21', 0),
-(2456, 0, 'config', 'config_ftp_hostname', '128.199.76.108', 0),
-(2454, 0, 'config', 'config_image_location_width', '268', 0),
-(2455, 0, 'config', 'config_image_location_height', '50', 0),
-(2450, 0, 'config', 'config_image_wishlist_width', '47', 0),
-(2451, 0, 'config', 'config_image_wishlist_height', '47', 0),
-(2452, 0, 'config', 'config_image_cart_width', '47', 0),
-(2453, 0, 'config', 'config_image_cart_height', '47', 0),
-(2449, 0, 'config', 'config_image_compare_height', '90', 0),
-(2447, 0, 'config', 'config_image_related_height', '500', 0),
-(2448, 0, 'config', 'config_image_compare_width', '90', 0),
-(2446, 0, 'config', 'config_image_related_width', '500', 0),
-(2445, 0, 'config', 'config_image_additional_height', '74', 0),
-(2444, 0, 'config', 'config_image_additional_width', '74', 0),
-(2443, 0, 'config', 'config_image_product_height', '228', 0),
-(2442, 0, 'config', 'config_image_product_width', '228', 0),
-(2441, 0, 'config', 'config_image_popup_height', '500', 0),
-(2440, 0, 'config', 'config_image_popup_width', '500', 0),
-(2439, 0, 'config', 'config_image_thumb_height', '228', 0),
-(2438, 0, 'config', 'config_image_thumb_width', '228', 0),
-(2437, 0, 'config', 'config_image_category_height', '80', 0),
-(2436, 0, 'config', 'config_image_category_width', '80', 0),
-(2435, 0, 'config', 'config_icon', 'catalog/logos/logo (1).png', 0),
-(2434, 0, 'config', 'config_logo', 'catalog/logos/logo (1).png', 0),
-(2433, 0, 'config', 'config_return_status_id', '2', 0),
-(2430, 0, 'config', 'config_affiliate_id', '4', 0),
-(2432, 0, 'config', 'config_return_id', '7', 0),
-(2431, 0, 'config', 'config_affiliate_mail', '0', 0),
-(2429, 0, 'config', 'config_affiliate_commission', '5', 0),
-(2428, 0, 'config', 'config_affiliate_auto', '0', 0),
-(2427, 0, 'config', 'config_affiliate_approval', '1', 0),
-(2424, 0, 'config', 'config_stock_display', '0', 0),
-(2425, 0, 'config', 'config_stock_warning', '0', 0),
-(2426, 0, 'config', 'config_stock_checkout', '0', 0),
-(2422, 0, 'config', 'config_complete_status', 'a:1:{i:0;s:1:"5";}', 1),
-(2423, 0, 'config', 'config_order_mail', '0', 0),
-(2421, 0, 'config', 'config_processing_status', 'a:1:{i:0;s:1:"2";}', 1),
-(2420, 0, 'config', 'config_order_status_id', '1', 0),
-(2415, 0, 'config', 'config_invoice_prefix', 'INV-2015-00', 0),
-(2416, 0, 'config', 'config_api_id', '1', 0),
-(2417, 0, 'config', 'config_cart_weight', '0', 0),
-(2418, 0, 'config', 'config_checkout_guest', '1', 0),
-(2419, 0, 'config', 'config_checkout_id', '5', 0),
-(2414, 0, 'config', 'config_account_mail', '0', 0),
-(2413, 0, 'config', 'config_account_id', '3', 0),
-(2412, 0, 'config', 'config_login_attempts', '5', 0),
-(2411, 0, 'config', 'config_customer_price', '0', 0),
-(2408, 0, 'config', 'config_customer_online', '0', 0),
-(2409, 0, 'config', 'config_customer_group_id', '1', 0),
-(2410, 0, 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:"1";}', 1),
-(2406, 0, 'config', 'config_tax_default', '', 0),
-(2407, 0, 'config', 'config_tax_customer', '', 0),
-(2405, 0, 'config', 'config_tax', '0', 0),
-(2404, 0, 'config', 'config_voucher_max', '1000', 0),
-(2403, 0, 'config', 'config_voucher_min', '1', 0),
-(2402, 0, 'config', 'config_review_mail', '0', 0),
-(2401, 0, 'config', 'config_review_guest', '1', 0),
-(2400, 0, 'config', 'config_review_status', '1', 0),
-(2399, 0, 'config', 'config_limit_admin', '20', 0),
-(2398, 0, 'config', 'config_product_description_length', '100', 0),
-(2397, 0, 'config', 'config_product_limit', '15', 0),
-(2396, 0, 'config', 'config_product_count', '1', 0),
-(2395, 0, 'config', 'config_weight_class_id', '1', 0),
-(2394, 0, 'config', 'config_length_class_id', '1', 0),
-(2393, 0, 'config', 'config_currency_auto', '1', 0),
-(2392, 0, 'config', 'config_currency', 'INR', 0),
-(2391, 0, 'config', 'config_admin_language', 'en', 0),
-(2390, 0, 'config', 'config_language', 'en', 0),
-(2389, 0, 'config', 'config_zone_id', '1476', 0),
+(3382, 0, 'config', 'config_error_display', '1', 0),
+(3381, 0, 'config', 'config_compression', '0', 0),
+(3374, 0, 'config', 'config_seo_url', '1', 0),
+(3375, 0, 'config', 'config_file_max_size', '300000', 0),
+(3376, 0, 'config', 'config_file_ext_allowed', 'zip\r\ntxt\r\npng\r\njpe\r\njpeg\r\njpg\r\ngif\r\nbmp\r\nico\r\ntiff\r\ntif\r\nsvg\r\nsvgz\r\nzip\r\nrar\r\nmsi\r\ncab\r\nmp3\r\nqt\r\nmov\r\npdf\r\npsd\r\nai\r\neps\r\nps\r\ndoc', 0),
+(3377, 0, 'config', 'config_file_mime_allowed', 'text/plain\r\nimage/png\r\nimage/jpeg\r\nimage/gif\r\nimage/bmp\r\nimage/tiff\r\nimage/svg+xml\r\napplication/zip\r\n&quot;application/zip&quot;\r\napplication/x-zip\r\n&quot;application/x-zip&quot;\r\napplication/x-zip-compressed\r\n&quot;application/x-zip-compressed&quot;\r\napplication/rar\r\n&quot;application/rar&quot;\r\napplication/x-rar\r\n&quot;application/x-rar&quot;\r\napplication/x-rar-compressed\r\n&quot;application/x-rar-compressed&quot;\r\napplication/octet-stream\r\n&quot;application/octet-stream&quot;\r\naudio/mpeg\r\nvideo/quicktime\r\napplication/pdf', 0),
+(3378, 0, 'config', 'config_maintenance', '0', 0),
+(3379, 0, 'config', 'config_password', '1', 0),
+(3380, 0, 'config', 'config_encryption', '8a858506e441fd353698c6edeabf817a', 0),
+(3372, 0, 'config', 'config_shared', '0', 0),
+(3373, 0, 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai''hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', 0),
+(3371, 0, 'config', 'config_secure', '1', 0),
+(3370, 0, 'config', 'config_fraud_status_id', '7', 0),
+(3365, 0, 'config', 'config_mail_smtp_timeout', '5', 0),
+(3366, 0, 'config', 'config_mail_alert', 'gauravbansal74@gmail.com', 0),
+(3367, 0, 'config', 'config_fraud_detection', '0', 0),
+(3368, 0, 'config', 'config_fraud_key', '', 0),
+(3369, 0, 'config', 'config_fraud_score', '', 0),
+(3363, 0, 'config', 'config_mail_smtp_password', 'e19PPpfOBBvJla-Z7AKhyA', 0),
+(3364, 0, 'config', 'config_mail_smtp_port', '587', 0),
+(3361, 0, 'config', 'config_mail_smtp_hostname', 'smtp.mandrillapp.com', 0),
+(3362, 0, 'config', 'config_mail_smtp_username', 'mishruhyd@gmail.com', 0),
+(3360, 0, 'config', 'config_mail_parameter', '', 0),
+(3359, 0, 'config', 'config_mail_protocol', 'smtp', 0),
+(3358, 0, 'config', 'config_ftp_status', '0', 0),
+(3357, 0, 'config', 'config_ftp_root', '', 0),
+(3356, 0, 'config', 'config_ftp_password', '', 0),
+(3355, 0, 'config', 'config_ftp_username', '', 0),
+(3354, 0, 'config', 'config_ftp_port', '21', 0),
+(3353, 0, 'config', 'config_ftp_hostname', '128.199.76.108', 0),
+(3352, 0, 'config', 'config_image_location_height', '50', 0),
+(3351, 0, 'config', 'config_image_location_width', '268', 0),
+(3350, 0, 'config', 'config_image_cart_height', '115', 0),
+(3349, 0, 'config', 'config_image_cart_width', '90', 0),
+(3348, 0, 'config', 'config_image_wishlist_height', '115', 0),
+(3347, 0, 'config', 'config_image_wishlist_width', '90', 0),
+(3346, 0, 'config', 'config_image_compare_height', '90', 0),
+(3345, 0, 'config', 'config_image_compare_width', '90', 0),
+(3344, 0, 'config', 'config_image_related_height', '500', 0),
+(3343, 0, 'config', 'config_image_related_width', '500', 0),
+(3342, 0, 'config', 'config_image_additional_height', '74', 0),
+(3341, 0, 'config', 'config_image_additional_width', '74', 0),
+(3340, 0, 'config', 'config_image_product_height', '228', 0),
+(3339, 0, 'config', 'config_image_product_width', '228', 0),
+(3338, 0, 'config', 'config_image_popup_height', '500', 0),
+(3337, 0, 'config', 'config_image_popup_width', '500', 0),
+(3336, 0, 'config', 'config_image_thumb_height', '228', 0),
+(3335, 0, 'config', 'config_image_thumb_width', '228', 0),
+(3334, 0, 'config', 'config_image_category_height', '80', 0),
+(3333, 0, 'config', 'config_image_category_width', '80', 0),
+(3332, 0, 'config', 'config_icon', 'catalog/logos/logo (1).png', 0),
+(3331, 0, 'config', 'config_logo', 'catalog/logos/logo (1).png', 0),
+(3330, 0, 'config', 'config_return_status_id', '2', 0),
+(3329, 0, 'config', 'config_return_id', '7', 0),
+(3328, 0, 'config', 'config_affiliate_mail', '0', 0),
+(3327, 0, 'config', 'config_affiliate_id', '0', 0),
+(3326, 0, 'config', 'config_affiliate_commission', '5', 0),
+(3325, 0, 'config', 'config_affiliate_auto', '0', 0),
+(3324, 0, 'config', 'config_affiliate_approval', '1', 0),
+(3323, 0, 'config', 'config_stock_checkout', '0', 0),
+(3322, 0, 'config', 'config_stock_warning', '0', 0),
+(3321, 0, 'config', 'config_stock_display', '0', 0),
+(3320, 0, 'config', 'config_order_mail', '0', 0),
+(3319, 0, 'config', 'config_complete_status', 'a:1:{i:0;s:1:"5";}', 1),
+(3318, 0, 'config', 'config_processing_status', 'a:1:{i:0;s:1:"2";}', 1),
+(3317, 0, 'config', 'config_order_status_id', '1', 0),
+(3316, 0, 'config', 'config_checkout_id', '5', 0),
+(3315, 0, 'config', 'config_checkout_guest', '1', 0),
+(3314, 0, 'config', 'config_cart_weight', '0', 0),
+(3313, 0, 'config', 'config_api_id', '1', 0),
+(3312, 0, 'config', 'config_invoice_prefix', 'INV-2015-00', 0),
+(3311, 0, 'config', 'config_account_mail', '0', 0),
+(3310, 0, 'config', 'config_account_id', '3', 0),
+(3309, 0, 'config', 'config_login_attempts', '5', 0),
+(3308, 0, 'config', 'config_customer_price', '0', 0),
+(3307, 0, 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:"1";}', 1),
+(3306, 0, 'config', 'config_customer_group_id', '1', 0),
+(3305, 0, 'config', 'config_customer_online', '0', 0),
+(3304, 0, 'config', 'config_tax_customer', '', 0),
+(3303, 0, 'config', 'config_tax_default', '', 0),
+(3302, 0, 'config', 'config_tax', '0', 0),
+(3301, 0, 'config', 'config_voucher_max', '1000', 0),
+(3300, 0, 'config', 'config_voucher_min', '1', 0),
+(3299, 0, 'config', 'config_review_mail', '0', 0),
+(3298, 0, 'config', 'config_review_guest', '1', 0),
+(3297, 0, 'config', 'config_review_status', '1', 0),
+(3296, 0, 'config', 'config_limit_admin', '20', 0),
+(3295, 0, 'config', 'config_product_description_length', '100', 0),
+(3294, 0, 'config', 'config_product_limit', '15', 0),
+(3293, 0, 'config', 'config_product_count', '1', 0),
+(3292, 0, 'config', 'config_weight_class_id', '1', 0),
+(3291, 0, 'config', 'config_length_class_id', '1', 0),
+(3290, 0, 'config', 'config_currency_auto', '1', 0),
+(3288, 0, 'config', 'config_admin_language', 'en', 0),
+(3289, 0, 'config', 'config_currency', 'INR', 0),
+(3287, 0, 'config', 'config_language', 'en', 0),
+(3286, 0, 'config', 'config_zone_id', '1476', 0),
+(3285, 0, 'config', 'config_country_id', '99', 0),
+(3283, 0, 'config', 'config_template', 'default', 0),
+(3284, 0, 'config', 'config_layout_id', '4', 0),
 (1023, 0, 'filter', 'filter_status', '1', 0),
-(2502, 0, 'payu', 'payu_sort_order', '0', 0),
-(2500, 0, 'payu', 'payu_geo_zone_id', '0', 0),
-(2501, 0, 'payu', 'payu_status', '1', 0),
-(2499, 0, 'payu', 'payu_order_status_id', '2', 0),
-(2498, 0, 'payu', 'payu_total', '1', 0),
-(2497, 0, 'payu', 'payu_test', 'live', 0),
-(2496, 0, 'payu', 'payu_salt', 'zVLK8xPm', 0),
-(2495, 0, 'payu', 'payu_merchant', 'YBDMD6', 0),
-(2388, 0, 'config', 'config_country_id', '99', 0),
-(2387, 0, 'config', 'config_layout_id', '4', 0),
-(2386, 0, 'config', 'config_template', 'default', 0),
-(2385, 0, 'config', 'config_meta_keyword', 'Mishru Clothing', 0),
-(2384, 0, 'config', 'config_meta_description', 'Mishru Clothing', 0),
-(2378, 0, 'config', 'config_telephone', '+91 90009 77744', 0),
-(2379, 0, 'config', 'config_fax', '', 0),
-(2380, 0, 'config', 'config_image', 'catalog/logos/logo (1).png', 0),
-(2381, 0, 'config', 'config_open', '', 0),
-(2382, 0, 'config', 'config_comment', '', 0),
+(3267, 0, 'simple_blog', 'simple_blog_related_articles', '1', 0),
+(2510, 0, 'payu', 'payu_sort_order', '0', 0),
+(2509, 0, 'payu', 'payu_status', '1', 0),
+(2508, 0, 'payu', 'payu_geo_zone_id', '0', 0),
+(2507, 0, 'payu', 'payu_order_status_id', '2', 0),
+(2506, 0, 'payu', 'payu_total', '1', 0),
+(2505, 0, 'payu', 'payu_test', 'demo', 0),
+(2504, 0, 'payu', 'payu_salt', 'zVLK8xPm', 0),
+(2503, 0, 'payu', 'payu_merchant', 'YBDMD6', 0),
+(3282, 0, 'config', 'config_meta_keyword', 'Mishru Clothing', 0),
+(3281, 0, 'config', 'config_meta_description', 'Mishru Clothing', 0),
+(3280, 0, 'config', 'config_meta_title', 'Mishru Clothing', 0),
+(3279, 0, 'config', 'config_comment', '', 0),
+(3278, 0, 'config', 'config_open', '', 0),
+(3277, 0, 'config', 'config_image', 'catalog/logos/logo (1).png', 0),
+(3273, 0, 'config', 'config_geocode', '', 0),
+(3274, 0, 'config', 'config_email', 'account@mishru.com', 0),
+(3275, 0, 'config', 'config_telephone', '+91 90009 77744', 0),
 (1409, 0, 'information', 'information_status', '1', 0),
-(2383, 0, 'config', 'config_meta_title', 'Mishru Clothing', 0),
-(2377, 0, 'config', 'config_email', 'info@colossus360.com', 0),
-(2376, 0, 'config', 'config_geocode', '', 0),
-(2374, 0, 'config', 'config_owner', 'Swapna Anumolu', 0),
-(2373, 0, 'config', 'config_name', 'Mishru Clothing', 0),
-(2503, 0, 'sub_total', 'sub_total_status', '1', 0),
-(2504, 0, 'sub_total', 'sub_total_sort_order', '', 0);
+(3276, 0, 'config', 'config_fax', '', 0),
+(3271, 0, 'config', 'config_owner', 'Swapna Anumolu', 0),
+(3272, 0, 'config', 'config_address', 'Plot #401, Zehra Nagar,Road No. 10, Banjara Hills,\r\nHyderabad - 500034,Telangana, INDIA', 0),
+(3270, 0, 'config', 'config_name', 'Mishru Clothing Private Limited', 0),
+(3264, 0, 'simple_blog', 'simple_blog_display_category', '0', 0),
+(3265, 0, 'simple_blog', 'simple_blog_comment_auto_approval', '1', 0),
+(3263, 0, 'simple_blog', 'simple_blog_comment_related_heading', '', 0),
+(3262, 0, 'simple_blog', 'simple_blog_product_related_heading', '', 0),
+(3261, 0, 'simple_blog', 'simple_blog_heading', '', 0),
+(3260, 0, 'simple_blog', 'simple_blog_footer_heading', 'Mishru Blog', 0),
+(3259, 0, 'simple_blog', 'simple_blog_seo_keyword', 'Blog', 0),
+(3125, 0, 'simple_blog_category', 'simple_blog_category_status', '1', 0),
+(3126, 0, 'simple_blog_category', 'simple_blog_category_search_article', '1', 0),
+(3258, 0, 'simple_blog', 'simple_blog_status', '1', 0),
+(3269, 0, 'simple_blog', 'simple_blog_module', 'a:1:{s:16:"st3i5ny97zfo5hfr";a:4:{s:13:"article_limit";s:2:"20";s:11:"category_id";s:3:"all";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}}', 1),
+(3391, 0, 'google_base', 'google_base_status', '1', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_article`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_article` (
+  `simple_blog_article_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_author_id` int(16) NOT NULL,
+  `allow_comment` tinyint(1) NOT NULL,
+  `image` text NOT NULL,
+  `featured_image` text NOT NULL,
+  `article_related_method` varchar(64) NOT NULL,
+  `article_related_option` text NOT NULL,
+  `sort_order` int(8) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_article_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `oc_simple_blog_article`
+--
+
+INSERT INTO `oc_simple_blog_article` (`simple_blog_article_id`, `simple_blog_author_id`, `allow_comment`, `image`, `featured_image`, `article_related_method`, `article_related_option`, `sort_order`, `status`, `date_added`, `date_modified`) VALUES
+(1, 1, 1, '', 'catalog/anarkalis/Grean Heavy Neckline/Green heavy neckline-black.jpg', 'product_wise', '', 0, 1, '2015-08-03 04:23:59', '2015-08-03 04:23:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_article_description`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_article_description` (
+  `simple_blog_article_description_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_article_id` int(16) NOT NULL,
+  `language_id` int(16) NOT NULL,
+  `article_title` varchar(256) NOT NULL,
+  `description` text NOT NULL,
+  `meta_description` varchar(256) NOT NULL,
+  `meta_keyword` varchar(256) NOT NULL,
+  PRIMARY KEY (`simple_blog_article_description_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `oc_simple_blog_article_description`
+--
+
+INSERT INTO `oc_simple_blog_article_description` (`simple_blog_article_description_id`, `simple_blog_article_id`, `language_id`, `article_title`, `description`, `meta_description`, `meta_keyword`) VALUES
+(1, 1, 1, 'Anarkalis In India', '&lt;p&gt;Anarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In IndiaAnarkalis In India&lt;br&gt;&lt;/p&gt;', 'Anarkalis In India', 'Anarkalis In India');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_article_description_additional`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_article_description_additional` (
+  `simple_blog_article_id` int(16) NOT NULL,
+  `language_id` int(16) NOT NULL,
+  `additional_description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_article_product_related`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_article_product_related` (
+  `simple_blog_article_id` int(16) NOT NULL,
+  `product_id` int(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oc_simple_blog_article_product_related`
+--
+
+INSERT INTO `oc_simple_blog_article_product_related` (`simple_blog_article_id`, `product_id`) VALUES
+(1, 71);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_article_to_category`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_article_to_category` (
+  `simple_blog_article_id` int(16) NOT NULL,
+  `simple_blog_category_id` int(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_article_to_layout`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_article_to_layout` (
+  `simple_blog_article_id` int(16) NOT NULL,
+  `store_id` int(16) NOT NULL,
+  `layout_id` int(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_article_to_store`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_article_to_store` (
+  `simple_blog_article_id` int(16) NOT NULL,
+  `store_id` int(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oc_simple_blog_article_to_store`
+--
+
+INSERT INTO `oc_simple_blog_article_to_store` (`simple_blog_article_id`, `store_id`) VALUES
+(1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_author`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_author` (
+  `simple_blog_author_id` int(16) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) NOT NULL,
+  `image` text NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_author_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `oc_simple_blog_author`
+--
+
+INSERT INTO `oc_simple_blog_author` (`simple_blog_author_id`, `name`, `image`, `status`, `date_added`, `date_modified`) VALUES
+(1, 'Praneet', '', 1, '2015-08-03 04:22:44', '2015-08-03 04:22:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_author_description`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_author_description` (
+  `simple_blog_author_description_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_author_id` int(16) NOT NULL,
+  `language_id` int(16) NOT NULL,
+  `description` text NOT NULL,
+  `meta_description` varchar(256) NOT NULL,
+  `meta_keyword` varchar(256) NOT NULL,
+  `date_added` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_author_description_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `oc_simple_blog_author_description`
+--
+
+INSERT INTO `oc_simple_blog_author_description` (`simple_blog_author_description_id`, `simple_blog_author_id`, `language_id`, `description`, `meta_description`, `meta_keyword`, `date_added`) VALUES
+(1, 1, 1, '&lt;p&gt;Praneet is system admin.&lt;/p&gt;', 'Praneet', 'Praneet', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_category`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_category` (
+  `simple_blog_category_id` int(16) NOT NULL AUTO_INCREMENT,
+  `image` text NOT NULL,
+  `parent_id` int(16) NOT NULL,
+  `top` tinyint(1) NOT NULL,
+  `blog_category_column` int(16) NOT NULL,
+  `column` int(8) NOT NULL,
+  `sort_order` int(8) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_category_description`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_category_description` (
+  `simple_blog_category_description_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_category_id` int(16) NOT NULL,
+  `language_id` int(16) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `description` text NOT NULL,
+  `meta_description` varchar(256) NOT NULL,
+  `meta_keyword` varchar(256) NOT NULL,
+  PRIMARY KEY (`simple_blog_category_description_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_category_to_layout`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_category_to_layout` (
+  `simple_blog_category_id` int(16) NOT NULL,
+  `store_id` int(16) NOT NULL,
+  `layout_id` int(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_category_to_store`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_category_to_store` (
+  `simple_blog_category_id` int(16) NOT NULL,
+  `store_id` int(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_comment`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_comment` (
+  `simple_blog_comment_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_article_id` int(16) NOT NULL,
+  `simple_blog_article_reply_id` int(16) NOT NULL,
+  `author` varchar(64) NOT NULL,
+  `comment` text NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_comment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_related_article`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_related_article` (
+  `simple_blog_related_article_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_article_id` int(16) NOT NULL,
+  `simple_blog_article_related_id` int(16) NOT NULL,
+  `sort_order` int(8) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_related_article_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_simple_blog_view`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_simple_blog_view` (
+  `simple_blog_view_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_article_id` int(16) NOT NULL,
+  `view` int(16) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_view_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -3327,23 +3937,29 @@ CREATE TABLE IF NOT EXISTS `oc_url_alias` (
   PRIMARY KEY (`url_alias_id`),
   KEY `query` (`query`),
   KEY `keyword` (`keyword`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=864 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=891 ;
 
 --
 -- Dumping data for table `oc_url_alias`
 --
 
 INSERT INTO `oc_url_alias` (`url_alias_id`, `query`, `keyword`) VALUES
-(857, 'information_id=4', 'about_us'),
+(888, 'simple_blog_author_id=1', 'Praneet'),
 (854, 'product_id=57', ''),
 (845, 'category_id=60', ''),
-(847, 'category_id=61', ''),
-(862, 'information_id=6', 'delivery'),
+(890, 'information_id=10', ''),
+(877, 'information_id=6', 'delivery'),
 (859, 'information_id=3', 'privacy'),
 (860, 'information_id=5', 'terms'),
 (850, 'product_id=53', ''),
 (851, 'product_id=54', ''),
-(863, 'product_id=60', '');
+(867, 'product_id=61', ''),
+(866, 'product_id=60', ''),
+(889, 'simple_blog_article_id=1', 'Anarkalis In India'),
+(875, 'product_id=69', ''),
+(874, 'product_id=68', ''),
+(881, 'product_id=74', ''),
+(885, 'product_id=78', '');
 
 -- --------------------------------------------------------
 
@@ -3373,7 +3989,7 @@ CREATE TABLE IF NOT EXISTS `oc_user` (
 --
 
 INSERT INTO `oc_user` (`user_id`, `user_group_id`, `username`, `password`, `salt`, `firstname`, `lastname`, `email`, `image`, `code`, `ip`, `status`, `date_added`) VALUES
-(1, 1, 'admin', '4d51a694b13f477008df55b6b965bfd2b7f4c148', '8d435da2b', 'Swapna', 'Anumolu', 'info@colossus360.com', 'catalog/logos/logo (1).png', '', '49.206.62.103', 1, '2015-04-28 06:01:59');
+(1, 1, 'admin', '4d51a694b13f477008df55b6b965bfd2b7f4c148', '8d435da2b', 'Swapna', 'Anumolu', 'info@colossus360.com', 'catalog/logos/logo (1).png', '', '49.206.18.17', 1, '2015-04-28 06:01:59');
 
 -- --------------------------------------------------------
 
@@ -3393,7 +4009,7 @@ CREATE TABLE IF NOT EXISTS `oc_user_group` (
 --
 
 INSERT INTO `oc_user_group` (`user_group_id`, `name`, `permission`) VALUES
-(1, 'Administrator', 'a:2:{s:6:"access";a:202:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:17:"catalog/recurring";i:10;s:14:"catalog/review";i:11;s:18:"common/column_left";i:12;s:18:"common/filemanager";i:13;s:11:"common/menu";i:14;s:14:"common/profile";i:15;s:12:"common/stats";i:16;s:18:"dashboard/activity";i:17;s:15:"dashboard/chart";i:18;s:18:"dashboard/customer";i:19;s:13:"dashboard/map";i:20;s:16:"dashboard/online";i:21;s:15:"dashboard/order";i:22;s:16:"dashboard/recent";i:23;s:14:"dashboard/sale";i:24;s:13:"design/banner";i:25;s:13:"design/layout";i:26;s:14:"extension/feed";i:27;s:19:"extension/installer";i:28;s:22:"extension/modification";i:29;s:16:"extension/module";i:30;s:17:"extension/openbay";i:31;s:17:"extension/payment";i:32;s:18:"extension/shipping";i:33;s:15:"extension/total";i:34;s:16:"feed/google_base";i:35;s:19:"feed/google_sitemap";i:36;s:15:"feed/openbaypro";i:37;s:20:"localisation/country";i:38;s:21:"localisation/currency";i:39;s:21:"localisation/geo_zone";i:40;s:21:"localisation/language";i:41;s:25:"localisation/length_class";i:42;s:21:"localisation/location";i:43;s:25:"localisation/order_status";i:44;s:26:"localisation/return_action";i:45;s:26:"localisation/return_reason";i:46;s:26:"localisation/return_status";i:47;s:25:"localisation/stock_status";i:48;s:22:"localisation/tax_class";i:49;s:21:"localisation/tax_rate";i:50;s:25:"localisation/weight_class";i:51;s:17:"localisation/zone";i:52;s:19:"marketing/affiliate";i:53;s:17:"marketing/contact";i:54;s:16:"marketing/coupon";i:55;s:19:"marketing/marketing";i:56;s:14:"module/account";i:57;s:16:"module/affiliate";i:58;s:20:"module/amazon_button";i:59;s:13:"module/banner";i:60;s:17:"module/bestseller";i:61;s:15:"module/carousel";i:62;s:15:"module/category";i:63;s:11:"module/ebay";i:64;s:15:"module/featured";i:65;s:13:"module/filter";i:66;s:22:"module/google_hangouts";i:67;s:11:"module/html";i:68;s:18:"module/information";i:69;s:13:"module/latest";i:70;s:16:"module/pp_button";i:71;s:15:"module/pp_login";i:72;s:16:"module/slideshow";i:73;s:14:"module/special";i:74;s:12:"module/store";i:75;s:14:"openbay/amazon";i:76;s:22:"openbay/amazon_listing";i:77;s:22:"openbay/amazon_product";i:78;s:16:"openbay/amazonus";i:79;s:24:"openbay/amazonus_listing";i:80;s:24:"openbay/amazonus_product";i:81;s:12:"openbay/ebay";i:82;s:20:"openbay/ebay_profile";i:83;s:21:"openbay/ebay_template";i:84;s:12:"openbay/etsy";i:85;s:20:"openbay/etsy_product";i:86;s:21:"openbay/etsy_shipping";i:87;s:17:"openbay/etsy_shop";i:88;s:23:"payment/amazon_checkout";i:89;s:24:"payment/authorizenet_aim";i:90;s:24:"payment/authorizenet_sim";i:91;s:21:"payment/bank_transfer";i:92;s:22:"payment/bluepay_hosted";i:93;s:24:"payment/bluepay_redirect";i:94;s:14:"payment/cheque";i:95;s:11:"payment/cod";i:96;s:17:"payment/firstdata";i:97;s:24:"payment/firstdata_remote";i:98;s:21:"payment/free_checkout";i:99;s:22:"payment/klarna_account";i:100;s:22:"payment/klarna_invoice";i:101;s:14:"payment/liqpay";i:102;s:14:"payment/nochex";i:103;s:15:"payment/paymate";i:104;s:16:"payment/paypoint";i:105;s:13:"payment/payza";i:106;s:26:"payment/perpetual_payments";i:107;s:18:"payment/pp_express";i:108;s:18:"payment/pp_payflow";i:109;s:25:"payment/pp_payflow_iframe";i:110;s:14:"payment/pp_pro";i:111;s:21:"payment/pp_pro_iframe";i:112;s:19:"payment/pp_standard";i:113;s:14:"payment/realex";i:114;s:21:"payment/realex_remote";i:115;s:22:"payment/sagepay_direct";i:116;s:22:"payment/sagepay_server";i:117;s:18:"payment/sagepay_us";i:118;s:24:"payment/securetrading_pp";i:119;s:24:"payment/securetrading_ws";i:120;s:14:"payment/skrill";i:121;s:19:"payment/twocheckout";i:122;s:28:"payment/web_payment_software";i:123;s:16:"payment/worldpay";i:124;s:16:"report/affiliate";i:125;s:25:"report/affiliate_activity";i:126;s:22:"report/affiliate_login";i:127;s:24:"report/customer_activity";i:128;s:22:"report/customer_credit";i:129;s:21:"report/customer_login";i:130;s:22:"report/customer_online";i:131;s:21:"report/customer_order";i:132;s:22:"report/customer_reward";i:133;s:16:"report/marketing";i:134;s:24:"report/product_purchased";i:135;s:21:"report/product_viewed";i:136;s:18:"report/sale_coupon";i:137;s:17:"report/sale_order";i:138;s:18:"report/sale_return";i:139;s:20:"report/sale_shipping";i:140;s:15:"report/sale_tax";i:141;s:17:"sale/custom_field";i:142;s:13:"sale/customer";i:143;s:20:"sale/customer_ban_ip";i:144;s:19:"sale/customer_group";i:145;s:10:"sale/order";i:146;s:14:"sale/recurring";i:147;s:11:"sale/return";i:148;s:12:"sale/voucher";i:149;s:18:"sale/voucher_theme";i:150;s:15:"setting/setting";i:151;s:13:"setting/store";i:152;s:16:"shipping/auspost";i:153;s:17:"shipping/citylink";i:154;s:14:"shipping/fedex";i:155;s:13:"shipping/flat";i:156;s:13:"shipping/free";i:157;s:13:"shipping/item";i:158;s:23:"shipping/parcelforce_48";i:159;s:15:"shipping/pickup";i:160;s:19:"shipping/royal_mail";i:161;s:12:"shipping/ups";i:162;s:13:"shipping/usps";i:163;s:15:"shipping/weight";i:164;s:11:"tool/backup";i:165;s:14:"tool/error_log";i:166;s:11:"tool/upload";i:167;s:12:"total/coupon";i:168;s:12:"total/credit";i:169;s:14:"total/handling";i:170;s:16:"total/klarna_fee";i:171;s:19:"total/low_order_fee";i:172;s:12:"total/reward";i:173;s:14:"total/shipping";i:174;s:15:"total/sub_total";i:175;s:9:"total/tax";i:176;s:11:"total/total";i:177;s:13:"total/voucher";i:178;s:8:"user/api";i:179;s:9:"user/user";i:180;s:20:"user/user_permission";i:181;s:20:"module/magiczoomplus";i:182;s:20:"module/comboproducts";i:183;s:11:"module/html";i:184;s:18:"module/information";i:185;s:12:"module/store";i:186;s:16:"feed/google_base";i:187;s:19:"feed/google_sitemap";i:188;s:13:"module/filter";i:189;s:13:"payment/payza";i:190;s:12:"payment/payu";i:191;s:12:"payment/payu";i:192;s:15:"payment/paymate";i:193;s:14:"payment/pp_pro";i:194;s:12:"payment/payu";i:195;s:12:"payment/payu";i:196;s:12:"payment/payu";i:197;s:12:"payment/payu";i:198;s:12:"payment/payu";i:199;s:12:"payment/payu";i:200;s:15:"total/sub_total";i:201;s:15:"total/sub_total";}s:6:"modify";a:202:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:17:"catalog/recurring";i:10;s:14:"catalog/review";i:11;s:18:"common/column_left";i:12;s:18:"common/filemanager";i:13;s:11:"common/menu";i:14;s:14:"common/profile";i:15;s:12:"common/stats";i:16;s:18:"dashboard/activity";i:17;s:15:"dashboard/chart";i:18;s:18:"dashboard/customer";i:19;s:13:"dashboard/map";i:20;s:16:"dashboard/online";i:21;s:15:"dashboard/order";i:22;s:16:"dashboard/recent";i:23;s:14:"dashboard/sale";i:24;s:13:"design/banner";i:25;s:13:"design/layout";i:26;s:14:"extension/feed";i:27;s:19:"extension/installer";i:28;s:22:"extension/modification";i:29;s:16:"extension/module";i:30;s:17:"extension/openbay";i:31;s:17:"extension/payment";i:32;s:18:"extension/shipping";i:33;s:15:"extension/total";i:34;s:16:"feed/google_base";i:35;s:19:"feed/google_sitemap";i:36;s:15:"feed/openbaypro";i:37;s:20:"localisation/country";i:38;s:21:"localisation/currency";i:39;s:21:"localisation/geo_zone";i:40;s:21:"localisation/language";i:41;s:25:"localisation/length_class";i:42;s:21:"localisation/location";i:43;s:25:"localisation/order_status";i:44;s:26:"localisation/return_action";i:45;s:26:"localisation/return_reason";i:46;s:26:"localisation/return_status";i:47;s:25:"localisation/stock_status";i:48;s:22:"localisation/tax_class";i:49;s:21:"localisation/tax_rate";i:50;s:25:"localisation/weight_class";i:51;s:17:"localisation/zone";i:52;s:19:"marketing/affiliate";i:53;s:17:"marketing/contact";i:54;s:16:"marketing/coupon";i:55;s:19:"marketing/marketing";i:56;s:14:"module/account";i:57;s:16:"module/affiliate";i:58;s:20:"module/amazon_button";i:59;s:13:"module/banner";i:60;s:17:"module/bestseller";i:61;s:15:"module/carousel";i:62;s:15:"module/category";i:63;s:11:"module/ebay";i:64;s:15:"module/featured";i:65;s:13:"module/filter";i:66;s:22:"module/google_hangouts";i:67;s:11:"module/html";i:68;s:18:"module/information";i:69;s:13:"module/latest";i:70;s:16:"module/pp_button";i:71;s:15:"module/pp_login";i:72;s:16:"module/slideshow";i:73;s:14:"module/special";i:74;s:12:"module/store";i:75;s:14:"openbay/amazon";i:76;s:22:"openbay/amazon_listing";i:77;s:22:"openbay/amazon_product";i:78;s:16:"openbay/amazonus";i:79;s:24:"openbay/amazonus_listing";i:80;s:24:"openbay/amazonus_product";i:81;s:12:"openbay/ebay";i:82;s:20:"openbay/ebay_profile";i:83;s:21:"openbay/ebay_template";i:84;s:12:"openbay/etsy";i:85;s:20:"openbay/etsy_product";i:86;s:21:"openbay/etsy_shipping";i:87;s:17:"openbay/etsy_shop";i:88;s:23:"payment/amazon_checkout";i:89;s:24:"payment/authorizenet_aim";i:90;s:24:"payment/authorizenet_sim";i:91;s:21:"payment/bank_transfer";i:92;s:22:"payment/bluepay_hosted";i:93;s:24:"payment/bluepay_redirect";i:94;s:14:"payment/cheque";i:95;s:11:"payment/cod";i:96;s:17:"payment/firstdata";i:97;s:24:"payment/firstdata_remote";i:98;s:21:"payment/free_checkout";i:99;s:22:"payment/klarna_account";i:100;s:22:"payment/klarna_invoice";i:101;s:14:"payment/liqpay";i:102;s:14:"payment/nochex";i:103;s:15:"payment/paymate";i:104;s:16:"payment/paypoint";i:105;s:13:"payment/payza";i:106;s:26:"payment/perpetual_payments";i:107;s:18:"payment/pp_express";i:108;s:18:"payment/pp_payflow";i:109;s:25:"payment/pp_payflow_iframe";i:110;s:14:"payment/pp_pro";i:111;s:21:"payment/pp_pro_iframe";i:112;s:19:"payment/pp_standard";i:113;s:14:"payment/realex";i:114;s:21:"payment/realex_remote";i:115;s:22:"payment/sagepay_direct";i:116;s:22:"payment/sagepay_server";i:117;s:18:"payment/sagepay_us";i:118;s:24:"payment/securetrading_pp";i:119;s:24:"payment/securetrading_ws";i:120;s:14:"payment/skrill";i:121;s:19:"payment/twocheckout";i:122;s:28:"payment/web_payment_software";i:123;s:16:"payment/worldpay";i:124;s:16:"report/affiliate";i:125;s:25:"report/affiliate_activity";i:126;s:22:"report/affiliate_login";i:127;s:24:"report/customer_activity";i:128;s:22:"report/customer_credit";i:129;s:21:"report/customer_login";i:130;s:22:"report/customer_online";i:131;s:21:"report/customer_order";i:132;s:22:"report/customer_reward";i:133;s:16:"report/marketing";i:134;s:24:"report/product_purchased";i:135;s:21:"report/product_viewed";i:136;s:18:"report/sale_coupon";i:137;s:17:"report/sale_order";i:138;s:18:"report/sale_return";i:139;s:20:"report/sale_shipping";i:140;s:15:"report/sale_tax";i:141;s:17:"sale/custom_field";i:142;s:13:"sale/customer";i:143;s:20:"sale/customer_ban_ip";i:144;s:19:"sale/customer_group";i:145;s:10:"sale/order";i:146;s:14:"sale/recurring";i:147;s:11:"sale/return";i:148;s:12:"sale/voucher";i:149;s:18:"sale/voucher_theme";i:150;s:15:"setting/setting";i:151;s:13:"setting/store";i:152;s:16:"shipping/auspost";i:153;s:17:"shipping/citylink";i:154;s:14:"shipping/fedex";i:155;s:13:"shipping/flat";i:156;s:13:"shipping/free";i:157;s:13:"shipping/item";i:158;s:23:"shipping/parcelforce_48";i:159;s:15:"shipping/pickup";i:160;s:19:"shipping/royal_mail";i:161;s:12:"shipping/ups";i:162;s:13:"shipping/usps";i:163;s:15:"shipping/weight";i:164;s:11:"tool/backup";i:165;s:14:"tool/error_log";i:166;s:11:"tool/upload";i:167;s:12:"total/coupon";i:168;s:12:"total/credit";i:169;s:14:"total/handling";i:170;s:16:"total/klarna_fee";i:171;s:19:"total/low_order_fee";i:172;s:12:"total/reward";i:173;s:14:"total/shipping";i:174;s:15:"total/sub_total";i:175;s:9:"total/tax";i:176;s:11:"total/total";i:177;s:13:"total/voucher";i:178;s:8:"user/api";i:179;s:9:"user/user";i:180;s:20:"user/user_permission";i:181;s:20:"module/magiczoomplus";i:182;s:20:"module/comboproducts";i:183;s:11:"module/html";i:184;s:18:"module/information";i:185;s:12:"module/store";i:186;s:16:"feed/google_base";i:187;s:19:"feed/google_sitemap";i:188;s:13:"module/filter";i:189;s:13:"payment/payza";i:190;s:12:"payment/payu";i:191;s:12:"payment/payu";i:192;s:15:"payment/paymate";i:193;s:14:"payment/pp_pro";i:194;s:12:"payment/payu";i:195;s:12:"payment/payu";i:196;s:12:"payment/payu";i:197;s:12:"payment/payu";i:198;s:12:"payment/payu";i:199;s:12:"payment/payu";i:200;s:15:"total/sub_total";i:201;s:15:"total/sub_total";}}'),
+(1, 'Administrator', 'a:2:{s:6:"access";a:192:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:17:"catalog/recurring";i:10;s:14:"catalog/review";i:11;s:18:"common/column_left";i:12;s:18:"common/filemanager";i:13;s:11:"common/menu";i:14;s:14:"common/profile";i:15;s:12:"common/stats";i:16;s:13:"design/banner";i:17;s:13:"design/layout";i:18;s:14:"extension/feed";i:19;s:19:"extension/installer";i:20;s:22:"extension/modification";i:21;s:16:"extension/module";i:22;s:17:"extension/openbay";i:23;s:17:"extension/payment";i:24;s:18:"extension/shipping";i:25;s:15:"extension/total";i:26;s:16:"feed/google_base";i:27;s:19:"feed/google_sitemap";i:28;s:15:"feed/openbaypro";i:29;s:20:"localisation/country";i:30;s:21:"localisation/currency";i:31;s:21:"localisation/geo_zone";i:32;s:21:"localisation/language";i:33;s:25:"localisation/length_class";i:34;s:21:"localisation/location";i:35;s:25:"localisation/order_status";i:36;s:26:"localisation/return_action";i:37;s:26:"localisation/return_reason";i:38;s:26:"localisation/return_status";i:39;s:25:"localisation/stock_status";i:40;s:22:"localisation/tax_class";i:41;s:21:"localisation/tax_rate";i:42;s:25:"localisation/weight_class";i:43;s:17:"localisation/zone";i:44;s:19:"marketing/affiliate";i:45;s:17:"marketing/contact";i:46;s:16:"marketing/coupon";i:47;s:19:"marketing/marketing";i:48;s:14:"module/account";i:49;s:16:"module/affiliate";i:50;s:20:"module/amazon_button";i:51;s:19:"module/amazon_login";i:52;s:17:"module/amazon_pay";i:53;s:13:"module/banner";i:54;s:17:"module/bestseller";i:55;s:15:"module/carousel";i:56;s:15:"module/category";i:57;s:20:"module/comboproducts";i:58;s:19:"module/ebay_listing";i:59;s:15:"module/featured";i:60;s:13:"module/filter";i:61;s:22:"module/google_hangouts";i:62;s:11:"module/html";i:63;s:18:"module/information";i:64;s:13:"module/latest";i:65;s:20:"module/magiczoomplus";i:66;s:16:"module/pp_button";i:67;s:15:"module/pp_login";i:68;s:18:"module/simple_blog";i:69;s:27:"module/simple_blog_category";i:70;s:16:"module/slideshow";i:71;s:14:"module/special";i:72;s:12:"module/store";i:73;s:14:"openbay/amazon";i:74;s:22:"openbay/amazon_listing";i:75;s:22:"openbay/amazon_product";i:76;s:16:"openbay/amazonus";i:77;s:24:"openbay/amazonus_listing";i:78;s:24:"openbay/amazonus_product";i:79;s:12:"openbay/ebay";i:80;s:20:"openbay/ebay_profile";i:81;s:21:"openbay/ebay_template";i:82;s:12:"openbay/etsy";i:83;s:20:"openbay/etsy_product";i:84;s:21:"openbay/etsy_shipping";i:85;s:17:"openbay/etsy_shop";i:86;s:23:"payment/amazon_checkout";i:87;s:24:"payment/amazon_login_pay";i:88;s:24:"payment/authorizenet_aim";i:89;s:24:"payment/authorizenet_sim";i:90;s:21:"payment/bank_transfer";i:91;s:22:"payment/bluepay_hosted";i:92;s:24:"payment/bluepay_redirect";i:93;s:14:"payment/cheque";i:94;s:11:"payment/cod";i:95;s:17:"payment/firstdata";i:96;s:24:"payment/firstdata_remote";i:97;s:21:"payment/free_checkout";i:98;s:17:"payment/globalpay";i:99;s:24:"payment/globalpay_remote";i:100;s:22:"payment/klarna_account";i:101;s:22:"payment/klarna_invoice";i:102;s:14:"payment/liqpay";i:103;s:14:"payment/nochex";i:104;s:15:"payment/paymate";i:105;s:16:"payment/paypoint";i:106;s:12:"payment/payu";i:107;s:13:"payment/payza";i:108;s:26:"payment/perpetual_payments";i:109;s:18:"payment/pp_express";i:110;s:18:"payment/pp_payflow";i:111;s:25:"payment/pp_payflow_iframe";i:112;s:14:"payment/pp_pro";i:113;s:21:"payment/pp_pro_iframe";i:114;s:19:"payment/pp_standard";i:115;s:14:"payment/realex";i:116;s:21:"payment/realex_remote";i:117;s:22:"payment/sagepay_direct";i:118;s:22:"payment/sagepay_server";i:119;s:18:"payment/sagepay_us";i:120;s:24:"payment/securetrading_pp";i:121;s:24:"payment/securetrading_ws";i:122;s:14:"payment/skrill";i:123;s:19:"payment/twocheckout";i:124;s:28:"payment/web_payment_software";i:125;s:16:"payment/worldpay";i:126;s:16:"report/affiliate";i:127;s:25:"report/affiliate_activity";i:128;s:22:"report/affiliate_login";i:129;s:24:"report/customer_activity";i:130;s:22:"report/customer_credit";i:131;s:21:"report/customer_login";i:132;s:22:"report/customer_online";i:133;s:21:"report/customer_order";i:134;s:22:"report/customer_reward";i:135;s:16:"report/marketing";i:136;s:24:"report/product_purchased";i:137;s:21:"report/product_viewed";i:138;s:18:"report/sale_coupon";i:139;s:17:"report/sale_order";i:140;s:18:"report/sale_return";i:141;s:20:"report/sale_shipping";i:142;s:15:"report/sale_tax";i:143;s:17:"sale/custom_field";i:144;s:13:"sale/customer";i:145;s:20:"sale/customer_ban_ip";i:146;s:19:"sale/customer_group";i:147;s:10:"sale/order";i:148;s:14:"sale/recurring";i:149;s:11:"sale/return";i:150;s:12:"sale/voucher";i:151;s:18:"sale/voucher_theme";i:152;s:15:"setting/setting";i:153;s:13:"setting/store";i:154;s:16:"shipping/auspost";i:155;s:17:"shipping/citylink";i:156;s:14:"shipping/fedex";i:157;s:13:"shipping/flat";i:158;s:13:"shipping/free";i:159;s:13:"shipping/item";i:160;s:23:"shipping/parcelforce_48";i:161;s:15:"shipping/pickup";i:162;s:19:"shipping/royal_mail";i:163;s:12:"shipping/ups";i:164;s:13:"shipping/usps";i:165;s:15:"shipping/weight";i:166;s:19:"simple_blog/article";i:167;s:18:"simple_blog/author";i:168;s:20:"simple_blog/category";i:169;s:19:"simple_blog/comment";i:170;s:19:"simple_blog/install";i:171;s:18:"simple_blog/report";i:172;s:11:"tool/backup";i:173;s:14:"tool/error_log";i:174;s:11:"tool/upload";i:175;s:12:"total/coupon";i:176;s:12:"total/credit";i:177;s:14:"total/handling";i:178;s:16:"total/klarna_fee";i:179;s:19:"total/low_order_fee";i:180;s:12:"total/reward";i:181;s:14:"total/shipping";i:182;s:15:"total/sub_total";i:183;s:9:"total/tax";i:184;s:11:"total/total";i:185;s:13:"total/voucher";i:186;s:8:"user/api";i:187;s:9:"user/user";i:188;s:20:"user/user_permission";i:189;s:18:"module/simple_blog";i:190;s:27:"module/simple_blog_category";i:191;s:24:"module/merkent_instagram";}s:6:"modify";a:192:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:17:"catalog/recurring";i:10;s:14:"catalog/review";i:11;s:18:"common/column_left";i:12;s:18:"common/filemanager";i:13;s:11:"common/menu";i:14;s:14:"common/profile";i:15;s:12:"common/stats";i:16;s:13:"design/banner";i:17;s:13:"design/layout";i:18;s:14:"extension/feed";i:19;s:19:"extension/installer";i:20;s:22:"extension/modification";i:21;s:16:"extension/module";i:22;s:17:"extension/openbay";i:23;s:17:"extension/payment";i:24;s:18:"extension/shipping";i:25;s:15:"extension/total";i:26;s:16:"feed/google_base";i:27;s:19:"feed/google_sitemap";i:28;s:15:"feed/openbaypro";i:29;s:20:"localisation/country";i:30;s:21:"localisation/currency";i:31;s:21:"localisation/geo_zone";i:32;s:21:"localisation/language";i:33;s:25:"localisation/length_class";i:34;s:21:"localisation/location";i:35;s:25:"localisation/order_status";i:36;s:26:"localisation/return_action";i:37;s:26:"localisation/return_reason";i:38;s:26:"localisation/return_status";i:39;s:25:"localisation/stock_status";i:40;s:22:"localisation/tax_class";i:41;s:21:"localisation/tax_rate";i:42;s:25:"localisation/weight_class";i:43;s:17:"localisation/zone";i:44;s:19:"marketing/affiliate";i:45;s:17:"marketing/contact";i:46;s:16:"marketing/coupon";i:47;s:19:"marketing/marketing";i:48;s:14:"module/account";i:49;s:16:"module/affiliate";i:50;s:20:"module/amazon_button";i:51;s:19:"module/amazon_login";i:52;s:17:"module/amazon_pay";i:53;s:13:"module/banner";i:54;s:17:"module/bestseller";i:55;s:15:"module/carousel";i:56;s:15:"module/category";i:57;s:20:"module/comboproducts";i:58;s:19:"module/ebay_listing";i:59;s:15:"module/featured";i:60;s:13:"module/filter";i:61;s:22:"module/google_hangouts";i:62;s:11:"module/html";i:63;s:18:"module/information";i:64;s:13:"module/latest";i:65;s:20:"module/magiczoomplus";i:66;s:16:"module/pp_button";i:67;s:15:"module/pp_login";i:68;s:18:"module/simple_blog";i:69;s:27:"module/simple_blog_category";i:70;s:16:"module/slideshow";i:71;s:14:"module/special";i:72;s:12:"module/store";i:73;s:14:"openbay/amazon";i:74;s:22:"openbay/amazon_listing";i:75;s:22:"openbay/amazon_product";i:76;s:16:"openbay/amazonus";i:77;s:24:"openbay/amazonus_listing";i:78;s:24:"openbay/amazonus_product";i:79;s:12:"openbay/ebay";i:80;s:20:"openbay/ebay_profile";i:81;s:21:"openbay/ebay_template";i:82;s:12:"openbay/etsy";i:83;s:20:"openbay/etsy_product";i:84;s:21:"openbay/etsy_shipping";i:85;s:17:"openbay/etsy_shop";i:86;s:23:"payment/amazon_checkout";i:87;s:24:"payment/amazon_login_pay";i:88;s:24:"payment/authorizenet_aim";i:89;s:24:"payment/authorizenet_sim";i:90;s:21:"payment/bank_transfer";i:91;s:22:"payment/bluepay_hosted";i:92;s:24:"payment/bluepay_redirect";i:93;s:14:"payment/cheque";i:94;s:11:"payment/cod";i:95;s:17:"payment/firstdata";i:96;s:24:"payment/firstdata_remote";i:97;s:21:"payment/free_checkout";i:98;s:17:"payment/globalpay";i:99;s:24:"payment/globalpay_remote";i:100;s:22:"payment/klarna_account";i:101;s:22:"payment/klarna_invoice";i:102;s:14:"payment/liqpay";i:103;s:14:"payment/nochex";i:104;s:15:"payment/paymate";i:105;s:16:"payment/paypoint";i:106;s:12:"payment/payu";i:107;s:13:"payment/payza";i:108;s:26:"payment/perpetual_payments";i:109;s:18:"payment/pp_express";i:110;s:18:"payment/pp_payflow";i:111;s:25:"payment/pp_payflow_iframe";i:112;s:14:"payment/pp_pro";i:113;s:21:"payment/pp_pro_iframe";i:114;s:19:"payment/pp_standard";i:115;s:14:"payment/realex";i:116;s:21:"payment/realex_remote";i:117;s:22:"payment/sagepay_direct";i:118;s:22:"payment/sagepay_server";i:119;s:18:"payment/sagepay_us";i:120;s:24:"payment/securetrading_pp";i:121;s:24:"payment/securetrading_ws";i:122;s:14:"payment/skrill";i:123;s:19:"payment/twocheckout";i:124;s:28:"payment/web_payment_software";i:125;s:16:"payment/worldpay";i:126;s:16:"report/affiliate";i:127;s:25:"report/affiliate_activity";i:128;s:22:"report/affiliate_login";i:129;s:24:"report/customer_activity";i:130;s:22:"report/customer_credit";i:131;s:21:"report/customer_login";i:132;s:22:"report/customer_online";i:133;s:21:"report/customer_order";i:134;s:22:"report/customer_reward";i:135;s:16:"report/marketing";i:136;s:24:"report/product_purchased";i:137;s:21:"report/product_viewed";i:138;s:18:"report/sale_coupon";i:139;s:17:"report/sale_order";i:140;s:18:"report/sale_return";i:141;s:20:"report/sale_shipping";i:142;s:15:"report/sale_tax";i:143;s:17:"sale/custom_field";i:144;s:13:"sale/customer";i:145;s:20:"sale/customer_ban_ip";i:146;s:19:"sale/customer_group";i:147;s:10:"sale/order";i:148;s:14:"sale/recurring";i:149;s:11:"sale/return";i:150;s:12:"sale/voucher";i:151;s:18:"sale/voucher_theme";i:152;s:15:"setting/setting";i:153;s:13:"setting/store";i:154;s:16:"shipping/auspost";i:155;s:17:"shipping/citylink";i:156;s:14:"shipping/fedex";i:157;s:13:"shipping/flat";i:158;s:13:"shipping/free";i:159;s:13:"shipping/item";i:160;s:23:"shipping/parcelforce_48";i:161;s:15:"shipping/pickup";i:162;s:19:"shipping/royal_mail";i:163;s:12:"shipping/ups";i:164;s:13:"shipping/usps";i:165;s:15:"shipping/weight";i:166;s:19:"simple_blog/article";i:167;s:18:"simple_blog/author";i:168;s:20:"simple_blog/category";i:169;s:19:"simple_blog/comment";i:170;s:19:"simple_blog/install";i:171;s:18:"simple_blog/report";i:172;s:11:"tool/backup";i:173;s:14:"tool/error_log";i:174;s:11:"tool/upload";i:175;s:12:"total/coupon";i:176;s:12:"total/credit";i:177;s:14:"total/handling";i:178;s:16:"total/klarna_fee";i:179;s:19:"total/low_order_fee";i:180;s:12:"total/reward";i:181;s:14:"total/shipping";i:182;s:15:"total/sub_total";i:183;s:9:"total/tax";i:184;s:11:"total/total";i:185;s:13:"total/voucher";i:186;s:8:"user/api";i:187;s:9:"user/user";i:188;s:20:"user/user_permission";i:189;s:18:"module/simple_blog";i:190;s:27:"module/simple_blog_category";i:191;s:24:"module/merkent_instagram";}}'),
 (10, 'Demonstration', '');
 
 -- --------------------------------------------------------
@@ -7774,6 +8390,243 @@ INSERT INTO `oc_zone_to_geo_zone` (`zone_to_geo_zone_id`, `country_id`, `zone_id
 (107, 222, 3954, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (108, 222, 3955, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (109, 222, 3972, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_article`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_article` (
+  `simple_blog_article_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_author_id` int(16) NOT NULL,
+  `allow_comment` tinyint(1) NOT NULL,
+  `image` text NOT NULL,
+  `featured_image` text NOT NULL,
+  `article_related_method` varchar(64) NOT NULL,
+  `article_related_option` text NOT NULL,
+  `sort_order` int(8) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_article_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_article_description`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_article_description` (
+  `simple_blog_article_description_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_article_id` int(16) NOT NULL,
+  `language_id` int(16) NOT NULL,
+  `article_title` varchar(256) NOT NULL,
+  `description` text NOT NULL,
+  `meta_description` varchar(256) NOT NULL,
+  `meta_keyword` varchar(256) NOT NULL,
+  PRIMARY KEY (`simple_blog_article_description_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_article_description_additional`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_article_description_additional` (
+  `simple_blog_article_id` int(16) NOT NULL,
+  `language_id` int(16) NOT NULL,
+  `additional_description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_article_product_related`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_article_product_related` (
+  `simple_blog_article_id` int(16) NOT NULL,
+  `product_id` int(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_article_to_category`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_article_to_category` (
+  `simple_blog_article_id` int(16) NOT NULL,
+  `simple_blog_category_id` int(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_article_to_layout`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_article_to_layout` (
+  `simple_blog_article_id` int(16) NOT NULL,
+  `store_id` int(16) NOT NULL,
+  `layout_id` int(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_article_to_store`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_article_to_store` (
+  `simple_blog_article_id` int(16) NOT NULL,
+  `store_id` int(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_author`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_author` (
+  `simple_blog_author_id` int(16) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) NOT NULL,
+  `image` text NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_author_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_author_description`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_author_description` (
+  `simple_blog_author_description_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_author_id` int(16) NOT NULL,
+  `language_id` int(16) NOT NULL,
+  `description` text NOT NULL,
+  `meta_description` varchar(256) NOT NULL,
+  `meta_keyword` varchar(256) NOT NULL,
+  `date_added` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_author_description_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_category`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_category` (
+  `simple_blog_category_id` int(16) NOT NULL AUTO_INCREMENT,
+  `image` text NOT NULL,
+  `parent_id` int(16) NOT NULL,
+  `top` tinyint(1) NOT NULL,
+  `blog_category_column` int(16) NOT NULL,
+  `column` int(8) NOT NULL,
+  `sort_order` int(8) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_category_description`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_category_description` (
+  `simple_blog_category_description_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_category_id` int(16) NOT NULL,
+  `language_id` int(16) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `description` text NOT NULL,
+  `meta_description` varchar(256) NOT NULL,
+  `meta_keyword` varchar(256) NOT NULL,
+  PRIMARY KEY (`simple_blog_category_description_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_category_to_layout`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_category_to_layout` (
+  `simple_blog_category_id` int(16) NOT NULL,
+  `store_id` int(16) NOT NULL,
+  `layout_id` int(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_category_to_store`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_category_to_store` (
+  `simple_blog_category_id` int(16) NOT NULL,
+  `store_id` int(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_comment`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_comment` (
+  `simple_blog_comment_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_article_id` int(16) NOT NULL,
+  `simple_blog_article_reply_id` int(16) NOT NULL,
+  `author` varchar(64) NOT NULL,
+  `comment` text NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_comment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_related_article`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_related_article` (
+  `simple_blog_related_article_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_article_id` int(16) NOT NULL,
+  `simple_blog_article_related_id` int(16) NOT NULL,
+  `sort_order` int(8) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_related_article_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `simple_blog_view`
+--
+
+CREATE TABLE IF NOT EXISTS `simple_blog_view` (
+  `simple_blog_view_id` int(16) NOT NULL AUTO_INCREMENT,
+  `simple_blog_article_id` int(16) NOT NULL,
+  `view` int(16) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  PRIMARY KEY (`simple_blog_view_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
