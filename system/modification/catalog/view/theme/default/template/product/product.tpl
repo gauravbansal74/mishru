@@ -10,9 +10,11 @@ var productId = getParameterByName("product_id");
 
   var region1color = "";
   var region2color = "";
-  var region3Color = "";
+  var region3color = "";
   var region4color = "";
   var region5color = "";
+  var region6color = "";
+  var region7color = "";
 </script>
 <?php echo $header; ?>
 <div class="container">
@@ -205,23 +207,28 @@ var productId = getParameterByName("product_id");
                     }
 
                     if($x == 1){
-                      $cutomregioncolor = explode(",", $region2);
-                      echo '<div>'.$region2_name;
+                      $cutomregioncolor = explode(".", $region2);
+                      echo '<div class="region2_title" style="display:none;width:100%;"><br/><br/>'.$region2_name;
                       echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
-                        $z = $y;
-                        echo '<li id="'.$z.'" region="2" color="'.$cutomregioncolor[$y].'" onclick="customshowhide($(this));" style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;background-color:#'.$cutomregioncolor[$y].';"></li>';
+                      //  $z = $y+1;
+                        $childregioncolor =explode(",",$cutomregioncolor[$y]);
+                        echo '<li id="'.$y.'" region="2" color="'.$childregioncolor[1].'" onclick="customshowhide1($(this));"
+                        class="region2_'.$childregioncolor[0].' region2" value='.$childregioncolor[0].' style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;display:none;background-color:#'.$childregioncolor[1].';"></li>';
                       }
                       echo '</ul></div>';
                     }
 
+
                     if($x == 2){
-                      $cutomregioncolor = explode(",", $region3);
-                      echo '<div>'.$region3_name;
+                      $cutomregioncolor = explode(".", $region3);
+                      echo '<div class="region3_title" style="display:none;width:100%;"><br/><br/>'.$region3_name;
                       echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
-                        $z = $y;
-                        echo '<li id="'.$z.'" region="3" color="'.$cutomregioncolor[$y].'" onclick="customshowhide($(this));" style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;background-color:#'.$cutomregioncolor[$y].';"></li>';
+                      //  $z = $y+1;
+                        $childregioncolor =explode(",",$cutomregioncolor[$y]);
+                        echo '<li id="'.$y.'" region="3" color="'.$childregioncolor[1].'" onclick="customshowhide2($(this));"
+                        class="region3_'.$childregioncolor[0].' region3" value='.$childregioncolor[0].' style="height:25px;width:25px;display:inline-block;float:left;margin:5px;cursor:pointer;display:none;background-color:#'.$childregioncolor[1].';"></li>';
                       }
                       echo '</ul></div>';
                     }
@@ -233,7 +240,7 @@ var productId = getParameterByName("product_id");
                       echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
                         $z = $y;
-                        echo '<li id="'.$z.'" region="4" style="display:inline-block;float:left;">
+                        echo '<li id="'.$z.'" region="4" data-image="'.$cutomregioncolor[$y].'"  style="display:inline-block;float:left;" onclick="customshowhide3($(this));">
                                 <img src="'.$cutomregioncolor[$y].'" width="70px"/>
                               </li>';
                       }
@@ -246,7 +253,7 @@ var productId = getParameterByName("product_id");
                       echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
                         $z = $y;
-                        echo '<li id="'.$z.'" region="4" style="display:inline-block;float:left;">
+                        echo '<li id="'.$z.'" region="4" data-image="'.$cutomregioncolor[$y].'"  style="display:inline-block;float:left;" onclick="customshowhide4($(this));">
                                 <img src="'.$cutomregioncolor[$y].'" width="70px"/>
                               </li>';
                       }
@@ -259,7 +266,7 @@ var productId = getParameterByName("product_id");
                       echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
                         $z = $y;
-                        echo '<li id="'.$z.'" region="4" style="display:inline-block;float:left;">
+                        echo '<li id="'.$z.'" region="4"  data-image="'.$cutomregioncolor[$y].'" style="display:inline-block;float:left;" onclick="customshowhide5($(this));">
                                 <img src="'.$cutomregioncolor[$y].'" width="70px"/>
                               </li>';
                       }
@@ -272,7 +279,7 @@ var productId = getParameterByName("product_id");
                       echo '<ul class="customPallette">';
                       for($y = 0; $y < count($cutomregioncolor); $y++){
                         $z = $y;
-                        echo '<li id="'.$z.'" region="4" style="display:inline-block;float:left;">
+                        echo '<li id="'.$z.'" region="4" data-image="'.$cutomregioncolor[$y].'" style="display:inline-block;float:left;" onclick="customshowhide6($(this));">
                                 <img src="'.$cutomregioncolor[$y].'" width="70px"/>
                               </li>';
                       }
@@ -827,8 +834,9 @@ $(textareaforcolor).val("");
 
 function setcolorintextarea(){
 $(textareaforcolor).val("");
-var myvalue = "Color 1: "+region1color+"\n Color 2: "+region2color+"\n Color 3: "+region2color+"\n Color 4: "+region4color+"\n Color 5: "+region5color;
+var myvalue = "Color 1: "+region1color+"\n Color 2: "+region2color+"\n Color 3: "+region3color+"\n Color 4: "+region4color+"\n Color 5: "+region5color+"\n Color 6: "+region6color+"\n Color 7: "+region7color;
 $(textareaforcolor).val(myvalue);
+console.log(myvalue);
 }
 
 function customshowhide(element){
@@ -931,46 +939,35 @@ $(".region4_title").hide();
   $(".MagicZoomBigImageCont div:not([class]) img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+".jpg");
 }
 function customshowhide3(element){
-  var region = $(element).attr("region");
-  var color = $(element).attr("color");
-  var  id = $(element).attr("id");
-  console.log(region+" "+color+" "+ id);
-//alert(region1color);
-  var newclass = "region1_"+id;
-    region4color = color;
-  
-
-if($(".region5_"+id).length > 0){
-    $(".region5_"+id).show();
-    $(".region5_title").show();
-  }else{
-    $(".region5_title").hide();
-  }
+  var image = $(element).attr("data-image");
+  console.log(image);
+  region4color = image;
   setcolorintextarea();
-  $(".MagicZoomPlus img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+".jpg");
-   $(".MagicZoomPlus img").css("width","392px");
-  // $(".MagicZoomPlus img").css("width","163px");
-  $(".MagicZoomBigImageCont div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+".jpg");
-  $(".MagicThumb-expanded div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+".jpg");
-  $(".MagicZoomBigImageCont div:not([class]) img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+".jpg");
 }
+
 
 function customshowhide4(element){
-  var region = $(element).attr("region");
-  var color = $(element).attr("color");
-  var  id = $(element).attr("id");
-  console.log(region+" "+color+" "+ id);
-//alert(region1color);
-  var newclass = "region1_"+id;
-    region5color = color;
- setcolorintextarea();
-  $(".MagicZoomPlus img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+"_"+region5color+".jpg");
-   $(".MagicZoomPlus img").css("width","392px");
- //  $(".MagicZoomPlus img").css("width","163px");
-  $(".MagicZoomBigImageCont div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+"_"+region5color+".jpg");
-  $(".MagicThumb-expanded div img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+"_"+region5color+".jpg");
-$(".MagicZoomBigImageCont div:not([class]) img").attr("src","image/custom/"+productId+"/"+region1color+"_"+region2color+"_"+region3color+"_"+region4color+"_"+region5color+".jpg");
+  var image = $(element).attr("data-image");
+  console.log(image);
+  region5color = image;
+  setcolorintextarea();
 }
+
+
+function customshowhide5(element){
+  var image = $(element).attr("data-image");
+  console.log(image);
+  region6color = image;
+  setcolorintextarea();
+}
+
+function customshowhide6(element){
+  var image = $(element).attr("data-image");
+  console.log(image);
+  region7color = image;
+  setcolorintextarea();
+}
+
 
 $(".region2_title").hide();
 $(".region3_title").hide();
